@@ -1,5 +1,5 @@
 <template>
-  <main class="tier-container" :class="{ mounted }" @mousedown="forcePopover = false">
+  <main class="tier-container" :class="{ mounted, taptap }" @mousedown="forcePopover = false">
     <contenteditable tag="h1" v-model="title" style="min-width: 20px">
     </contenteditable>
     <contenteditable tag="span" v-model="subtitle" style="min-width: 20px;">
@@ -191,6 +191,8 @@ const fallbackCopy = ref('')
 const handleDeviceChange = (e) => {
   isMobile.value = e.matches;
 };
+
+const taptap = window.urlResource?.TapTapAPI !== undefined
 
 onMounted(() => {
   noDrag.value = isMobile.value = mediaQuery.matches;
