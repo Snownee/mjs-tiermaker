@@ -25,6 +25,35 @@ NAME_MAPPING = {
     # 在这里继续添加你遇到的生僻字或错误识别对
 }
 
+TARGET_FILE = "../src/data.js"
+DATA_START = "/* DATA_START */"
+DATA_END = "/* DATA_END */"
+DATA_TEMPLATE = "export const data = {0}"
+
+
+def write_to_target_file(new_data):
+    with open(TARGET_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    start_index = content.find(DATA_START)
+    end_index = content.find(DATA_END)
+
+    if start_index == -1 or end_index == -1:
+        print("Error: DATA_START or DATA_END not found in target file.")
+        return
+
+    new_content = (
+        content[: start_index + len(DATA_START)]
+        + "\n"
+        + DATA_TEMPLATE.format(json.dumps(new_data, indent=4, ensure_ascii=False))
+        + "\n"
+        + content[end_index:]
+    )
+
+    with open(TARGET_FILE, "w", encoding="utf-8") as f:
+        f.write(new_content)
+    print(f"Successfully updated {TARGET_FILE} with new data.")
+
 
 def alias_fix(raw_name):
     """
@@ -171,8 +200,10 @@ def update_id_json(file_path, new_outputs):
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
         print(f"\n成功更新至 {file_path}")
+        return data
     else:
         print("所有 output 已存在，无需更新。")
+        return False
 
 
 if __name__ == "__main__":
@@ -183,4 +214,6 @@ if __name__ == "__main__":
         if filename.lower().endswith((".png", ".jpg", ".jpeg")):
             outputs.extend(process_atlas(os.path.join("input", filename)))
     if len(outputs) > 0:
-        update_id_json("id.json", outputs)
+        data = update_id_json("id.json", outputs)
+        if data:
+            write_to_target_file(data)

@@ -192,7 +192,7 @@ const handleDeviceChange = (e) => {
   isMobile.value = e.matches;
 };
 
-const taptap = window.urlResource?.TapTapAPI !== undefined
+const taptap = window.location.hostname.includes('tap')
 
 onMounted(() => {
   noDrag.value = isMobile.value = mediaQuery.matches;
