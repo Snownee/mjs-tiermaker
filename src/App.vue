@@ -125,7 +125,7 @@
         </template>
       </el-dialog>
 
-      <el-dialog class="reset-confirm-dialog" v-model="fallbackCopyDialogVisible" title="请复制" center>
+      <el-dialog class="fallback-copy-dialog" v-model="fallbackCopyDialogVisible" title="请复制" center>
         <div>
           <el-input v-model="fallbackCopy" style="width: 100%" :rows="6" type="textarea" placeholder="" />
         </div>
@@ -165,7 +165,7 @@ function processData(data) {
   return data.values
 }
 
-const factions = ref([...new Set(chars.value.map(char => char.faction))])
+const factions = [...new Set(chars.value.map(char => char.faction))]
 
 const title = ref('2V2角色排行')
 const subtitle = ref('由Snownee整理，仅供参考')
@@ -202,7 +202,16 @@ onMounted(() => {
     mounted.value = true
   }, 1500);
   // 尝试从 URL 参数加载数据
-  if (window.location.search.length > 1 && new URLSearchParams(window.location.search).keys().some(_ => true)) {
+  const params = new URLSearchParams(window.location.search);
+  // 尝试加载预设
+  if (params.has('p')) {
+    const preset = presets.find(p => p.name === params.get('p'))
+    if (preset) {
+      usePreset(preset)
+      return
+    }
+  }
+  if (window.location.search.length > 1 && params.keys().some(_ => true)) {
     if (loadList(window.location.search.slice(1))) {
       window.history.replaceState({}, document.title, window.location.origin + window.location.pathname);
       return
@@ -220,7 +229,7 @@ onUnmounted(() => {
 });
 
 // 初始化等级数据
-const predefineColors = ref([
+const predefineColors = [
   '#ff7f7f',
   '#ffbf7f',
   '#ffdf7f',
@@ -230,17 +239,21 @@ const predefineColors = ref([
   '#7fffff',
   '#7fbfff',
   '#7f7fff'
-])
+]
 const initTiers = [
-  { id: 1, name: '夯', color: predefineColors.value[0], items: [] },
-  { id: 2, name: '顶级', color: predefineColors.value[1], items: [] },
-  { id: 3, name: '人上人', color: predefineColors.value[2], items: [] },
-  { id: 4, name: 'NPC', color: predefineColors.value[3], items: [] },
-  { id: 5, name: '拉完了', color: predefineColors.value[4], items: [] },
+  { id: 1, name: '夯', color: predefineColors[0], items: [] },
+  { id: 2, name: '顶级', color: predefineColors[1], items: [] },
+  { id: 3, name: '人上人', color: predefineColors[2], items: [] },
+  { id: 4, name: 'NPC', color: predefineColors[3], items: [] },
+  { id: 5, name: '拉完了', color: predefineColors[4], items: [] },
 ]
 const tiers = ref(JSON.parse(JSON.stringify(initTiers)))
+let lastTimeUsePreset = Date.now()
 
 watch([title, subtitle, tiers], _ => {
+  if (Date.now() - lastTimeUsePreset > 500) {
+    preset.value = undefined
+  }
   if (!dragging.value) {
     const result = saveList(true);
     if (result) {
@@ -336,8 +349,12 @@ const removeTier = (tier) => {
 }
 
 const share = () => {
-  const result = saveList()
   const base = window.location.origin + window.location.pathname
+  if (preset.value) {
+    copyUrl(`${document.title} - ${preset.value} - ${base}?p=${preset.value}`)
+    return
+  }
+  const result = saveList()
   if (result === null) {
     copyUrl(`${document.title} - ${base}`)
     return
@@ -419,7 +436,7 @@ const getContrastColor = (hexColor) => {
 
 const copyUrl = async (url) => {
   try {
-    navigator.clipboard.writeText(url);
+    await navigator.clipboard.writeText(url);
     ElMessage.success('链接已复制到剪贴板');
   } catch (err) {
     ElMessage.error('复制失败: ' + err);
@@ -432,6 +449,7 @@ const copyUrl = async (url) => {
 const usePreset = (newPreset) => {
   loadList(newPreset.save)
   if (preset.value !== newPreset.name) {
+    lastTimeUsePreset = Date.now()
     preset.value = newPreset.name
   }
 }
