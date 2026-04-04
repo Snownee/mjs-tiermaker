@@ -1,9 +1,12 @@
 <template>
-  <main class="tier-container" @mousedown="forcePopover = false">
-    <contenteditable tag="h1" v-model="title">Tier List Maker</contenteditable>
+  <main class="tier-container" :class="{ mounted }" @mousedown="forcePopover = false">
+    <contenteditable tag="h1" v-model="title" style="min-width: 20px">
+    </contenteditable>
+    <contenteditable tag="span" v-model="subtitle" style="min-width: 20px;">
+    </contenteditable>
     <div class="main-layout">
       <div class="tier-list" :class="{ 'no-drag': noDrag }">
-        <div v-for="row in tiers" :key="row.id" class="tier-row">
+        <div v-for="row in tiers" :key="row.id" class="tier-row" :class="{ deleting: row.deleting }">
           <div tag="div" class="tier-label" :style="{ backgroundColor: row.color, color: getContrastColor(row.color) }"
             @click="openEditTierDialog(row)">
             {{ row.name }}
@@ -21,9 +24,31 @@
           </VueDraggable>
         </div>
       </div>
-      <el-button type="primary" @click="resetConfirmDialogVisible = true">重置列表</el-button>
-      <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">浮动按钮：{{
-        floatButtonVisible ? '开' : '关' }}</el-button>
+      <div class="buttons">
+        <el-dropdown :show-arrow="false">
+          <el-button type="primary" class="preset-button">
+            <div>{{ preset || '使用预设' }}</div>
+            <el-icon class="el-icon--right"><arrow-down /></el-icon>
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">{{ item.name
+                }}</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+        <el-button type="primary" @click="share">分享列表</el-button>
+        <el-button type="primary" @click="resetConfirmDialogVisible = true">重置列表</el-button>
+        <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">浮动按钮：{{
+          floatButtonVisible ? '开' : '关' }}</el-button>
+      </div>
+      <div>
+        <el-text>
+          <a href="https://www.taptap.cn/user/757224223" target="_blank">作者：Snownee</a>
+          -
+          最后更新：{{ buildTime }}
+        </el-text>
+      </div>
 
       <aside class="float-button-area" v-if="isMobile && floatButtonVisible">
         <el-popover placement="left" title="拖拽模式" trigger="hover" :visible="forcePopover">
@@ -31,21 +56,25 @@
             <el-button :icon="Pointer" size="large" circle @click="noDrag = !noDrag" :class="{ selected: !noDrag }" />
           </template>
         </el-popover>
-        <el-popover placement="left" title="回到顶部/底部" trigger="hover" :visible="forcePopover">
+        <!-- <el-popover placement="left" title="回到顶部/底部" trigger="hover" :visible="forcePopover">
           <template #reference>
             <el-button :icon="Bottom" size="large" circle @click="" />
           </template>
-        </el-popover>
+        </el-popover> -->
       </aside>
 
       <el-dialog class="select-char-dialog" v-model="selectDialogVisible" title="选择角色" center>
         <div>
+          <el-select v-model="factionFilter" clearable placeholder="筛选势力" size="small">
+            <el-option label="全部势力" value=""></el-option>
+            <el-option v-for="faction in factions" :key="faction" :label="faction" :value="faction"></el-option>
+          </el-select>
           <el-checkbox v-model="showNotAdded" label="未添加" />
           <el-checkbox v-model="showAdded" label="已添加" />
         </div>
         <div class="select-char-container">
-          <div v-for="char in chars.filter(char => char.selected ? showAdded : showNotAdded)" :key="char.id"
-            class="select-char-item" :class="{ selected: char.selected }" @click="select(char)">
+          <div v-for="char in filteredChars()" :key="char.id" class="select-char-item"
+            :class="{ selected: char.selected }" @click="select(char)">
             <el-image :src="`${asset(`${char.faction}/${char.name}.webp`)}`"></el-image>
             <div>{{ char.name }}</div>
           </div>
@@ -95,17 +124,33 @@
           </div>
         </template>
       </el-dialog>
+
+      <el-dialog class="reset-confirm-dialog" v-model="fallbackCopyDialogVisible" title="请复制" center>
+        <div>
+          <el-input v-model="fallbackCopy" style="width: 100%" :rows="6" type="textarea" placeholder="" />
+        </div>
+        <template #footer>
+          <div class="dialog-footer">
+            <el-button type="primary" @click="fallbackCopyDialogVisible = false">
+              关闭
+            </el-button>
+          </div>
+        </template>
+      </el-dialog>
     </div>
   </main>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
 import contenteditable from 'vue-contenteditable'
-import { data } from './data'
+import { data, presets } from './data'
 import { ElMessage } from 'element-plus'
-import { Pointer, Top, Bottom } from '@element-plus/icons-vue'
+import { Pointer, ArrowDown, Top, Bottom } from '@element-plus/icons-vue'
+import { load, save } from './save'
+
+const buildTime = __BUILD_TIME__;
 
 const chars = ref(processData(data))
 
@@ -120,11 +165,15 @@ function processData(data) {
   return data.values
 }
 
-const title = ref('Tier List')
+const factions = ref([...new Set(chars.value.map(char => char.faction))])
+
+const title = ref('2V2角色排行')
+const subtitle = ref('由Snownee整理，仅供参考')
 const selectDialogVisible = ref(false)
 const currentTier = ref(null)
 const showNotAdded = ref(true)
 const showAdded = ref(false)
+const factionFilter = ref('')
 const dragging = ref(false)
 const dragged = ref(false)
 const tierDialogVisible = ref(false)
@@ -134,6 +183,10 @@ const noDrag = ref(false)
 const isMobile = ref(false);
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 const forcePopover = ref(true)
+const preset = ref(undefined)
+const mounted = ref(false)
+const fallbackCopyDialogVisible = ref(false)
+const fallbackCopy = ref('')
 
 const handleDeviceChange = (e) => {
   isMobile.value = e.matches;
@@ -144,7 +197,20 @@ onMounted(() => {
   mediaQuery.addEventListener('change', handleDeviceChange);
   setTimeout(() => {
     forcePopover.value = false;
+    mounted.value = true
   }, 1500);
+  // 尝试从 URL 参数加载数据
+  if (window.location.search.length > 1 && new URLSearchParams(window.location.search).keys().some(_ => true)) {
+    if (loadList(window.location.search.slice(1))) {
+      window.history.replaceState({}, document.title, window.location.origin + window.location.pathname);
+      return
+    }
+  }
+  const saveData = localStorage.getItem('mjs_tier_list_tiers');
+  if (saveData && loadList(saveData)) {
+    return
+  }
+  usePreset(presets[0])
 });
 
 onUnmounted(() => {
@@ -164,16 +230,25 @@ const predefineColors = ref([
   '#7f7fff'
 ])
 const initTiers = [
-  { id: 1, name: 'S', color: predefineColors.value[0], items: [] },
-  { id: 2, name: 'A', color: predefineColors.value[1], items: [] },
-  { id: 3, name: 'B', color: predefineColors.value[2], items: [] },
-  { id: 4, name: 'C', color: predefineColors.value[3], items: [] },
-  { id: 5, name: 'D', color: predefineColors.value[4], items: [] },
+  { id: 1, name: '夯', color: predefineColors.value[0], items: [] },
+  { id: 2, name: '顶级', color: predefineColors.value[1], items: [] },
+  { id: 3, name: '人上人', color: predefineColors.value[2], items: [] },
+  { id: 4, name: 'NPC', color: predefineColors.value[3], items: [] },
+  { id: 5, name: '拉完了', color: predefineColors.value[4], items: [] },
 ]
 const tiers = ref(JSON.parse(JSON.stringify(initTiers)))
 
+watch([title, subtitle, tiers], _ => {
+  if (!dragging.value) {
+    const result = saveList(true);
+    if (result) {
+      localStorage.setItem('mjs_tier_list_tiers', result)
+    }
+  }
+}, { deep: true })
+
 const resetList = () => {
-  Object.assign(tiers.value, JSON.parse(JSON.stringify(initTiers)))
+  tiers.value = JSON.parse(JSON.stringify(initTiers))
   chars.value.forEach(char => char.selected = false)
   currentTier.value = null
   resetConfirmDialogVisible.value = false
@@ -223,6 +298,10 @@ const openEditTierDialog = (tier) => {
 }
 
 const addTier = (tier, position) => {
+  if (tiers.value.length >= 14) {
+    ElMessage.error('已达到栏目数量上限')
+    return
+  }
   const index = tiers.value.findIndex(t => t.id === tier.id)
   const color = predefineColors.value[(predefineColors.value.indexOf(tier.color) + 1) % predefineColors.value.length]
   const newTier = {
@@ -244,9 +323,81 @@ const removeTier = (tier) => {
     ElMessage.error('至少保留一个等级')
     return
   }
-  const index = tiers.value.findIndex(t => t.id === tier.id)
-  tiers.value.splice(index, 1)
   tierDialogVisible.value = false
+  tier.deleting = true
+
+  setTimeout(() => {
+    tier.items.forEach(char => char.selected = false)
+    const index = tiers.value.findIndex(t => t.id === tier.id)
+    tiers.value.splice(index, 1)
+  }, 300)
+}
+
+const share = () => {
+  const result = saveList()
+  const base = window.location.origin + window.location.pathname
+  if (result === null) {
+    copyUrl(`${document.title} - ${base}`)
+    return
+  }
+  console.log(result);
+  copyUrl(`${document.title} - ${title.value || '未命名'} - ${base}?${result}`)
+}
+
+const saveList = (allowEmpty = false) => {
+  if (!allowEmpty && tiers.value.every(tier => tier.items.length === 0)) {
+    return null
+  }
+  const tiersData = []
+  tiers.value.forEach(tier => {
+    tiersData.push({
+      name: tier.name,
+      color: tier.color,
+      items: tier.items.map(item => item.id)
+    })
+  })
+  return save({
+    title: title.value || '',
+    subtitle: subtitle.value || '',
+    tiers: tiersData
+  })
+}
+
+const loadList = (saveData) => {
+  if (typeof saveData === 'string') {
+    try {
+      saveData = load(saveData)
+    } catch (error) {
+      saveData = { error: 3 }
+    }
+    if (saveData.error) {
+      ElMessage.error('读取数据时出错')
+      return false
+    }
+  }
+  chars.value.forEach(char => char.selected = false)
+  title.value = saveData.title
+  subtitle.value = saveData.subtitle
+  // console.log(JSON.stringify(saveData));
+
+  const newTiers = saveData.tiers.map(tier => {
+    tier.items = tier.items.map(itemId => {
+      const char = chars.value.find(c => c.id === itemId)
+      if (char) {
+        char.selected = true
+        return char
+      }
+      return null
+    }).filter(item => item !== null)
+    return tier
+  })
+  let nextId = 1
+  for (const tier of newTiers) {
+    tier.id = nextId++
+  }
+
+  tiers.value = newTiers
+  return true
 }
 
 const getContrastColor = (hexColor) => {
@@ -262,5 +413,28 @@ const getContrastColor = (hexColor) => {
 
   // 3. 返回黑色或白色 (128 是 256 的中间值)
   return brightness > 128 ? '#000000' : '#FFFFFF';
+}
+
+const copyUrl = async (url) => {
+  try {
+    navigator.clipboard.writeText(url);
+    ElMessage.success('链接已复制到剪贴板');
+  } catch (err) {
+    ElMessage.error('复制失败: ' + err);
+    console.error('复制失败: ', err);
+    fallbackCopy.value = url
+    fallbackCopyDialogVisible.value = true
+  }
+};
+
+const usePreset = (newPreset) => {
+  loadList(newPreset.save)
+  if (preset.value !== newPreset.name) {
+    preset.value = newPreset.name
+  }
+}
+
+const filteredChars = () => {
+  return chars.value.filter(char => (char.selected ? showAdded.value : showNotAdded.value) && (char.faction === factionFilter.value || factionFilter.value === '' || factionFilter.value === undefined))
 }
 </script>

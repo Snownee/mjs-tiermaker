@@ -1,3 +1,11 @@
+:root {
+    interpolate-size: allow-keywords;
+}
+
+body a {
+    text-decoration: none;
+}
+
 body .select-char-dialog {
     margin-top: 5vh;
     user-select: none;
@@ -30,6 +38,15 @@ body .select-char-dialog {
     height: 60px;
 }
 
+.select-char-dialog .el-select {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.select-char-dialog .el-select>* {
+    margin-bottom: 5px;
+}
+
 h1[contenteditable="true"]:focus {
     outline: 2px solid white;
     outline-offset: 4px;
@@ -52,6 +69,24 @@ h1[contenteditable="true"]:focus {
     margin-bottom: 2px;
     background-color: #111;
     border: 1px solid #333;
+
+    transition: height 0.5s ease;
+    height: auto;
+    overflow: hidden;
+}
+
+.tier-row.deleting {
+    opacity: 0;
+    height: 0;
+    display: none;
+    transform: skewX(50deg) translateX(-25vw);
+    transition: opacity 0.3s, transform 0.3s, height 0.3s, display 0.3s allow-discrete;
+}
+
+@starting-style {
+    .mounted .tier-row {
+        height: 0px;
+    }
 }
 
 .tier-label {
@@ -81,11 +116,14 @@ h1[contenteditable="true"]:focus {
     width: 50px;
     height: 65px;
     padding: 1px;
-    cursor: grab;
     text-align: center;
     font-size: 13px;
     line-height: 0.95;
     white-space: nowrap;
+}
+
+.tier-list:not(.no-drag) .item-card {
+    cursor: grab;
 }
 
 .tier-items .hide {
@@ -168,7 +206,56 @@ body .el-popover__title {
     line-height: 1;
 }
 
+body h1 {
+    display: inline-block;
+}
+
+body h1+span {
+    margin-left: 10px;
+}
+
+body .preset-button>span {
+    display: flex;
+    width: 100%;
+}
+
+body .preset-button>span>div {
+    flex-grow: 1;
+}
+
+body .preset-button {
+    min-width: 150px;
+    padding-right: 8px;
+}
+
+.buttons {
+    margin: 20px 0;
+}
+
+.buttons>* {
+    margin: 5px 5px !important;
+}
+
+.dialog-footer {
+    line-height: 2.5;
+}
+
 @media (max-width: 767px) {
+    body h1 {
+        display: block;
+        margin: 0.3em 0;
+    }
+
+    body h1+span {
+        display: block;
+        margin-left: 0;
+        margin-bottom: 0.45em;
+    }
+
+    body .el-dialog {
+        min-width: 75%;
+    }
+
     body .select-char-dialog {
         width: 100%;
         margin: 0;
@@ -200,5 +287,14 @@ body .el-popover__title {
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+    .preset-button,
+    .buttons>* {
+        width: 100%;
+    }
+
+    .el-dropdown__popper {
+        width: 80%;
     }
 }
