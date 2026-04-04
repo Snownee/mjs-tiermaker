@@ -295,8 +295,10 @@ body .preset-button {
     }
 
     .preset-button,
-    .buttons>* {
+    body .buttons>* {
         width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .el-dropdown__popper {
