@@ -1,5 +1,13 @@
+html {
+    background-color: #1a1a1a;
+}
+
 :root {
     interpolate-size: allow-keywords;
+}
+
+#app {
+    position: relative;
 }
 
 body a {
@@ -240,11 +248,6 @@ body .preset-button {
     line-height: 2.5;
 }
 
-.taptap {
-    padding-top: 90px;
-    padding-bottom: 120px;
-}
-
 @media (max-width: 767px) {
     body h1 {
         display: block;
@@ -303,5 +306,19 @@ body .preset-button {
 
     .el-dropdown__popper {
         width: 80%;
+    }
+
+    .taptap {
+        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
+    .taptap .select-char-dialog {
+        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
+    .taptap .el-message {
+        transform: translate(-50%, 80px) !important;
     }
 }

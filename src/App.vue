@@ -1,5 +1,5 @@
 <template>
-  <main class="tier-container" :class="{ mounted, taptap }" @mousedown="forcePopover = false">
+  <main class="tier-container" @mousedown="forcePopover = false">
     <contenteditable tag="h1" v-model="title" style="min-width: 20px">
     </contenteditable>
     <contenteditable tag="span" v-model="subtitle" style="min-width: 20px;">
@@ -184,7 +184,6 @@ const isMobile = ref(false);
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 const forcePopover = ref(true)
 const preset = ref(undefined)
-const mounted = ref(false)
 const fallbackCopyDialogVisible = ref(false)
 const fallbackCopy = ref('')
 
@@ -197,9 +196,12 @@ const taptap = window.location.hostname.includes('tap')
 onMounted(() => {
   noDrag.value = isMobile.value = mediaQuery.matches;
   mediaQuery.addEventListener('change', handleDeviceChange);
+  if (taptap) {
+    document.body.classList.add('taptap')
+  }
   setTimeout(() => {
     forcePopover.value = false;
-    mounted.value = true
+    document.body.classList.add('mounted')
   }, 1500);
   // 尝试从 URL 参数加载数据
   const params = new URLSearchParams(window.location.search);
@@ -314,7 +316,7 @@ const openEditTierDialog = (tier) => {
 
 const addTier = (tier, position) => {
   if (tiers.value.length >= 14) {
-    ElMessage.error('已达到栏目数量上限')
+    msg('error', '已达到栏目数量上限')
     return
   }
   const index = tiers.value.findIndex(t => t.id === tier.id)
@@ -335,7 +337,7 @@ const addTier = (tier, position) => {
 
 const removeTier = (tier) => {
   if (tiers.value.length === 1) {
-    ElMessage.error('至少保留一个等级')
+    msg('error', '至少保留一个等级')
     return
   }
   tierDialogVisible.value = false
@@ -390,7 +392,7 @@ const loadList = (saveData) => {
       saveData = { error: 3 }
     }
     if (saveData.error) {
-      ElMessage.error('读取数据时出错')
+      msg('error', '读取数据时出错')
       return false
     }
   }
@@ -437,9 +439,9 @@ const getContrastColor = (hexColor) => {
 const copyUrl = async (url) => {
   try {
     await navigator.clipboard.writeText(url);
-    ElMessage.success('链接已复制到剪贴板');
+    msg('success', '链接已复制到剪贴板')
   } catch (err) {
-    ElMessage.error('复制失败: ' + err);
+    msg('error', '复制失败: ' + err)
     console.error('复制失败: ', err);
     fallbackCopy.value = url
     fallbackCopyDialogVisible.value = true
@@ -456,5 +458,12 @@ const usePreset = (newPreset) => {
 
 const filteredChars = () => {
   return chars.value.filter(char => (char.selected ? showAdded.value : showNotAdded.value) && (char.faction === factionFilter.value || factionFilter.value === '' || factionFilter.value === undefined))
+}
+
+const msg = (type, message) => {
+  const options = { type, message }
+  // options.appendTo = '.tier-container'
+  // options.duration = 0
+  ElMessage(options)
 }
 </script>
