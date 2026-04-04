@@ -49,7 +49,7 @@ export const save = (data) => {
 
     const base64String = btoa(String.fromCharCode(...raw));
     // console.log(base64String);
-    return "0" + base64String
+    return "0" + base64String.replaceAll('=', '');
 }
 
 export const load = (data) => {
@@ -57,7 +57,14 @@ export const load = (data) => {
     if (version !== "0") {
         return { error: 1 }
     }
-    const binary = atob(data.slice(1));
+    data = data.slice(1)
+    const i = data.indexOf('&')
+    if (i !== -1) {
+        data = data.slice(0, i)
+    }
+    const missingPadding = (4 - (data.length % 4)) % 4;
+    data += '='.repeat(missingPadding);
+    const binary = atob(data);
     let array = new Uint8Array(binary.length);
     for (let i = 0; i < binary.length; i++) {
         array[i] = binary.charCodeAt(i);

@@ -1,3 +1,4 @@
+/* DATA_START */
 export const data = {
     "next_id": 126,
     "values": [
@@ -507,15 +508,15 @@ export const data = {
         }
     ]
 }
-
+/* DATA_END */
 
 export const presets = [
     {
         name: '2V2排行',
-        save: '0eJwtz1lLlAEAheHH0lbbLdP2st3Kpsw222zXzLKsbB+daTHHSs02IYoEa6iQuupKCLxLjIiYpF/zzdJVf6GPIQ6cm8P7wom0RHIjQ7nBb5l3Q7nhpOzHseZEV18iFst8+p79MPB3PBn8eh38/px+/zL34pWi9JdR8XhNGKbYoVq96yLmu2f1n+Ef2dRIuEfze4kbbjlglg6LxFSaZqoeC82z3zHrrTLbdBeDVCr4+SbsEG3Po2s9cVuBYg3iTqhVockF15S576pWpU67a6+bNpsr4bnHHlmqS11IL9Bmo4eOu6zTocamulAdz6srbLLNHlcUWSdqZfjjlHZ9dlqiW4sNDjrnvBq9zthusX5bTbbbGo1mOGumQiWZt4Ppr8kgNSD6X11qjmcO46QJJmm2zx1Vym2x3C5HPTXRMkdcssKDf90DW5Q='
+        save: '0eJwtz1lLlAEAheHH0lbbLdP2st3Kpsw222zXzLKsbB+daTHHSs02IYoEa6iQuupKCLxLjIiYpF/zzdJVf6GPIQ6cm8P7wom0RHIjQ7nBb5l3Q7nhpOzHseZEV18iFst8+p79MPB3PBn8eh38/px+/zL34pWi9JdR8XhNGKbYoVq96yLmu2f1n+Ef2dRIuEfze4kbbjlglg6LxFSaZqoeC82z3zHrrTLbdBeDVCr4+SbsEG3Po2s9cVuBYg3iTqhVockF15S576pWpU67a6+bNpsr4bnHHlmqS11IL9Bmo4eOu6zTocamulAdz6srbLLNHlcUWSdqZfjjlHZ9dlqiW4sNDjrnvBq9zthusX5bTbbbGo1mOGumQiWZt4Ppr8kgNSD6X11qjmcO46QJJmm2zx1Vym2x3C5HPTXRMkdcssKDf90DW5Q'
     },
     {
         name: '八人场排行',
-        save: '0eJwtzkdPVAEAxPGfBbuiYsMKWMDexY6AYKeIvbuya1/EhjUxGkjQjRqiJ72QkHAw0WgMMU/jp3lvdz35FXzZmEnmNP+Zibo/hUEQfQzyg3353m/Z1335/ozcu69t6Y6udDKZff8997bn769M+LM7/P0hevM8/+yFomjgi1SqOhYTYiVscsA8SWONtN4Vc5z/0z+UCwbjXKKQm+yCczaabrE91hlvoSnSatQ7665x8ZHwx8vYY6S9gFSaabjrrilxwgwH3bRdym0XXcZSs1RZZa+pjrhhkR1OeWKbfR6YZIXj7mtXp9l8lU0t9XF1qlBdFf85o8IYXW5ptNwdxyzTpNZuRVbrsN8wR5Wqds9Kh7XaYIlycz321EOXTDTNWjutUZZ91Rt9zoRBj8T/iRKHtBhltDabXbXFVo+MsECD2XY56bRinf8A0zhhgg=='
+        save: '0eJwtzkdPVAEAxPGfBbuiYsMKWMDexY6AYKeIvbuya1/EhjUxGkjQjRqiJ72QkHAw0WgMMU/jp3lvdz35FXzZmEnmNP+Zibo/hUEQfQzyg3353m/Z1335/ozcu69t6Y6udDKZff8997bn769M+LM7/P0hevM8/+yFomjgi1SqOhYTYiVscsA8SWONtN4Vc5z/0z+UCwbjXKKQm+yCczaabrE91hlvoSnSatQ7665x8ZHwx8vYY6S9gFSaabjrrilxwgwH3bRdym0XXcZSs1RZZa+pjrhhkR1OeWKbfR6YZIXj7mtXp9l8lU0t9XF1qlBdFf85o8IYXW5ptNwdxyzTpNZuRVbrsN8wR5Wqds9Kh7XaYIlycz321EOXTDTNWjutUZZ91Rt9zoRBj8T/iRKHtBhltDabXbXFVo+MsECD2XY56bRinf8A0zhhgg'
     }
 ]
