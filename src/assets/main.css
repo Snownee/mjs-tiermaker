@@ -319,6 +319,6 @@ body .preset-button {
     }
 
     .taptap .el-message {
-        transform: translate(-50%, 80px) !important;
+        transform: translate(-50%, 100px) !important;
     }
 }
