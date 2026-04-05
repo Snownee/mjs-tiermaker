@@ -4,6 +4,11 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -18,6 +23,6 @@ export default defineConfig({
     },
   },
   define: {
-    __BUILD_TIME__: JSON.stringify(dayjs().format('YYYY-MM-DD'))
+    __BUILD_TIME__: JSON.stringify(dayjs().tz("Asia/Shanghai").format('YYYY-MM-DD'))
   }
 })
