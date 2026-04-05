@@ -27,19 +27,20 @@
       <div class="buttons">
         <el-dropdown :show-arrow="false">
           <el-button type="primary" class="preset-button">
-            <div>{{ preset || '使用预设' }}</div>
+            <div>{{ preset || '📦使用预设' }}</div>
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </el-button>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">{{ item.name
-              }}</el-dropdown-item>
+                }}</el-dropdown-item>
+              <el-dropdown-item v-if="uiSettings.submitPresetUrl" @click="submitPreset" divided>预设投稿</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
-        <el-button type="primary" @click="share">分享列表</el-button>
-        <el-button type="primary" @click="resetConfirmDialogVisible = true">重置列表</el-button>
-        <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">浮动按钮：{{
+        <el-button type="primary" @click="share">👋分享列表</el-button>
+        <el-button type="primary" @click="clickResetConfirm">🧹重置列表</el-button>
+        <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">👁️浮动按钮：{{
           floatButtonVisible ? '开' : '关' }}</el-button>
       </div>
       <div>
@@ -112,20 +113,6 @@
         </template>
       </el-dialog>
 
-      <el-dialog class="reset-confirm-dialog" v-model="resetConfirmDialogVisible" title="确认重置" center>
-        <div>确定要重置列表吗？此操作不可撤销。</div>
-        <template #footer>
-          <div class="dialog-footer">
-            <el-button @click="resetConfirmDialogVisible = false">
-              取消
-            </el-button>
-            <el-button type="danger" @click="resetList">
-              确认重置
-            </el-button>
-          </div>
-        </template>
-      </el-dialog>
-
       <el-dialog class="fallback-copy-dialog" v-model="fallbackCopyDialogVisible" title="请复制" center>
         <div>
           <el-input v-model="fallbackCopy" style="width: 100%" :rows="6" type="textarea" placeholder="" />
@@ -143,11 +130,11 @@
 </template>
 
 <script setup>
-import { namespace, data, presets, lang } from './data'
+import { namespace, data, presets, lang, uiSettings } from './data'
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
 import contenteditable from 'vue-contenteditable'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import { Pointer, ArrowDown, Top, Bottom } from '@element-plus/icons-vue'
 import { load, save } from './save'
 import AutoShrinkText from './components/AutoShrinkText.vue'
@@ -183,7 +170,6 @@ const factionFilter = ref('')
 const dragging = ref(false)
 const dragged = ref(false)
 const tierDialogVisible = ref(false)
-const resetConfirmDialogVisible = ref(false)
 const floatButtonVisible = ref(true)
 const noDrag = ref(false)
 const isMobile = ref(false);
@@ -200,6 +186,7 @@ const handleDeviceChange = (e) => {
 const taptap = window.location.hostname.includes('tap')
 
 onMounted(() => {
+  document.title = translate('doc_title')
   noDrag.value = isMobile.value = mediaQuery.matches;
   mediaQuery.addEventListener('change', handleDeviceChange);
   if (taptap) {
@@ -273,7 +260,6 @@ watch([title, subtitle, tiers], _ => {
 const resetList = () => {
   tiers.value = JSON.parse(JSON.stringify(initTiers))
   chars.value.forEach(char => char.selected = false)
-  resetConfirmDialogVisible.value = false
   currentTier.value = null
 }
 
@@ -460,6 +446,41 @@ const usePreset = (newPreset) => {
     lastTimeUsePreset = Date.now()
     preset.value = newPreset.name
   }
+}
+
+const submitPreset = () => {
+  ElMessageBox.confirm(
+    '感谢使用本应用，如有建议或是想要投稿预设，可以向我留言👇👇👇',
+    '预设投稿',
+    {
+      confirmButtonText: '去帖子留言',
+      type: 'info',
+      center: true,
+      showCancelButton: false
+    }
+  )
+    .then(() => {
+      window.open(uiSettings.submitPresetUrl, '_blank');
+    })
+    .catch(_ => { })
+}
+
+const clickResetConfirm = () => {
+  ElMessageBox.confirm(
+    '确定要重置列表吗？此操作不可撤销。',
+    '你即将清空列表',
+    {
+      confirmButtonText: '确认重置',
+      confirmButtonType: 'danger',
+      type: 'warning',
+      center: true,
+    }
+  )
+    .then(() => {
+      resetList()
+      msg('success', '列表已重置')
+    })
+    .catch(_ => { })
 }
 
 const filteredChars = () => {

@@ -1647,11 +1647,12 @@ export const data = {
 export const presets = [
     {
         name: '六星干员排行',
-        save: '0eJwtz1lLlAEAheGnxbS0vSzbN0vbmzTbNytbzEzT0vbJmcp0bLcVokiwhhKpK6+EwDsjiYgp/DXfLF31F/oY4sC5ObwvnEhrJDcymOsfy3wYzA0nZT99a0709CZisczn79mBvr+/k8Gvt8H4UPrj69yrNwrSX76Kx2vCUGSHaqdcFTFfl/I/wz+yqZFwj+b3ea656aA7FovZaJqpHlporgPqVFptlmIXzAxSqeDnu7BDtCOPrvPULROUqBd3wj5rNDrvijJ3XdZugTM67XXdZnMkvPDEY8v0qA3pUjdscN9xF3U73NBYG6rjeXW5Tdpst8clBSr0ilrltA47LfVAq/UOOadFjUfOqrLES9sU2m2tBtM1mWFy+K4o874/PZoMUn2i/+WlZnvuCE6aaIpm+9221SJbrLDLMc9MstxRK937B/HZW5Q'
+        save: '0eJwtjNlKVAEAhr//oqtKLUntIltU6A16AJc2SHMpMisd9Wh5lWmrlimOqKdZXHIgQQRrcnIdQ/KYvUnZcrYxwVfoMMQP/9X3fc7wspuYc7bSTjzhRib8eRN3+rMXC/sjKW8n7m3PHnw17e1h+9s7JzroDwxxyFlYxTAuBIM8Sjmn+3ogQ5Oa1hQPGdJJHaWKDMukMvObnpUM+FCWz6eEU2pRjZp0S+284jGDOsFlKrnKLu9ZYYl127LsL2PBB2JbVjxPmTrVpUY1q16tuqM23VW1buu63iquqExFNMNLntFPDy94TZ8KlKd85eoYF6nA4xe/8VnlE+lrNeVB3MjGz1KsOt1USPdUqzdKKKYJBnjKI3pVqBwd1xGu8Jc99rFx+IHLd/6Q5ANrLLDojo86K6ZthQn9j+ZyOgif0Q11qIHnPKFbRTrMJX7ykY1/Bcp6Ig'
     }
 ]
 
 export const lang = {
+    'doc_title': '明日方舟从夯到拉排名',
     'title': '明日方舟干员排行',
     'subtitle': '整理自网络，仅供参考',
 }

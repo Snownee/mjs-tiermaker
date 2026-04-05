@@ -524,8 +524,9 @@ export const presets = [
 ]
 
 export const lang = {
-    '筛选类别': '筛选势力',
-    '全部类别': '全部势力',
+    'doc_title': '名将杀从夯到拉排名',
     'title': '2V2角色排行',
     'subtitle': '由Snownee整理，仅供参考',
+    '筛选类别': '筛选势力',
+    '全部类别': '全部势力',
 }

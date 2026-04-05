@@ -48,7 +48,6 @@ const checkOverflow = () => {
 
 onMounted(() => {
     checkOverflow();
-    // 可选：监听窗口大小变化
     window.addEventListener('resize', checkOverflow);
 });
 

@@ -301,8 +301,8 @@ body .preset-button {
         width: 10%;
     }
 
-    .reset-confirm-dialog button,
-    .edit-tier-dialog button {
+    .edit-tier-dialog button,
+    .el-message-box__btns button {
         width: 100%;
         margin: 5px 0 !important;
     }
