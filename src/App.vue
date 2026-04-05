@@ -16,7 +16,7 @@
             @start="dragged = dragging = true" @end="dragging = false" @click="openSelectDialog(row)">
             <div class="item-card" v-for="char in row.items" :key="char.id">
               <el-image :src="`${asset(`${char.faction}/${char.name}.webp`)}`"></el-image>
-              <div class="name">{{ char.name }}</div>
+              <AutoShrinkText :text="char.name" class="name" />
             </div>
             <div class="hint-container" :class="{ hide: row.items.length > 0 || dragged }">
               <div class="hint">点击添加角色</div>
@@ -63,7 +63,8 @@
         </el-popover> -->
       </aside>
 
-      <el-dialog class="select-char-dialog" v-model="selectDialogVisible" title="选择角色" center>
+      <el-dialog class="select-char-dialog" v-model="selectDialogVisible" title="选择角色" center @opened="openSelectChar"
+        @close="closeSelectChar">
         <div>
           <el-select v-model="factionFilter" clearable :placeholder="translate('筛选类别')" size="small">
             <el-option :label="translate('全部类别')" value=""></el-option>
@@ -80,8 +81,8 @@
           </div>
         </div>
         <template #footer>
-          <div class="dialog-footer">
-            <el-button type="primary" @click="selectDialogVisible = false" :style="{ minWidth: '50%' }">
+          <div id="confirm-select" class="dialog-footer">
+            <el-button type="primary" @click="selectDialogVisible = false">
               选好了
             </el-button>
           </div>
@@ -149,6 +150,7 @@ import contenteditable from 'vue-contenteditable'
 import { ElMessage } from 'element-plus'
 import { Pointer, ArrowDown, Top, Bottom } from '@element-plus/icons-vue'
 import { load, save } from './save'
+import AutoShrinkText from './components/AutoShrinkText.vue'
 
 const buildTime = __BUILD_TIME__;
 
@@ -223,7 +225,7 @@ onMounted(() => {
       return
     }
   }
-  const saveData = localStorage.getItem(`${data.namespace}_tier_list_tiers`);
+  const saveData = localStorage.getItem(`${namespace}_tier_list_tiers`);
   if (saveData && loadList(saveData)) {
     return
   }
@@ -263,7 +265,7 @@ watch([title, subtitle, tiers], _ => {
   if (!dragging.value) {
     const result = saveList(true);
     if (result) {
-      localStorage.setItem(`${data.namespace}_tier_list_tiers`, result)
+      localStorage.setItem(`${namespace}_tier_list_tiers`, result)
     }
   }
 }, { deep: true })
@@ -469,5 +471,35 @@ const msg = (type, message) => {
   // options.appendTo = '.tier-container'
   // options.duration = 0
   ElMessage(options)
+}
+
+let confirmSelect = null;
+
+const openSelectChar = () => {
+  confirmSelect = document.querySelector('#confirm-select');
+  if (confirmSelect) {
+    scrollSelectChar()
+    document.querySelector('.select-char-dialog').parentElement.addEventListener('scroll', scrollSelectChar)
+  }
+}
+
+const closeSelectChar = () => {
+  confirmSelect = null
+}
+
+const scrollSelectChar = () => {
+  if (!confirmSelect) {
+    return
+  }
+  const isOutOfView = confirmSelect.getBoundingClientRect().bottom > window.innerHeight
+  const button = confirmSelect.querySelector('button')
+  const hasClass = button.classList.contains('floating')
+  if (isOutOfView && !hasClass) {
+    button.style.width = button.offsetWidth + 'px'
+    button.classList.add('floating')
+  } else if (!isOutOfView && hasClass) {
+    button.classList.remove('floating')
+    button.style.width = 'unset'
+  }
 }
 </script>

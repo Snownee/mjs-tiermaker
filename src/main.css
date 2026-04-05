@@ -31,6 +31,8 @@ body .select-char-dialog {
     margin: 2px;
     padding: 1px;
     -webkit-user-drag: none;
+    font-size: 13px;
+    fill: var(--el-text-color-regular);
 }
 
 .select-char-item.selected {
@@ -39,11 +41,10 @@ body .select-char-dialog {
 
 .select-char-item>div {
     width: 100%;
-    white-space: nowrap;
 }
 
 .select-char-item .el-image {
-    height: var(--select-item-image-width);
+    height: var(--select-item-image-height);
 }
 
 .select-char-dialog .el-select {
@@ -53,6 +54,31 @@ body .select-char-dialog {
 
 .select-char-dialog .el-select>* {
     margin-bottom: 5px;
+}
+
+.select-char-dialog .dislog-footer {
+    position: relative;
+}
+
+#confirm-select {
+    min-height: 40px;
+}
+
+#confirm-select button {
+    transition: box-shadow 0.3s, bottom 0.3s;
+}
+
+#confirm-select button:not(.floating) {
+    bottom: 0;
+    min-width: 50%;
+}
+
+#confirm-select button.floating {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.8);
 }
 
 h1[contenteditable="true"]:focus {
@@ -66,6 +92,7 @@ h1[contenteditable="true"]:focus {
     min-height: 100vh;
     box-sizing: border-box;
     color: white;
+    fill: white;
 }
 
 .tier-list {
