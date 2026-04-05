@@ -25,10 +25,13 @@ NAME_MAPPING = {
     # 在这里继续添加你遇到的生僻字或错误识别对
 }
 
-TARGET_FILE = "../src/data.js"
+TARGET_FILE = "../src_mjs/data.js"
 DATA_START = "/* DATA_START */"
 DATA_END = "/* DATA_END */"
 DATA_TEMPLATE = "export const data = {0}"
+
+TARGET_FOLDER = "../src_ark/assets"
+TARGET_FOLDER_WHITELIST = []
 
 
 def write_to_target_file(new_data):
@@ -81,10 +84,17 @@ def alias_fix(raw_name):
     return raw_name
 
 
-def init_output_folder(folder="output"):
-    if os.path.exists(folder):
-        shutil.rmtree(folder)
-    os.makedirs(folder)
+def init_output_folder(folder="output", whitelist=[]):
+    if os.path.exists(folder) == False:
+        os.makedirs(folder)
+    for item in os.listdir(folder):
+        item_path = os.path.join(folder, item)
+        if item in whitelist:
+            print(f"Skipping {item_path} (whitelisted)")
+            continue
+        if os.path.isdir(item_path):
+            shutil.rmtree(item_path)
+            print(f"Deleted folder: {item_path}")
 
 
 def process_atlas(image_path, output_folder="output"):
@@ -105,6 +115,7 @@ def process_atlas(image_path, output_folder="output"):
     # 1. 阈值处理，便于提取矩形轮廓
     _, thresh = cv2.threshold(gray, 40, 255, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    names = set()
 
     for i, cnt in enumerate(contours):
         x, y, w, h = cv2.boundingRect(cnt)
@@ -146,12 +157,19 @@ def process_atlas(image_path, output_folder="output"):
                     f.write(buffer)
                 print(f"Success: {save_path}, Score: {out['score']:.2f}")
                 outputs.append(f"{filename}/{name}")
+                if name in names:
+                    print(f"Warning: Duplicate name detected - {name}")
+                names.add(name)
             else:
                 print(f"Failed to encode: {name}")
     return outputs
 
 
 def debug_show(image, title="Image"):
+    cv2.namedWindow(title, cv2.WINDOW_AUTOSIZE)
+    cv2.moveWindow(title, 100, 100)
+
+    # 3. 显示图像
     cv2.imshow(title, image)
     key = cv2.waitKey(0) & 0xFF
     if key == ord("q"):
@@ -208,11 +226,13 @@ def update_id_json(file_path, new_outputs):
 
 if __name__ == "__main__":
     outputs = []
-    init_output_folder()
+    init_output_folder(TARGET_FOLDER, TARGET_FOLDER_WHITELIST)
     # 处理input文件夹中的所有图片
     for filename in os.listdir("input"):
         if filename.lower().endswith((".png", ".jpg", ".jpeg")):
-            outputs.extend(process_atlas(os.path.join("input", filename)))
+            outputs.extend(
+                process_atlas(os.path.join("input", filename), TARGET_FOLDER)
+            )
     if len(outputs) > 0:
         data = update_id_json("id.json", outputs)
         if data:

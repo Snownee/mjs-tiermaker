@@ -33,7 +33,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">{{ item.name
-                }}</el-dropdown-item>
+              }}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -65,8 +65,8 @@
 
       <el-dialog class="select-char-dialog" v-model="selectDialogVisible" title="选择角色" center>
         <div>
-          <el-select v-model="factionFilter" clearable placeholder="筛选势力" size="small">
-            <el-option label="全部势力" value=""></el-option>
+          <el-select v-model="factionFilter" clearable :placeholder="translate('筛选类别')" size="small">
+            <el-option :label="translate('全部类别')" value=""></el-option>
             <el-option v-for="faction in factions" :key="faction" :label="faction" :value="faction"></el-option>
           </el-select>
           <el-checkbox v-model="showNotAdded" label="未添加" />
@@ -142,15 +142,19 @@
 </template>
 
 <script setup>
+import { namespace, data, presets, lang } from './data'
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
 import contenteditable from 'vue-contenteditable'
-import { data, presets } from './data'
 import { ElMessage } from 'element-plus'
 import { Pointer, ArrowDown, Top, Bottom } from '@element-plus/icons-vue'
 import { load, save } from './save'
 
 const buildTime = __BUILD_TIME__;
+
+const translate = (key) => {
+  return lang[key] || key
+}
 
 const chars = ref(processData(data))
 
@@ -167,8 +171,8 @@ function processData(data) {
 
 const factions = [...new Set(chars.value.map(char => char.faction))]
 
-const title = ref('2V2角色排行')
-const subtitle = ref('由Snownee整理，仅供参考')
+const title = ref(translate('title'))
+const subtitle = ref(translate('subtitle'))
 const selectDialogVisible = ref(false)
 const currentTier = ref(null)
 const showNotAdded = ref(true)

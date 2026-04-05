@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "set": "node set.js",
+    "set_mjs": "node set.js mjs",
+    "set_ark": "node set.js ark",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

@@ -39,3 +39,4 @@ __screenshots__/
 *.timestamp-*-*.mjs
 
 /mjs-slicer/output/
+/ark-slicer/output/
