@@ -22,11 +22,11 @@ body .select-char-dialog {
 .select-char-container {
     display: grid;
     justify-content: space-between;
-    grid-template-columns: repeat(auto-fill, 60px);
+    grid-template-columns: repeat(auto-fill, var(--select-item-width));
 }
 
 .select-char-item {
-    width: 60px;
+    width: var(--select-item-width);
     text-align: center;
     margin: 2px;
     padding: 1px;
@@ -43,7 +43,7 @@ body .select-char-dialog {
 }
 
 .select-char-item .el-image {
-    height: 60px;
+    height: var(--select-item-image-width);
 }
 
 .select-char-dialog .el-select {
@@ -116,14 +116,15 @@ h1[contenteditable="true"]:focus {
     padding: 5px;
     min-width: 200px;
     position: relative;
-    min-height: 77px;
+    min-height: calc(var(--list-item-height) + var(--list-item-padding) * 2 + 5px * 2);
     box-sizing: border-box;
 }
 
 .item-card {
-    width: 50px;
-    height: 65px;
-    padding: 1px;
+    position: relative;
+    width: var(--list-item-width);
+    height: var(--list-item-height);
+    padding: var(--list-item-padding);
     text-align: center;
     font-size: 13px;
     line-height: 0.95;
@@ -161,8 +162,8 @@ h1[contenteditable="true"]:focus {
 }
 
 .item-card .el-image {
-    width: 50px;
-    height: 50px;
+    width: var(--list-item-image-width);
+    height: var(--list-item-image-height);
 }
 
 .edit-tier-container {
@@ -267,18 +268,6 @@ body .preset-button {
     body .select-char-dialog {
         width: 100%;
         margin: 0;
-    }
-
-    .select-char-item {
-        width: 50px;
-    }
-
-    .select-char-item .el-image {
-        height: 50px;
-    }
-
-    .select-char-container {
-        grid-template-columns: repeat(auto-fill, 50px);
     }
 
     .tier-label {

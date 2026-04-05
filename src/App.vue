@@ -16,7 +16,7 @@
             @start="dragged = dragging = true" @end="dragging = false" @click="openSelectDialog(row)">
             <div class="item-card" v-for="char in row.items" :key="char.id">
               <el-image :src="`${asset(`${char.faction}/${char.name}.webp`)}`"></el-image>
-              <div>{{ char.name }}</div>
+              <div class="name">{{ char.name }}</div>
             </div>
             <div class="hint-container" :class="{ hide: row.items.length > 0 || dragged }">
               <div class="hint">点击添加角色</div>
@@ -271,8 +271,8 @@ watch([title, subtitle, tiers], _ => {
 const resetList = () => {
   tiers.value = JSON.parse(JSON.stringify(initTiers))
   chars.value.forEach(char => char.selected = false)
-  currentTier.value = null
   resetConfirmDialogVisible.value = false
+  currentTier.value = null
 }
 
 const images = import.meta.glob('./assets/**/*.webp', { eager: true, import: 'default' });
@@ -324,7 +324,7 @@ const addTier = (tier, position) => {
     return
   }
   const index = tiers.value.findIndex(t => t.id === tier.id)
-  const color = predefineColors.value[(predefineColors.value.indexOf(tier.color) + 1) % predefineColors.value.length]
+  const color = predefineColors[(predefineColors.indexOf(tier.color) + 1) % predefineColors.length]
   const newTier = {
     id: Date.now(),
     name: 'New',

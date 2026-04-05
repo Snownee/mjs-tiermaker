@@ -1,0 +1,29 @@
+:root {
+    --list-item-width: calc(210px / 2.5);
+    --list-item-height: calc(472px / 2.5);
+    --list-item-padding: 1px;
+    --list-item-image-width: var(--list-item-width);
+    --list-item-image-height: var(--list-item-height);
+
+    --select-item-width: 60px;
+    --select-item-image-width: var(--select-item-width);
+    --select-item-image-height: var(--select-item-image-width);
+}
+
+.item-card .name {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    background-color: black;
+    padding: 3px;
+    max-width: 100%;
+    text-align: right;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+@media (max-width: 767px) {
+    :root {
+        --select-item-width: 50px;
+    }
+}
