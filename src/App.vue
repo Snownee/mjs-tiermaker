@@ -223,7 +223,7 @@ onMounted(() => {
       return
     }
   }
-  const saveData = localStorage.getItem('mjs_tier_list_tiers');
+  const saveData = localStorage.getItem(`${data.namespace}_tier_list_tiers`);
   if (saveData && loadList(saveData)) {
     return
   }
@@ -263,7 +263,7 @@ watch([title, subtitle, tiers], _ => {
   if (!dragging.value) {
     const result = saveList(true);
     if (result) {
-      localStorage.setItem('mjs_tier_list_tiers', result)
+      localStorage.setItem(`${data.namespace}_tier_list_tiers`, result)
     }
   }
 }, { deep: true })
