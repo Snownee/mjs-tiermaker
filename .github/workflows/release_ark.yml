@@ -29,6 +29,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: release-build.zip
-          name: v${{ github.ref_name }}+ark
+          name: ${{ github.ref_name }}+ark
+          tag_name: ${{ github.ref_name }}+ark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
