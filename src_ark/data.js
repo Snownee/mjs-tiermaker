@@ -1656,3 +1656,7 @@ export const lang = {
     'title': '明日方舟干员排行',
     'subtitle': '整理自网络，仅供参考',
 }
+
+export const uiSettings = {
+    submitPresetUrl: 'https://www.taptap.cn/moment/786302702312228759'
+}

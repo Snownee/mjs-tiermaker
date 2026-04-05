@@ -33,7 +33,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">{{ item.name
-                }}</el-dropdown-item>
+              }}</el-dropdown-item>
               <el-dropdown-item v-if="uiSettings.submitPresetUrl" @click="submitPreset" divided>预设投稿</el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -75,7 +75,7 @@
           <el-checkbox v-model="showAdded" label="已添加" />
         </div>
         <div class="select-char-container">
-          <div v-for="char in filteredChars()" :key="char.id" class="select-char-item"
+          <div v-for="char in filteredChars" :key="char.id" class="select-char-item"
             :class="{ selected: char.selected }" @click="select(char)">
             <el-image :src="`${asset(`${char.faction}/${char.name}.webp`)}`"></el-image>
             <div>{{ char.name }}</div>
@@ -257,6 +257,14 @@ watch([title, subtitle, tiers], _ => {
   }
 }, { deep: true })
 
+const filteredChars = ref([])
+const filterChars = () => {
+  let newChars = chars.value.filter(char => (char.selected ? showAdded.value : showNotAdded.value) && (char.faction === factionFilter.value || factionFilter.value === '' || factionFilter.value === undefined))
+  filteredChars.value = newChars
+}
+
+watch([showAdded, showNotAdded, factionFilter], filterChars, { deep: true })
+
 const resetList = () => {
   tiers.value = JSON.parse(JSON.stringify(initTiers))
   chars.value.forEach(char => char.selected = false)
@@ -297,6 +305,7 @@ const addToList = (char, tier) => {
 }
 
 const openSelectDialog = (tier) => {
+  filterChars()
   currentTier.value = tier
   selectDialogVisible.value = true
 }
@@ -481,10 +490,6 @@ const clickResetConfirm = () => {
       msg('success', '列表已重置')
     })
     .catch(_ => { })
-}
-
-const filteredChars = () => {
-  return chars.value.filter(char => (char.selected ? showAdded.value : showNotAdded.value) && (char.faction === factionFilter.value || factionFilter.value === '' || factionFilter.value === undefined))
 }
 
 const msg = (type, message) => {

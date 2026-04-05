@@ -530,3 +530,7 @@ export const lang = {
     '筛选类别': '筛选势力',
     '全部类别': '全部势力',
 }
+
+export const uiSettings = {
+    submitPresetUrl: 'https://www.taptap.cn/moment/786302702312228759'
+}
