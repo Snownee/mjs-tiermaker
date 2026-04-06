@@ -52,7 +52,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">{{ item.name
-              }}</el-dropdown-item>
+                }}</el-dropdown-item>
               <el-dropdown-item v-if="uiSettings.submitPresetUrl" @click="submitPreset" divided>预设投稿</el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -200,6 +200,9 @@ const fallbackCopy = ref('')
 
 const handleDeviceChange = (e) => {
   isMobile.value = e.matches;
+  if (!isMobile.value) {
+    noDrag.value = false;
+  }
 };
 
 const taptap = window.location.hostname.includes('tap')
