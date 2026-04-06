@@ -1,99 +1,131 @@
-import ByteBuffer from 'byte-buffer';
-import Pako from 'pako';
+import ByteBuffer from "byte-buffer";
+import Pako from "pako";
 
-/*
-const example_data = {
-    title: '',
-    subtitle: '',
-    tiers: [
-        {
-            name: '',
-            color: '',
-            items: [0, 1, 2]
-        },
-        {
-            name: '',
-            color: '',
-            items: [5, 3]
-        }
-    ]
-}
+/**
+ * Data structure example:
+ * {
+ *   title: 'My Tier List',
+ *   subtitle: 'Best characters',
+ *   tiers: [
+ *     {
+ *       name: 'S',
+ *       color: '#ff7f7f',
+ *       items: [0, 1, 2] // Character IDs
+ *     }
+ *   ]
+ * }
  */
 
+/**
+ * Save tier list data to a compressed base64 string
+ * @param {Object} data - The data to save
+ * @returns {string} Compressed and encoded data string
+ */
 export const save = (data) => {
-    // console.log(data);
-    const b = new ByteBuffer(1024, ByteBuffer.BIG_ENDIAN, true);
+  // Create a byte buffer for efficient data storage
+  const b = new ByteBuffer(1024, ByteBuffer.BIG_ENDIAN, true);
 
-    b.writeCString(data.title || '')
-    b.writeCString(data.subtitle || '')
-    b.writeUnsignedByte(data.tiers.length)
-    for (const tier of data.tiers) {
-        b.writeCString(tier.name)
-        let color = tier.color
-        if (color.startsWith('#')) {
-            color = color.slice(1)
-        }
-        b.writeCString(color)
-        b.writeUnsignedShort(tier.items.length)
-        for (const item of tier.items) {
-            b.writeUnsignedShort(item)
-        }
+  // Write title and subtitle as null-terminated strings
+  b.writeCString(data.title || "");
+  b.writeCString(data.subtitle || "");
+
+  // Write number of tiers
+  b.writeUnsignedByte(data.tiers.length);
+
+  // Write each tier's data
+  for (const tier of data.tiers) {
+    b.writeCString(tier.name);
+
+    // Handle color - remove # if present
+    let color = tier.color;
+    if (color.startsWith("#")) {
+      color = color.slice(1);
     }
+    b.writeCString(color);
 
-    let raw = b.clip(0, b.index).raw
-    // console.log(raw);
-    // console.log("before: " + raw.length);
-    raw = Pako.deflate(raw)
-    // console.log(raw);
-    // console.log("after: " + raw.length);
+    // Write number of items in this tier
+    b.writeUnsignedShort(tier.items.length);
 
-    const base64String = btoa(String.fromCharCode(...raw));
-    // console.log(base64String);
-    return "0" + base64String.replaceAll('=', '');
-}
+    // Write each item ID
+    for (const item of tier.items) {
+      b.writeUnsignedShort(item);
+    }
+  }
 
+  // Get raw bytes and compress with Pako
+  let raw = b.clip(0, b.index).raw;
+  raw = Pako.deflate(raw);
+
+  // Convert to base64 and remove padding
+  const base64String = btoa(String.fromCharCode(...raw));
+  return "0" + base64String.replaceAll("=", "");
+};
+
+/**
+ * Load tier list data from a compressed base64 string
+ * @param {string} data - The encoded data string
+ * @returns {Object} Decoded data object or error object
+ */
 export const load = (data) => {
-    const version = data.charAt(0)
-    if (version !== "0") {
-        return { error: 1 }
-    }
-    data = data.slice(1)
-    const i = data.indexOf('&')
-    if (i !== -1) {
-        data = data.slice(0, i)
-    }
-    const missingPadding = (4 - (data.length % 4)) % 4;
-    data += '='.repeat(missingPadding);
-    const binary = atob(data);
-    let array = new Uint8Array(binary.length);
-    for (let i = 0; i < binary.length; i++) {
-        array[i] = binary.charCodeAt(i);
+  // Check version (currently only "0" is supported)
+  const version = data.charAt(0);
+  if (version !== "0") {
+    return { error: 1 }; // Unsupported version
+  }
+
+  // Remove version prefix
+  data = data.slice(1);
+
+  // Find and remove any trailing parameters
+  const i = data.indexOf("&");
+  if (i !== -1) {
+    data = data.slice(0, i);
+  }
+
+  // Add back missing base64 padding
+  const missingPadding = (4 - (data.length % 4)) % 4;
+  data += "=".repeat(missingPadding);
+
+  // Decode base64 to binary
+  const binary = atob(data);
+  let array = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    array[i] = binary.charCodeAt(i);
+  }
+
+  // Decompress with Pako
+  try {
+    array = Pako.inflate(array);
+  } catch (err) {
+    return { error: 2 }; // Decompression failed
+  }
+
+  // Parse binary data
+  const b = new ByteBuffer(array, ByteBuffer.BIG_ENDIAN, true);
+
+  const title = b.readCString();
+  const subtitle = b.readCString();
+  const tierCount = b.readUnsignedByte();
+
+  const tiers = [];
+  for (let i = 0; i < tierCount; i++) {
+    const name = b.readCString();
+    let color = b.readCString();
+
+    // Add # prefix if it's a 6-digit hex color
+    if (/^[0-9a-fA-F]{6}$/.test(color)) {
+      color = "#" + color;
     }
 
-    try {
-        array = Pako.inflate(array);
-    } catch (err) {
-        return { error: 2 }
+    // Read items as a Set to handle duplicates
+    const items = new Set();
+    const itemCount = b.readUnsignedShort();
+    for (let j = 0; j < itemCount; j++) {
+      items.add(b.readUnsignedShort());
     }
 
-    const b = new ByteBuffer(array, ByteBuffer.BIG_ENDIAN, true);
-    const title = b.readCString()
-    
-    const subtitle = b.readCString()
-    const tierCount = b.readUnsignedByte()
-    const tiers = []
-    for (let i = 0; i < tierCount; i++) {
-        const name = b.readCString()
-        let color = b.readCString()
-        if (/^[0-9a-fA-F]{6}$/.test(color)) {
-            color = '#' + color
-        }
-        const items = new Set()
-        const itemCount = b.readUnsignedShort()
-        for (let j = 0; j < itemCount; j++) {
-            items.add(b.readUnsignedShort())
-        }
-        tiers.push({ name, color, items: Array.from(items) })
-    }
-    return { title, subtitle, tiers }
-}
+    tiers.push({ name, color, items: Array.from(items) });
+  }
+
+  return { title, subtitle, tiers };
+};

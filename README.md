@@ -1,6 +1,15 @@
-# vue-project
+# MJS Tier Maker
 
-This template should help get you started developing with Vue 3 in Vite.
+A Vue.js application for creating tier lists for characters from various factions in the MJS (likely a game or series). Supports multiple data sources (MJS and ARK) and allows users to drag and drop characters into customizable tiers.
+
+## Features
+
+- Drag and drop characters into tiers
+- Customizable tier names and colors
+- Preset configurations
+- Shareable tier lists via URL
+- Mobile responsive design
+- Multiple data sources (MJS and ARK)
 
 ## Recommended IDE Setup
 
@@ -15,14 +24,22 @@ This template should help get you started developing with Vue 3 in Vite.
   - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
   - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
 ## Project Setup
 
 ```sh
 npm install
+```
+
+### Switch Data Source
+
+The project supports two data sources: MJS and ARK.
+
+```sh
+# Switch to MJS data
+npm run set_mjs
+
+# Switch to ARK data
+npm run set_ark
 ```
 
 ### Compile and Hot-Reload for Development
@@ -36,3 +53,17 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Project Structure
+
+- `src/` - Main source code
+  - `components/` - Vue components
+  - `assets/` - Images and styles
+- `src_mjs/` - MJS data source
+- `src_ark/` - ARK data source
+- `ark-slicer/` and `mjs-slicer/` - Python tools for processing images
+- `set.js` - Script to switch between data sources
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).

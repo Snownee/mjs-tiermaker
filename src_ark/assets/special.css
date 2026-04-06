@@ -1,35 +1,35 @@
 :root {
-    --list-item-width: calc(210px / 2.5);
-    --list-item-height: calc(472px / 2.5);
-    --list-item-padding: 1px;
-    --list-item-image-width: var(--list-item-width);
-    --list-item-image-height: var(--list-item-height);
+  --list-item-width: calc(210px / 2.5);
+  --list-item-height: calc(472px / 2.5);
+  --list-item-padding: 1px;
+  --list-item-image-width: var(--list-item-width);
+  --list-item-image-height: var(--list-item-height);
 
-    --select-item-width: calc(210px / 3.5);
-    --select-item-image-width: var(--select-item-width);
-    --select-item-image-height: calc(472px / 3.5);
+  --select-item-width: calc(210px / 3.5);
+  --select-item-image-width: var(--select-item-width);
+  --select-item-image-height: calc(472px / 3.5);
 
-    text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
 }
 
 .item-card .name {
-    position: absolute;
-    bottom: 1px;
-    right: 1px;
-    background-color: black;
-    max-width: 100%;
-    text-align: right;
-    box-sizing: border-box;
-    border-radius: 3px;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  background-color: black;
+  max-width: 100%;
+  text-align: right;
+  box-sizing: border-box;
+  border-radius: 3px;
 }
 
 .item-card .normal-text {
-    padding: 3px;
+  padding: 3px;
 }
 
 @media (max-width: 767px) {
-    :root {
-        --list-item-width: calc(210px / 4);
-        --list-item-height: calc(472px / 4);
-    }
+  :root {
+    --list-item-width: calc(210px / 4);
+    --list-item-height: calc(472px / 4);
+  }
 }
