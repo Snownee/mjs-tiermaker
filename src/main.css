@@ -158,6 +158,16 @@ h1[contenteditable="true"]:focus {
     white-space: nowrap;
 }
 
+.el-tooltip:has(.item-card-menu) {
+    padding: 0 !important;
+}
+
+.item-card-menu span {
+    display: block;
+    padding: 5px 11px;
+    cursor: pointer;
+}
+
 .tier-list:not(.no-drag) .item-card {
     cursor: grab;
 }

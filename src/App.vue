@@ -14,7 +14,8 @@
 
           <VueDraggable v-model="row.items" group="items" class="tier-items" :animation="150" filter=".hint,.no-drag *"
             @start="dragged = dragging = true" @end="dragging = false" @click="openSelectDialog(row)">
-            <div class="item-card" v-for="char in row.items" :key="char.id">
+            <div class="item-card" v-for="char in row.items" :key="char.id"
+              @contextmenu.prevent="e => openItemMenu(e, char)">
               <el-image :src="`${asset(`${char.faction}/${char.name}.webp`)}`"></el-image>
               <AutoShrinkText :text="char.name" class="name" />
             </div>
@@ -24,6 +25,24 @@
           </VueDraggable>
         </div>
       </div>
+      <el-tooltip :visible="itemMenuChar !== null" :virtual-ref="itemMenuTarget" placement="top" persistent
+        virtual-triggering :popper-options="{
+          modifiers: [
+            {
+              name: 'computeStyles',
+              options: {
+                adaptive: false,
+                enabled: false,
+              },
+            }
+          ],
+        }">
+        <template #content>
+          <div class="item-card-menu" v-click-outside="itemMenuOutside">
+            <span @click="itemMenuDelete">删除</span>
+          </div>
+        </template>
+      </el-tooltip>
       <div class="buttons">
         <el-dropdown :show-arrow="false">
           <el-button type="primary" class="preset-button">
@@ -134,7 +153,7 @@ import { namespace, data, presets, lang, uiSettings } from './data'
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
 import contenteditable from 'vue-contenteditable'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElMessage, ElMessageBox, ClickOutside as vClickOutside } from 'element-plus'
 import { Pointer, ArrowDown, Top, Bottom } from '@element-plus/icons-vue'
 import { load, save } from './save'
 import AutoShrinkText from './components/AutoShrinkText.vue'
@@ -175,7 +194,7 @@ const noDrag = ref(false)
 const isMobile = ref(false);
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 const forcePopover = ref(true)
-const preset = ref(undefined)
+const preset = ref()
 const fallbackCopyDialogVisible = ref(false)
 const fallbackCopy = ref('')
 
@@ -189,6 +208,7 @@ onMounted(() => {
   document.title = translate('doc_title')
   noDrag.value = isMobile.value = mediaQuery.matches;
   mediaQuery.addEventListener('change', handleDeviceChange);
+  window.addEventListener('scroll', itemMenuOutside)
   if (taptap) {
     document.body.classList.add('taptap')
   }
@@ -287,20 +307,22 @@ const asset = (file) => {
 };
 
 const select = (char) => {
-  char.selected = !char.selected
-  removeFromList(char)
   if (char.selected) {
+    removeFromList(char)
+  } else {
     addToList(char, currentTier.value)
   }
 }
 
 const removeFromList = (char) => {
+  char.selected = false
   tiers.value.forEach(tier => {
     tier.items = tier.items.filter(item => item.id !== char.id)
   })
 }
 
 const addToList = (char, tier) => {
+  char.selected = true
   tier.items.push(char)
 }
 
@@ -308,6 +330,35 @@ const openSelectDialog = (tier) => {
   filterChars()
   currentTier.value = tier
   selectDialogVisible.value = true
+}
+
+const itemMenuVPosition = ref({ top: 0, left: 0, width: 0, height: 0 })
+const itemMenuTarget = ref({
+  getBoundingClientRect: () => itemMenuVPosition.value,
+})
+const itemMenuChar = ref(null)
+
+const itemMenuOutside = (e) => {
+  if (itemMenuChar.value) {
+    e.preventDefault()
+    e.stopPropagation()
+    itemMenuChar.value = null
+  }
+}
+
+const itemMenuDelete = () => {
+  const char = itemMenuChar.value
+  if (char) {
+    itemMenuChar.value = null
+    removeFromList(char)
+  }
+}
+
+const openItemMenu = (e, char) => {
+  // msg('info', `角色：${char.name}\n类别：${char.faction}`)
+  const { top, left, width, height } = e.currentTarget.getBoundingClientRect()
+  itemMenuVPosition.value = { top, left, width, height }
+  itemMenuChar.value = char
 }
 
 const openEditTierDialog = (tier) => {

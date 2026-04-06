@@ -22,8 +22,8 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
-    "dayjs": "^1.11.20",
     "@vitejs/plugin-vue": "^6.0.5",
+    "dayjs": "^1.11.20",
     "vite": "^8.0.3",
     "vite-plugin-vue-devtools": "^8.1.1"
   },
