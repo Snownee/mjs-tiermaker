@@ -30,9 +30,14 @@ export const useTiers = (chars, msg) => {
       return;
     }
 
+    const up = position === "up";
     const index = tiers.value.findIndex((t) => t.id === tier.id);
     const colorIndex = PREDEFINE_COLORS.indexOf(tier.color);
-    const color = PREDEFINE_COLORS[(colorIndex + 1) % PREDEFINE_COLORS.length];
+    const color =
+      PREDEFINE_COLORS[
+        (colorIndex + (up ? -1 : 1) + PREDEFINE_COLORS.length) %
+          PREDEFINE_COLORS.length
+      ];
 
     const newTier = {
       id: Date.now(),
@@ -41,7 +46,7 @@ export const useTiers = (chars, msg) => {
       items: [],
     };
 
-    if (position === "up") {
+    if (up) {
       tiers.value.splice(index, 0, newTier);
     } else {
       tiers.value.splice(index + 1, 0, newTier);

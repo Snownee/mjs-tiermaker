@@ -8,11 +8,16 @@
   >
     <div class="edit-tier-container">
       <el-color-picker
-        v-model="localCurrentTier.color"
+        v-model="currentTier.color"
         :predefine="predefineColors"
         size="large"
       />
-      <el-input v-model="localCurrentTier.name" style="flex: 1" size="large" />
+      <el-input
+        ref="input"
+        v-model="currentTier.name"
+        style="flex: 1"
+        size="large"
+      />
     </div>
     <template #footer>
       <div class="dialog-footer">
@@ -47,19 +52,24 @@ const props = defineProps({
 const emit = defineEmits(["update:visible", "add-tier", "remove-tier"]);
 
 const dialogVisible = ref(false);
-const localCurrentTier = ref({});
+const input = ref(null);
 
 watch(
   () => props.visible,
   (newVal) => {
     dialogVisible.value = newVal;
-    if (newVal && props.currentTier) {
-      localCurrentTier.value = { ...props.currentTier };
-    }
   },
 );
 
 watch(dialogVisible, (newVal) => {
+  if (newVal) {
+    // 打开对话框时自动聚焦输入框
+    setTimeout(() => {
+      if (input.value) {
+        input.value.focus();
+      }
+    }, 100);
+  }
   emit("update:visible", newVal);
 });
 
