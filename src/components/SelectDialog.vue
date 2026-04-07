@@ -8,13 +8,19 @@
     @close="onClose"
   >
     <div>
+      <div>
+        <el-checkbox v-model="props.filterConfig.showNotAdded" label="未添加" />
+        <el-checkbox v-model="props.filterConfig.showAdded" label="已添加" />
+      </div>
       <el-select
-        v-model="factionFilterModel"
+        v-model="props.filterConfig.factionFilter"
         clearable
-        :placeholder="translate('筛选类别')"
+        multiple
+        collapse-tags
+        collapse-tags-tooltip
+        :placeholder="translate('类别')"
         size="small"
       >
-        <el-option :label="translate('全部类别')" value=""></el-option>
         <el-option
           v-for="faction in factions"
           :key="faction"
@@ -22,8 +28,26 @@
           :value="faction"
         ></el-option>
       </el-select>
-      <el-checkbox v-model="showNotAddedModel" label="未添加" />
-      <el-checkbox v-model="showAddedModel" label="已添加" />
+      <el-select
+        v-for="filter in props.filterConfig.extraFilters"
+        :key="filter.name"
+        class="extra-filter"
+        :model-value="filter.value"
+        @update:model-value="(value) => (filter.value = value)"
+        :multiple="filter.multiple"
+        clearable
+        collapse-tags
+        collapse-tags-tooltip
+        :placeholder="filter.label"
+        size="small"
+      >
+        <el-option
+          v-for="option in filter.options"
+          :key="option"
+          :label="option"
+          :value="option"
+        ></el-option>
+      </el-select>
     </div>
     <div class="select-char-container">
       <div
@@ -48,7 +72,7 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from "vue";
+import { ref, watch } from "vue";
 
 const props = defineProps({
   visible: Boolean,
@@ -59,31 +83,20 @@ const props = defineProps({
   getAsset: Function,
 });
 
-const emit = defineEmits(["update:visible", "update:filter-config", "select-char", "opened", "close"]);
+const emit = defineEmits(["update:visible", "select-char", "opened", "close"]);
 
 const dialogVisible = ref(props.visible);
 
-// Computed properties for individual filter fields
-const factionFilterModel = computed({
-  get: () => props.filterConfig?.factionFilter || "",
-  set: (value) => {
-    emit("update:filter-config", { ...props.filterConfig, factionFilter: value });
-  },
-});
-
-const showNotAddedModel = computed({
-  get: () => props.filterConfig?.showNotAdded ?? true,
-  set: (value) => {
-    emit("update:filter-config", { ...props.filterConfig, showNotAdded: value });
-  },
-});
-
-const showAddedModel = computed({
-  get: () => props.filterConfig?.showAdded ?? false,
-  set: (value) => {
-    emit("update:filter-config", { ...props.filterConfig, showAdded: value });
-  },
-});
+const getExtraFilterValue = (name) => {
+  const rawValue = props.filterConfig?.extraValues?.[name];
+  if (rawValue !== undefined) {
+    return rawValue;
+  }
+  const extraDefinition = props.filterConfig?.extra?.find(
+    (item) => item.name === name,
+  );
+  return extraDefinition?.type === "multiple" ? [] : "";
+};
 
 watch(
   () => props.visible,

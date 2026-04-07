@@ -115,7 +115,6 @@
         :translate="translate"
         :get-asset="asset"
         @select-char="select"
-        @update:filter-config="filterConfig = $event"
       />
 
       <EditTierDialog
@@ -177,7 +176,7 @@ const {
   filterConfig,
   filterChars,
   select: selectChar,
-} = useCharacters(data);
+} = useCharacters(data, uiSettings);
 const {
   tiers,
   resetList,

@@ -1,34 +1,43 @@
 import { ref, watch } from "vue";
-import { processData, getFactions } from "../utils/dataProcessing.js";
 
 /**
  * Composable for managing character data and filtering
  * @param {Object} data - Raw character data
+ * @param {Object} uiSettings - UI settings for extra filters
  * @returns {Object} Character management functions and reactive state
  */
-export const useCharacters = (data) => {
-  const chars = ref(processData(data));
-  const factions = ref(getFactions(chars.value));
+export const useCharacters = (data, uiSettings) => {
   const filteredChars = ref([]);
+  const { chars, factions, filterConfig } = processData(data, uiSettings);
 
-  // Centralized filter configuration object
-  const filterConfig = ref({
-    showNotAdded: true,
-    showAdded: false,
-    factionFilter: "",
-  });
-
-  /**
-   * Filter characters based on current filters
-   */
   const filterChars = () => {
-    const newChars = chars.value.filter(
-      (char) =>
-        (char.selected ? filterConfig.value.showAdded : filterConfig.value.showNotAdded) &&
-        (char.faction === filterConfig.value.factionFilter ||
-          filterConfig.value.factionFilter === "" ||
-          filterConfig.value.factionFilter === undefined),
+    let newChars = chars.value.filter((char) =>
+      char.selected
+        ? filterConfig.value.showAdded
+        : filterConfig.value.showNotAdded,
     );
+    if (filterConfig.value.factionFilter.length > 0) {
+      newChars = newChars.filter((char) =>
+        filterConfig.value.factionFilter.includes(char.faction),
+      );
+    }
+    Object.values(filterConfig.value.extraFilters).forEach((filter) => {
+      if (filter.value.length === 0) {
+        return;
+      }
+
+      newChars = newChars.filter((char) => {
+        const charValue = char[filter.key];
+        if (!charValue) {
+          return false;
+        }
+        if (filter.multiple && Array.isArray(charValue)) {
+          return charValue.some((value) => filter.value.includes(value));
+        } else {
+          return filter.value.includes(charValue);
+        }
+      });
+    });
     filteredChars.value = newChars;
   };
 
@@ -58,4 +67,42 @@ export const useCharacters = (data) => {
     filterChars,
     select,
   };
+};
+
+const processData = (data, uiSettings) => {
+  // Sort characters by name
+  data.values.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Process each character
+  data.values.forEach((value) => {
+    // Split name into faction and character name
+    const [faction, name] = value.name.split("/");
+    value.faction = faction;
+    value.name = name;
+    value.selected = false;
+  });
+
+  const chars = ref(data.values);
+  const factions = ref([...new Set(data.values.map((char) => char.faction))]);
+  const extraFilters = uiSettings.extraFilters || {};
+  Object.entries(extraFilters).forEach(([key, filter]) => {
+    filter.key = key;
+    filter.value = [];
+    filter.options = [
+      ...new Set(
+        chars.value
+          .map((char) => char[key])
+          .filter((value) => value != null && value !== undefined),
+      ),
+    ];
+  });
+
+  const filterConfig = ref({
+    showNotAdded: true,
+    showAdded: false,
+    factionFilter: [],
+    extraFilters,
+  });
+
+  return { chars, factions, filterConfig };
 };

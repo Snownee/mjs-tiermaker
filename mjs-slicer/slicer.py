@@ -216,7 +216,7 @@ def update_id_json(file_path, new_outputs):
 
         # 4. 保存回原文件
         with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
+            json.dump(data, f, indent=2, ensure_ascii=False)
         print(f"\n成功更新至 {file_path}")
         return data
     else:
