@@ -8,6 +8,7 @@
     "set_mjs": "node set.js mjs",
     "set_ark": "node set.js ark",
     "set_ww": "node set.js ww",
+    "set_rocom": "node set.js rocom",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

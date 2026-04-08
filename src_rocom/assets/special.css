@@ -1,0 +1,38 @@
+:root {
+  --list-item-width: 70px;
+  --list-item-height: 85px;
+  --list-item-padding: 1px;
+  --list-item-image-width: var(--list-item-width);
+  --list-item-image-height: var(--list-item-width);
+
+  --select-item-width: 60px;
+  --select-item-image-width: var(--select-item-width);
+  --select-item-image-height: var(--select-item-image-width);
+}
+
+.item-card .el-image,
+.select-char-item .el-image {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.select-char-item {
+  border-radius: 4px;
+}
+
+.item-card {
+  line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --list-item-width: 55px;
+    --list-item-height: 70px;
+
+    --select-item-width: 50px;
+  }
+
+  .item-card {
+    line-height: 1;
+  }
+}

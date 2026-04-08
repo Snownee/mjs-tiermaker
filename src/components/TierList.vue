@@ -34,7 +34,7 @@
           @contextmenu.prevent="(e) => openItemMenu(e, char)"
         >
           <el-image :src="getAsset(`${char.faction}/${char.name}.webp`)" />
-          <AutoShrinkText :text="char.name" class="name" />
+          <AutoShrinkText :text="char.displayName || char.name" class="name" />
         </div>
         <div
           class="hint-container"

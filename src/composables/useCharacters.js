@@ -22,7 +22,7 @@ export const useCharacters = (data, uiSettings) => {
       );
     }
     Object.values(filterConfig.value.extraFilters).forEach((filter) => {
-      if (filter.value.length === 0) {
+      if (filter.value == undefined || filter.value.length === 0) {
         return;
       }
 
@@ -80,11 +80,15 @@ const processData = (data, uiSettings) => {
     value.faction = faction;
     value.name = name;
     value.selected = false;
+    if (uiSettings.nameFormatter) {
+      value.displayName = uiSettings.nameFormatter(value.name);
+    }
   });
 
   const chars = ref(data.values);
   const factions = ref([...new Set(data.values.map((char) => char.faction))]);
   const extraFilters = uiSettings.extraFilters || {};
+  const showFactionFilter = !(uiSettings.hideFactionFilter || false);
   Object.entries(extraFilters).forEach(([key, filter]) => {
     filter.key = key;
     filter.value = [];

@@ -2,7 +2,7 @@
   <el-dialog
     class="select-char-dialog"
     v-model="dialogVisible"
-    title="选择角色"
+    :title="translate('选择角色')"
     center
     @opened="onOpened"
     @close="onClose"
@@ -14,6 +14,7 @@
       </div>
       <el-select
         v-model="props.filterConfig.factionFilter"
+        v-if="props.filterConfig.showFactionFilter"
         clearable
         multiple
         collapse-tags
@@ -58,7 +59,7 @@
         @click="onSelect(char)"
       >
         <el-image :src="getAsset(`${char.faction}/${char.name}.webp`)" />
-        <div>{{ char.name }}</div>
+        <div>{{ char.displayName || char.name }}</div>
       </div>
     </div>
     <template #footer>
@@ -86,17 +87,6 @@ const props = defineProps({
 const emit = defineEmits(["update:visible", "select-char", "opened", "close"]);
 
 const dialogVisible = ref(props.visible);
-
-const getExtraFilterValue = (name) => {
-  const rawValue = props.filterConfig?.extraValues?.[name];
-  if (rawValue !== undefined) {
-    return rawValue;
-  }
-  const extraDefinition = props.filterConfig?.extra?.find(
-    (item) => item.name === name,
-  );
-  return extraDefinition?.type === "multiple" ? [] : "";
-};
 
 watch(
   () => props.visible,
