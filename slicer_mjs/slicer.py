@@ -22,6 +22,7 @@ NAME_MAPPING = {
     "陆逊": ["陆迅"],
     "袁绍": ["哀绍"],
     "袁术": ["哀术"],
+    "貂蝉": ["貂蛐"],
     # 在这里继续添加你遇到的生僻字或错误识别对
 }
 
@@ -30,7 +31,7 @@ DATA_START = "/* DATA_START */"
 DATA_END = "/* DATA_END */"
 DATA_TEMPLATE = "export const data = {0}"
 
-TARGET_FOLDER = "../src_ark/assets"
+TARGET_FOLDER = "../src_mjs/assets"
 TARGET_FOLDER_WHITELIST = []
 
 

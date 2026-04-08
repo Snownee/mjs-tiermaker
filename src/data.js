@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-  next_id: 126,
+  next_id: 128,
   values: [
     {
       id: 0,
@@ -634,6 +634,16 @@ export const data = {
       name: "齐/孟尝君",
       pack: "合纵连横",
     },
+    {
+      id: 126,
+      name: "东汉/公孙瓒",
+      pack: "三国云起",
+    },
+    {
+      id: 127,
+      name: "孙吴/凌统",
+      pack: "三国云起",
+    },
   ],
 };
 /* DATA_END */
@@ -641,7 +651,7 @@ export const data = {
 export const presets = [
   {
     name: "2V2排行",
-    save: "0eJwNz9kz1AEAwPFPSW2RytGFboUUVnJ135cOyxYdjmx0LZHQMdNoasbMjozRkydPPTO9Mf6atfatf8HvD/h+v/MNR8PpvzPpycXU1Ex6PmFtdiESHxiNx2KpP//Wpn/9X04kl34mV+ZWf0+kv/9AyFm17uoUVuCdEvm69LnkrUIxFbbZ6qO98lx0U5mjdsryxA4njOu3QbZ7XrntvGMeeuyFfQY912GPB944p9tpueK+GvPJAQOuBvRuL5005Jan3rsStE9pV6PJM5lKjepxRLNe9YoNiyp3Was2dUY8ckaRb6pt0ei4+7ZrkWNTcBAK3Lt8cS04vGOjzSIueK3KfpUOaXDDZxkOuu6wD+uXDDwL",
+    save: "0eJwNz1kzlQEAgOEnCi1SWpVEixaRTiSUytqKUid7pU4rR0WONhmmZpo5o8Zw5aor14w7pl8j59z5C30/4H1m3lA4lJyfTv5cXJuaTv6JS8wstEUHY9FIZG12KfH7x/pKfHX5++rfuX+/JpLjk8hwQblbHgnZo99xuz32wlVvHBRxxhabDdtvlyuanHLUDlu1y3LSRy9tsM1tz91w2TGtHuqV460enfZp8dolT5TIFvXFqBF5BtU5Ya9vniry3nVdBtQq1OG8at02BXpMnyPueOaiQ4oNCTvtmvseqPDBXWVyjfnqnHRVQd0s0z3bbQwuMgJ/p8/qg8ubUqRpU+OVUgecla9So09SHdagwLv/xZQ9Cg",
   },
   {
     name: "八人场排行",
