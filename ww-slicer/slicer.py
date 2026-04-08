@@ -12,25 +12,28 @@ ocr = CnOcr(rec_model_name="doc-densenet_lite_136-gru")
 # --- 名字纠错配置 ---
 # 键为正确名字，值为 OCR 经常认错的结果列表
 NAME_MAPPING = {
-    "荀彧": ["荀或"],
-    "张春华": ["张春化"],
-    "张郃": ["张邰", "张鸽"],
-    "芈八子": ["业八子"],
-    "申不害": ["中不害"],
-    "平原君": ["乎原君"],
-    "钟离眜": ["钟离昧"],
-    "陆逊": ["陆迅"],
-    "袁绍": ["哀绍"],
-    "袁术": ["哀术"],
+    "珂莱塔": ["珂菜塔"],
+    "坎特蕾拉": ["坎特营拉"],
+    "千咲": ["千联"],
+    "漂泊者-女-湮灭": ["漂泊者-女-潭灭"],
+    "漂泊者-男-湮灭": ["漂泊者-男-潭灭"],
+    "吟霖": ["呤霖"],
+    "今汐": ["令汐"],
+    "莫特斐": ["莫特悲"],
+    "炽霞": ["炽蛋"],
+    "白芷": ["白在"],
+    "釉瑚": ["种瑚"],
+    "秧秧": ["积积"],
+    "卜灵": ["上员"],
     # 在这里继续添加你遇到的生僻字或错误识别对
 }
 
-TARGET_FILE = "../src_mjs/data.js"
+TARGET_FILE = "../src_ww/data.js"
 DATA_START = "/* DATA_START */"
 DATA_END = "/* DATA_END */"
 DATA_TEMPLATE = "export const data = {0}"
 
-TARGET_FOLDER = "../src_ark/assets"
+TARGET_FOLDER = "../src_ww/assets"
 TARGET_FOLDER_WHITELIST = []
 
 
@@ -67,6 +70,9 @@ def alias_fix(raw_name):
     raw_name = raw_name.strip()
     if not raw_name:
         return "Unknown"
+
+    if raw_name.startswith("漂泊者"):
+        raw_name = raw_name.replace("·", "-")
 
     # 1. 直接检查映射表
     for correct_name, aliases in NAME_MAPPING.items():
@@ -108,22 +114,41 @@ def process_atlas(image_path, output_folder="output"):
     output_folder = os.path.join(output_folder, filename)
     os.makedirs(output_folder, exist_ok=True)
 
+    # 1. 读取并转换
     img_array = np.fromfile(image_path, dtype=np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    # 1. 阈值处理，便于提取矩形轮廓
-    _, thresh = cv2.threshold(gray, 40, 255, cv2.THRESH_BINARY)
-    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # 转换为 HSV
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+    # 2. 定义绿色的 HSV 范围 (需要根据实际图片微调)
+    # 这个范围通常比较宽，以适应不同的绿色
+    lower_green = np.array([35, 43, 46])  # H(色调), S(饱和度), V(亮度)
+    upper_green = np.array([77, 255, 255])
+
+    # 3. 创建掩膜 (只有绿色区域是白色)
+    mask = cv2.inRange(hsv, lower_green, upper_green)
+
+    # 4. 反转掩膜 (使头像和名字栏区域变为白色)
+    mask_inv = cv2.bitwise_not(mask)
+
+    # (可选) 形态学操作：去除小噪点，填充微小空隙
+    kernel = np.ones((3, 3), np.uint8)
+    mask_inv = cv2.morphologyEx(mask_inv, cv2.MORPH_OPEN, kernel)  # 开运算去噪
+    mask_inv = cv2.morphologyEx(mask_inv, cv2.MORPH_CLOSE, kernel)  # 闭运算填充
+
+    # 5. 寻找轮廓
+    contours, _ = cv2.findContours(mask_inv, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     names = set()
 
     for i, cnt in enumerate(contours):
         x, y, w, h = cv2.boundingRect(cnt)
 
         # 过滤掉非头像的小区域 (根据实际头像像素大小调整)
-        if w > 40 and h > 40:
+        if w > 100 and h > 100:
             # A. 裁剪头像本体
             avatar = img[y : y + h, x : x + w]
+            # debug_show(avatar)
 
             # B. 裁剪名字区域 (假设名字在头像下方 5-35 像素位置)
             # 你可以根据实际图片的行间距微调这个 offset
@@ -208,6 +233,15 @@ def update_id_json(file_path, new_outputs):
             # 更新全局 ID 计数器
             data["next_id"] += 1
 
+    with open("data_export.json", "r", encoding="utf-8") as f:
+        metadata = json.load(f)["cards"]
+    for value in data["values"]:
+        raw_name = value["name"]
+        name = raw_name[raw_name.find("/") + 1 :]
+        value.update(metadata[name])
+        value["name"] = raw_name
+        value.pop("稀有度")
+
     # 3. 打印新增的内容
     if added_items:
         print("本次新增的记录如下：")
@@ -221,7 +255,7 @@ def update_id_json(file_path, new_outputs):
         return data
     else:
         print("所有 output 已存在，无需更新。")
-        return False
+        return data
 
 
 if __name__ == "__main__":

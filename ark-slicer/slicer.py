@@ -256,6 +256,11 @@ def update_id_json(file_path, new_outputs):
 
 
 if __name__ == "__main__":
+    # 获取当前脚本的绝对路径
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # 切换当前工作目录
+    os.chdir(script_dir)
+
     outputs = []
     init_output_folder(TARGET_FOLDER, TARGET_FOLDER_WHITELIST)
     # 处理input文件夹中的所有图片

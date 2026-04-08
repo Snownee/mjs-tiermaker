@@ -7,6 +7,7 @@
     "set": "node set.js",
     "set_mjs": "node set.js mjs",
     "set_ark": "node set.js ark",
+    "set_ww": "node set.js ww",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

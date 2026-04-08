@@ -1,0 +1,27 @@
+:root {
+  --list-item-width: var(--list-item-image-width);
+  --list-item-height: calc(var(--list-item-image-height) + 16px);
+  --list-item-padding: 1px;
+  --list-item-image-width: calc(210px / 2.5);
+  --list-item-image-height: calc(280px / 2.5);
+
+  --select-item-width: calc(210px / 2.5);
+  --select-item-image-width: var(--select-item-width);
+  --select-item-image-height: calc(280px / 2.5);
+
+  text-rendering: optimizeLegibility;
+}
+
+.item-card {
+  line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --list-item-image-width: calc(210px / 3);
+    --list-item-image-height: calc(280px / 3);
+
+    --select-item-width: calc(210px / 3);
+    --select-item-image-height: calc(280px / 3);
+  }
+}

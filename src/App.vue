@@ -53,6 +53,9 @@
                 @click="usePreset(item)"
                 >{{ item.name }}</el-dropdown-item
               >
+              <el-dropdown-item v-if="presets.length === 0" disabled
+                >暂无预设</el-dropdown-item
+              >
               <el-dropdown-item
                 v-if="uiSettings.submitPresetUrl"
                 @click="submitPreset"
@@ -254,7 +257,9 @@ onMounted(() => {
   if (saveData && loadList(saveData)) {
     return;
   }
-  usePreset(presets[0]);
+  if (presets.length > 0) {
+    usePreset(presets[0]);
+  }
 });
 
 onUnmounted(() => {

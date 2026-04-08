@@ -88,13 +88,20 @@ const processData = (data, uiSettings) => {
   Object.entries(extraFilters).forEach(([key, filter]) => {
     filter.key = key;
     filter.value = [];
-    filter.options = [
-      ...new Set(
-        chars.value
-          .map((char) => char[key])
-          .filter((value) => value != null && value !== undefined),
-      ),
-    ];
+    if (!filter.options) {
+      const options = new Set();
+      chars.value.forEach((char) => {
+        const charValue = char[key];
+        if (charValue) {
+          if (Array.isArray(charValue)) {
+            charValue.forEach((value) => options.add(value));
+          } else {
+            options.add(charValue);
+          }
+        }
+      });
+      filter.options = [...options].sort();
+    }
   });
 
   const filterConfig = ref({
