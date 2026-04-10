@@ -112,6 +112,7 @@ const processData = (data, uiSettings) => {
     showNotAdded: true,
     showAdded: false,
     factionFilter: [],
+    showFactionFilter,
     extraFilters,
   });
 
