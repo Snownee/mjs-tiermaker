@@ -12,7 +12,7 @@
 
 .item-card .el-image,
 .select-char-item .el-image {
-  background: #ddd;
+  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
   border-radius: 4px;
 }
 
