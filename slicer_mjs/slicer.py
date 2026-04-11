@@ -215,14 +215,10 @@ def update_id_json(file_path, new_outputs):
         for item in added_items:
             print(f"ID: {item['id']} -> Name: {item['name']}")
 
-        # 4. 保存回原文件
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        print(f"\n成功更新至 {file_path}")
-        return data
+        return data, added_items
     else:
         print("所有 output 已存在，无需更新。")
-        return False
+        return data, []
 
 
 if __name__ == "__main__":
@@ -231,15 +227,55 @@ if __name__ == "__main__":
     # 切换当前工作目录
     os.chdir(script_dir)
 
+    TEMP_FOLDER = "temp_output"
+    if os.path.exists(TEMP_FOLDER):
+        shutil.rmtree(TEMP_FOLDER)
+    os.makedirs(TEMP_FOLDER)
+
     outputs = []
-    init_output_folder(TARGET_FOLDER, TARGET_FOLDER_WHITELIST)
     # 处理input文件夹中的所有图片
     for filename in os.listdir("input"):
         if filename.lower().endswith((".png", ".jpg", ".jpeg")):
-            outputs.extend(
-                process_atlas(os.path.join("input", filename), TARGET_FOLDER)
-            )
+            outputs.extend(process_atlas(os.path.join("input", filename), TEMP_FOLDER))
+
     if len(outputs) > 0:
-        data = update_id_json("id.json", outputs)
-        if data:
-            write_to_target_file(data)
+        new_data, added_items = update_id_json("id.json", outputs)
+
+        if len(added_items) > 0:
+            confirm = (
+                input(
+                    f"\n检测到 {len(added_items)} 条新记录。是否确认添加并替换原文件？(y/n): "
+                )
+                .strip()
+                .lower()
+            )
+            if confirm == "y":
+                # A. 删除原文件
+                init_output_folder(TARGET_FOLDER, TARGET_FOLDER_WHITELIST)
+
+                # B. 替换成新的图片
+                for item in os.listdir(TEMP_FOLDER):
+                    src_path = os.path.join(TEMP_FOLDER, item)
+                    dst_path = os.path.join(TARGET_FOLDER, item)
+                    if os.path.isdir(src_path):
+                        if os.path.exists(dst_path):
+                            shutil.rmtree(dst_path)
+                        shutil.move(src_path, dst_path)
+                    else:
+                        shutil.move(src_path, dst_path)
+
+                # C. 保存 id.json
+                with open("id.json", "w", encoding="utf-8") as f:
+                    json.dump(new_data, f, indent=2, ensure_ascii=False)
+                print(f"成功更新至 id.json")
+
+                # D. 更新 JS 文件
+                write_to_target_file(new_data)
+            else:
+                print("操作已取消。保持原文件不变。")
+        else:
+            print("没有检测到新条目，无需执行更新。")
+
+    # 清理临时文件夹
+    if os.path.exists(TEMP_FOLDER):
+        shutil.rmtree(TEMP_FOLDER)
