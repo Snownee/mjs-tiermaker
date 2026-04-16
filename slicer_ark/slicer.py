@@ -244,15 +244,10 @@ def update_id_json(file_path, new_outputs):
         print("本次新增的记录如下：")
         for item in added_items:
             print(f"ID: {item['id']} -> Name: {item['name']}")
-
-        # 4. 保存回原文件
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        print(f"\n成功更新至 {file_path}")
-        return data
     else:
         print("所有 output 已存在，无需更新。")
-        return data
+
+    return data, added_items
 
 
 if __name__ == "__main__":
@@ -270,6 +265,21 @@ if __name__ == "__main__":
                 process_atlas(os.path.join("input", filename), TARGET_FOLDER)
             )
     if len(outputs) > 0:
-        data = update_id_json("id.json", outputs)
-        if data:
+        data, added_items = update_id_json("id.json", outputs)
+        if len(added_items) > 0:
+            confirm = (
+                input(
+                    f"\n检测到 {len(added_items)} 条新记录。是否确认添加并更新文件？(y/n): "
+                )
+                .strip()
+                .lower()
+            )
+            if confirm == "y":
+                with open("id.json", "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2, ensure_ascii=False)
+                print("成功更新至 id.json")
+                write_to_target_file(data)
+            else:
+                print("操作已取消。保持原文件不变。")
+        else:
             write_to_target_file(data)
