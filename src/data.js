@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-    "next_id": 132,
+    "next_id": 134,
     "values": [
         {
             "id": 0,
@@ -663,6 +663,16 @@ export const data = {
             "id": 131,
             "name": "魏/朱亥",
             "pack": "秦扫六合"
+        },
+        {
+            "id": 132,
+            "name": "曹魏/王异",
+            "pack": "三国云起"
+        },
+        {
+            "id": 133,
+            "name": "蜀汉/黄月英",
+            "pack": "三国云起"
         }
     ]
 }
@@ -671,7 +681,7 @@ export const data = {
 export const presets = [
   {
     name: "2V2排行",
-    save: "0eJwNz+lTzAEAxvGPIuUoSq5ukqvI5ohKUTlyFKVQOWLJtSvXEpHdYcbMjswOr7zyymuNdxp/Te3uu/6Ffu8+L77zzDyhwVD2dyr7ZTb9NZX9lZT5/qc/Eo1FwuH0j7+Zb58X55Lz/z7N//+5MBPPTidQ4JBzbgop9dgOpxwOdMt9HR4pE1ZvVVC9sNmkEu1O2227dVa7qijwG+OWWeO8e85q80GtPkNu2OKpUddt0uuhVvsUe+e1VypFddrojr2eOWPYEyfdFpEwHWxe06TFiJVW2GXMNhfc1axCg+cG7bHTCQOuOOKlSw4q996UA46pc9FalxVaboN8MXEfA633VlfwuEeOPP2Oe6DRVvtVOypXlW41JpYAQzM/FA",
+    save: "0eJwNz1lTzQEAhvEfiRISRbTITmU7SGixb9kPp8VSllOozomQVkc5ZsycwTS5cuXKtcYd06dp+d/1Ffzvnot3nneeSCwS/JoMPk/Pf5kMfmYsTP2OJpIDiXh8/vufhW+fFv9lZv+mZ2d+zH0dD1ITyHVUk3YRRXrsdEFNSB26nNKtRFy1leHqtWJD1mt00V7brZUn30dVBj2zxCpXteh0Wb33drip2UOb9HmgzUY3vFBnv3VGvPNWuaSzNngSGl655J5eZzySMCElHX60Ouyk+1bItsdj21zzVK0y+/SLqbTbaXfcdcwbtxxRasyoQ07Y5brVbltjmUI5Boz7EFKBYefC6iuWWi6qwXMHbXZAheOybHHeVi//A5v5QB8",
   },
   {
     name: "八人场排行",
