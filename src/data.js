@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-    "next_id": 134,
+    "next_id": 138,
     "values": [
         {
             "id": 0,
@@ -271,7 +271,7 @@ export const data = {
         },
         {
             "id": 53,
-            "name": "秦/赢政",
+            "name": "秦/嬴政",
             "pack": "秦扫六合"
         },
         {
@@ -416,7 +416,7 @@ export const data = {
         },
         {
             "id": 82,
-            "name": "西楚/项粱",
+            "name": "西楚/项梁",
             "pack": "楚汉之争"
         },
         {
@@ -673,6 +673,26 @@ export const data = {
             "id": 133,
             "name": "蜀汉/黄月英",
             "pack": "三国云起"
+        },
+        {
+            "id": 134,
+            "name": "西汉/李夫人",
+            "pack": "汉武盛世"
+        },
+        {
+            "id": 135,
+            "name": "西汉/赵婕妤",
+            "pack": "汉武盛世"
+        },
+        {
+            "id": 136,
+            "name": "西汉/卓文君",
+            "pack": "汉武盛世"
+        },
+        {
+            "id": 137,
+            "name": "西汉/司马相如",
+            "pack": "汉武盛世"
         }
     ]
 }
@@ -681,11 +701,11 @@ export const data = {
 export const presets = [
   {
     name: "2V2排行",
-    save: "0eJwNz1lTzQEAhvEfiRISRbTITmU7SGixb9kPp8VSllOozomQVkc5ZsycwTS5cuXKtcYd06dp+d/1Ffzvnot3nneeSCwS/JoMPk/Pf5kMfmYsTP2OJpIDiXh8/vufhW+fFv9lZv+mZ2d+zH0dD1ITyHVUk3YRRXrsdEFNSB26nNKtRFy1leHqtWJD1mt00V7brZUn30dVBj2zxCpXteh0Wb33drip2UOb9HmgzUY3vFBnv3VGvPNWuaSzNngSGl655J5eZzySMCElHX60Ouyk+1bItsdj21zzVK0y+/SLqbTbaXfcdcwbtxxRasyoQ07Y5brVbltjmUI5Boz7EFKBYefC6iuWWi6qwXMHbXZAheOybHHeVi//A5v5QB8",
+    save: "0eJwN0EtXzAEAQPGft5BE3kVRVCTGMyK9PCpKqRSpMN5mvBJ5jckMnTMHp8OqVStrnXYcn6ZmZucr+O/u4m7uDfWEsj8nsxMz6S+T2emUzPdfXZHoaCQcTv+YzXxL/vuTmvudmPs7Nf81no2NY7nDWoWs91CZM44ENGjIHac9sFXYXivkeG6TMevUOavCTmuslKfaK3d9tMAqba647byT3ivVodd1mz2WMKDfRu3uqxWz1hsvvbBNVKMNbtrjqXOueqTBsIhxWxy3T41KfQ464Zpllih3ww4X3HJMkSrP9PgUOLvVu6zbUSMuOaTQO28dsMtFuTqttlhBUDoq7oNkwPlea9JiYXBgqS6n3LM/qCm2yHbNSjwx4fN/0GFCQQ",
   },
   {
     name: "八人场排行",
-    save: "0eJwNz8kz1QEAwPFPaSEtEpUiS+lFq6IF2UKrkGgRLTxKeSLZqhmT0UwzphqTky6dOjjVOL2Mv+Y93q1/od/1e/h+5xufXYpFo/Ef0cSv+cTnP2tf5hM/56x//90WGRqPhMNrC8vr3z79W5mL/Z2NrS7Gv35MTM9gh+2eOe+mHGEpNjnnuYMea7TbE93KZCp01VmpDgcsotoVXUZtMyVkn41eGrDHfXvdMqhSnxFP9Qf+Ivsdc8o16e565YjLHnqvwnUTdjrhnjG96jQ7FNhC0jxSINm41457o0Ox22rV2+y0ITds0C7LBW+ddEerUkfly/bOB5N6gqcMJaqckRdUm7TYYqs2F71wSbkkuRocUOOBTrsM/wdsnEH5",
+    save: "0eJwNz1kz1QEAQPFfaaFka1UpoUWboqJoI9IqS8lSqK60XW2iXXTFjClj9JSXnnroKdPTzfg093Lf+gr+7+fMmROP/I5Fo/HpaOLXZGJsZv7rZOLnuIWpP43h3v5wKDT//e/CxMj/2fHYv0hs7kf821BicBhrpLrjmEtyhKRYpkSPLTrUWKvTbUett9N5xVbLlynstCq3vLTKG58ct99GSz3yMDBu2uCyJyp0e67L/aBRaJODamVp8liBk1q9U+6CAWmB3eyVeyrV2Wa3LyI+G/TRHgdkaJcnWb+n9nnhhr2uOuuc5Yr0umiJ67KV6gvoBvWO2GWHrd5677W7weE6h51ySK4PTmix0mbDwckV16zQqMwDSbardkabdM+MGTViaBHa60gv",
   },
 ];
 

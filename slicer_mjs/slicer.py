@@ -14,7 +14,7 @@ ocr = CnOcr(rec_model_name="doc-densenet_lite_136-gru")
 NAME_MAPPING = {
     "荀彧": ["荀或"],
     "张春华": ["张春化"],
-    "张郃": ["张邰", "张鸽", "张邵"],
+    "张郃": ["张邰", "张鸽", "张邵", "张部"],
     "芈八子": ["业八子"],
     "申不害": ["中不害"],
     "平原君": ["乎原君"],
@@ -27,6 +27,10 @@ NAME_MAPPING = {
     "平阳公主": ["乎阳公主"],
     "陈平": ["陈乎"],
     "桑弘羊": ["桑弘兰"],
+    "项梁": ["项粱"],
+    "嬴政": ["赢政"],
+    "范雎": ["范睢"],
+    "曹丕": ["曹不"],
     # 在这里继续添加你遇到的生僻字或错误识别对
 }
 
@@ -118,7 +122,7 @@ def process_atlas(image_path, output_folder="output"):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # 1. 阈值处理，便于提取矩形轮廓
-    _, thresh = cv2.threshold(gray, 40, 255, cv2.THRESH_BINARY)
+    _, thresh = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     names = set()
 
@@ -133,6 +137,9 @@ def process_atlas(image_path, output_folder="output"):
             # B. 裁剪名字区域 (假设名字在头像下方 5-35 像素位置)
             # 你可以根据实际图片的行间距微调这个 offset
             name_region = safe_slice(img, y + h + 5, 40, x - 15, w + 30)
+            if name_region is None:
+                print(f"Skipping contour {i}: empty name region at ({x}, {y}, {w}, {h})")
+                continue
             name_region = cv2.resize(
                 name_region, (0, 0), fx=2, fy=2, interpolation=cv2.INTER_CUBIC
             )
@@ -188,6 +195,8 @@ def safe_slice(image, y, h, x, w):
     y2 = min(img_h, y + h)
     x1 = max(0, x)
     x2 = min(img_w, x + w)
+    if y1 >= y2 or x1 >= x2:
+        return None
     return image[y1:y2, x1:x2]
 
 

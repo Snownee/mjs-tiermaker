@@ -153,6 +153,9 @@ def process_atlas(image_path, output_folder="output"):
             # B. 裁剪名字区域 (假设名字在头像下方 5-35 像素位置)
             # 你可以根据实际图片的行间距微调这个 offset
             name_region = safe_slice(img, y + h + 5, 40, x - 15, w + 30)
+            if name_region is None:
+                print(f"Skipping contour {i}: empty name region at ({x}, {y}, {w}, {h})")
+                continue
             name_region = cv2.resize(
                 name_region, (0, 0), fx=2, fy=2, interpolation=cv2.INTER_CUBIC
             )
@@ -208,6 +211,8 @@ def safe_slice(image, y, h, x, w):
     y2 = min(img_h, y + h)
     x1 = max(0, x)
     x2 = min(img_w, x + w)
+    if y1 >= y2 or x1 >= x2:
+        return None
     return image[y1:y2, x1:x2]
 
 
