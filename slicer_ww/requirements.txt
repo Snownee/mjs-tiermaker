@@ -1,4 +1,0 @@
-opencv-python
-cnocr
-onnxruntime-gpu
-numpy

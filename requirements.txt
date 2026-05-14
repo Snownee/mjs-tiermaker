@@ -1,0 +1,7 @@
+# Unified dependencies for all Python slicer scripts in this repository.
+# Prefer the CPU OCR runtime here for broader Python 3.12/3.14 compatibility.
+# If you need GPU inference, replace this with cnocr[ort-gpu] in your local env.
+cnocr[ort-cpu]>=2.3.2.3
+numpy>=2.4.4
+opencv-python>=4.13.0.92
+requests>=2.34.1

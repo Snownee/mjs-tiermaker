@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-    "next_id": 138,
+    "next_id": 142,
     "values": [
         {
             "id": 0,
@@ -693,6 +693,26 @@ export const data = {
             "id": 137,
             "name": "西汉/司马相如",
             "pack": "汉武盛世"
+        },
+        {
+            "id": 138,
+            "name": "赵/庞煖",
+            "pack": "秦扫六合"
+        },
+        {
+            "id": 139,
+            "name": "赵/赵奢",
+            "pack": "秦扫六合"
+        },
+        {
+            "id": 140,
+            "name": "赵/李牧",
+            "pack": "秦扫六合"
+        },
+        {
+            "id": 141,
+            "name": "魏/魏咎",
+            "pack": "秦扫六合"
         }
     ]
 }
@@ -701,7 +721,7 @@ export const data = {
 export const presets = [
   {
     name: "2V2排行",
-    save: "0eJwN0EtXzAEAQPGft5BE3kVRVCTGMyK9PCpKqRSpMN5mvBJ5jckMnTMHp8OqVStrnXYcn6ZmZucr+O/u4m7uDfWEsj8nsxMz6S+T2emUzPdfXZHoaCQcTv+YzXxL/vuTmvudmPs7Nf81no2NY7nDWoWs91CZM44ENGjIHac9sFXYXivkeG6TMevUOavCTmuslKfaK3d9tMAqba647byT3ivVodd1mz2WMKDfRu3uqxWz1hsvvbBNVKMNbtrjqXOueqTBsIhxWxy3T41KfQ464Zpllih3ww4X3HJMkSrP9PgUOLvVu6zbUSMuOaTQO28dsMtFuTqttlhBUDoq7oNkwPlea9JiYXBgqS6n3LM/qCm2yHbNSjwx4fN/0GFCQQ",
+    save: "0eJwN0Fkz1QEAhvFfihaiUpKSJCVJdUSRQlRatIlKezrtDlFIC9kKRxmjK1ddudZ0p+nTWM5dX8H/8p15n3eeeUONodjMZGzk9+L3ydivqKWp2fpIa1ckHF78+WdpYvj/3+j83ND8v+mFH/2xvgGsVuyikC1ey1ViqwceeqbSK9udFVZgnbXeStcjVYVz9suxQaIU0YB877lBKyQZc8ktT513Uq89rrppmzZD7mkKlq94qVyfTT7q1mmnVtXSNDugXa07Wpw26pGIARnKFCp1zH35bitywt3AN16ex3ar88RxmQ7q0Ohr0Nmnyg0N3rnmqB0+++SIvS5b77pkq2y2Rpd+XwwbD9JGH9S4IC54IkG9U1447JBdVspyRrY3RnxbBpWoRHM",
   },
   {
     name: "八人场排行",
