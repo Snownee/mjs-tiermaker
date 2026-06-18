@@ -69,11 +69,11 @@ def update_id_json(file_path):
     with open("data_export.json", "r", encoding="utf-8") as f:
         metadata = json.load(f)
 
+    existing_metadata_names = []
     for entry in metadata:
         name = entry["name"]
         name = f"{entry['属性'][0]}/{name}"
-        if name in existing_names:
-            continue  # 已存在，无需添加
+        existing_metadata_names.append(name)
         image_url = entry.pop("img")
         # 从url中提取图片名称（不带扩展名）
         image_name = os.path.splitext(os.path.basename(image_url))[0]
@@ -101,6 +101,16 @@ def update_id_json(file_path):
         os.makedirs(os.path.dirname(target_image_path), exist_ok=True)
         shutil.copy(image_path, target_image_path)
 
+        if name in existing_names:
+            # 已存在，更新现有记录（如果需要的话）
+            for item in data["values"]:
+                if item["name"] == name:
+                    entry["name"] = name
+                    item.update(entry)  # 更新其他字段，但保持 ID 不变
+                    # print(f"更新了已存在的记录: {name}")
+                    break
+            continue
+
         new_entry = {"id": data["next_id"]}
         new_entry.update(entry)
         new_entry["name"] = name
@@ -110,18 +120,27 @@ def update_id_json(file_path):
         # 更新全局 ID 计数器
         data["next_id"] += 1
 
-    with open("data_export.json", "r", encoding="utf-8") as f:
-        metadata = json.load(f)
+    removed_items = []
+    for item in data["values"]:
+        if item["name"] not in existing_metadata_names:
+            removed_items.append((item["id"], item["name"]))
 
-    # 3. 打印新增的内容
+    for item_id, item_name in removed_items:
+        data["values"] = [item for item in data["values"] if item["id"] != item_id]
+
+    # 3. 打印变动的内容
     if added_items:
         print("本次新增的记录如下：")
         for item in added_items:
             print(f"ID: {item['id']} -> Name: {item['name']}")
-    else:
+    if removed_items:
+        print("\n以下记录在新数据中未找到，可能需要删除或检查：")
+        for item_id, item_name in removed_items:
+            print(f"ID: {item_id} -> Name: {item_name}")
+    if added_items and removed_items:
         print("所有 output 已存在，无需更新。")
 
-    return data, added_items
+    return data, added_items, removed_items
 
 
 def convert_to_webp(image_path, quality=90):
@@ -171,11 +190,11 @@ if __name__ == "__main__":
     os.chdir(script_dir)
 
     init_output_folder(TARGET_FOLDER, TARGET_FOLDER_WHITELIST)
-    data, added_items = update_id_json("id.json")
-    if len(added_items) > 0:
+    data, added_items, removed_items = update_id_json("id.json")
+    if len(added_items) > 0 or len(removed_items) > 0:
         confirm = (
             input(
-                f"\n检测到 {len(added_items)} 条新记录。是否确认添加并更新文件？(y/n): "
+                f"\n检测到 {len(added_items)} 条新记录和 {len(removed_items)} 条可能需要删除的记录。是否确认更新文件？(y/n): "
             )
             .strip()
             .lower()

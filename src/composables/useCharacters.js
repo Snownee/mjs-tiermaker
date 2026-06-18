@@ -89,21 +89,31 @@ const processData = (data, uiSettings) => {
   const factions = ref([...new Set(data.values.map((char) => char.faction))]);
   const extraFilters = uiSettings.extraFilters || {};
   const showFactionFilter = !(uiSettings.hideFactionFilter || false);
+
+  const collectOptions = (key, options) => {
+    chars.value.forEach((char) => {
+      const charValue = char[key];
+      if (charValue) {
+        if (Array.isArray(charValue)) {
+          charValue.forEach((value) => options.add(value));
+        } else {
+          options.add(charValue);
+        }
+      }
+    });
+  };
+
   Object.entries(extraFilters).forEach(([key, filter]) => {
     filter.key = key;
     filter.value = [];
-    if (!filter.options) {
+    if (filter.options) {
       const options = new Set();
-      chars.value.forEach((char) => {
-        const charValue = char[key];
-        if (charValue) {
-          if (Array.isArray(charValue)) {
-            charValue.forEach((value) => options.add(value));
-          } else {
-            options.add(charValue);
-          }
-        }
-      });
+      filter.options.forEach((option) => options.add(option));
+      collectOptions(key, options);
+      filter.options = [...options];
+    } else {
+      const options = new Set();
+      collectOptions(key, options);
       filter.options = [...options].sort();
     }
   });

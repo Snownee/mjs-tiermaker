@@ -13,13 +13,13 @@ const exportData = () => {
   const dataList = [];
   $(".divsort").each((index, element) => {
     const data = {};
-    data.name = element.querySelector(".rocom_prop_name a").title;
+    data.name = element.querySelector(".dex-card-name a").title;
     const types = new Set();
     types.add(element.dataset.param1);
     types.add(element.dataset.param4);
     types.add(element.dataset.param5);
     data.类型 = [...types];
-    data.属性 = element.dataset.param2.split(", ");
+    data.属性 = element.dataset.param2.split(", ").filter((item) => item !== "");
     data.异色 = element.dataset.param6 === "是" ? "有异色" : "无异色";
     data.img = element.querySelector('img').src;
     dataList.push(data);
