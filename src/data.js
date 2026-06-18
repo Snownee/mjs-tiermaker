@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-    "next_id": 150,
+    "next_id": 152,
     "values": [
         {
             "id": 0,
@@ -753,6 +753,16 @@ export const data = {
             "id": 149,
             "name": "西汉/郭舍人",
             "pack": "汉武盛世"
+        },
+        {
+            "id": 150,
+            "name": "蜀汉/魏延",
+            "pack": "三国云起"
+        },
+        {
+            "id": 151,
+            "name": "蜀汉/刘禅",
+            "pack": "三国云起"
         }
     ]
 }
@@ -761,7 +771,7 @@ export const data = {
 export const presets = [
   {
     name: "2V2排行",
-    save: "0eJwN0ElXzQEAhvGfECJRlCEpkghxDcmUKUPmSjJHXTLdFBoU0qS4KrdatbJqrdMup0+Turu+gv/+fZ7znDdUFYpPxOIDk3ODsfjvqPnRPxWRhpZIODw3NjU/3LfwNzo73Ts7M/5vqCve2Y1lDrsiZL3Xdjhio8dqPHfaK5td8EPYHklWeG+Dj9JctMt2a6SIKjGiNaDb1OuxyCpXVXvmspO+yHXTncD4Vq+HMtzw0gmdUnVolqXBOekKNLnkvjfOeiJik32KFTlv0C99vlnpnhfB7q7RoLfWQcc9sNRTj2xzTZ2jttjrnSq77XTbB4dk+uyTA/Jcl6zcakuss1yLLl+d8V2/YyqDvlt+yrdWuzIJwSeJKpyyX6Fsi21VKkejAcOGxIzp/g/ywUkH",
+    save: "0eJwN0NlazAEAhvEfoUIUIWTLkn0ZQqSsFdkSU9ZsEyUTouym0saojNKBo44c5+ksj6tpmbNuwf8G3u/93lA4lPydSPb+mepLJEfipgdHq6JNrdFIZGpobHqga+ZvfGK8c+Lfr8n+9mSsA2kO+qpAhZBlGm22Uq27HnlitVIRO82X7qUcby1V5rhtMi0W98Nr331WYp83HptlofPqnHXMJpdVB6xnOt12SYMiMUu812KtJqcst8ML5W566qR7olYpdMhpfbp0W+CGelfVGLZCXuBxXY/dNkr1wH5H3TLXfXd8csFDh62xS7Ow7fJd88oBuT76ENhtcVGGKxaZIzv43KpdmxO+OOJnsFvpm62yvHPO7KDKPFWK7bXHeinWOWPQBs/1GtAvYUjHf3tOSjY",
   },
   {
     name: "八人场排行",
