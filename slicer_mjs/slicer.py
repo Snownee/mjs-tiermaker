@@ -18,7 +18,7 @@ NAME_MAPPING = {
     "芈八子": ["业八子"],
     "申不害": ["中不害"],
     "平原君": ["乎原君"],
-    "钟离眜": ["钟离昧"],
+    "钟离眜": ["钟离昧", "钟离眛"],
     "陆逊": ["陆迅"],
     "袁绍": ["哀绍"],
     "袁术": ["哀术"],
@@ -83,13 +83,13 @@ def alias_fix(raw_name):
         if raw_name == correct_name or raw_name in aliases:
             return correct_name
 
-    # 2. 模糊匹配：计算识别结果与所有正确名字的相似度
-    # 如果相似度高于 0.6，则认为是该角色
-    all_correct_names = list(NAME_MAPPING.keys())
-    matches = difflib.get_close_matches(raw_name, all_correct_names, n=1, cutoff=0.6)
+    # # 2. 模糊匹配：计算识别结果与所有正确名字的相似度
+    # # 如果相似度高于 0.6，则认为是该角色
+    # all_correct_names = list(NAME_MAPPING.keys())
+    # matches = difflib.get_close_matches(raw_name, all_correct_names, n=1, cutoff=0.6)
 
-    if matches:
-        return matches[0]
+    # if matches:
+    #     return matches[0]
 
     return raw_name
 

@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-    "next_id": 154,
+    "next_id": 160,
     "values": [
         {
             "id": 0,
@@ -766,11 +766,43 @@ export const data = {
         },
         {
             "id": 152,
-            "name": "西晋/陆机"
+            "name": "西晋/陆机",
+            "pack": "晋洛兴替"
         },
         {
             "id": 153,
-            "name": "西晋/傅玄"
+            "name": "西晋/傅玄",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 154,
+            "name": "西晋/荀勖",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 155,
+            "name": "西晋/张华",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 156,
+            "name": "西汉/郭解",
+            "pack": "汉武盛世"
+        },
+        {
+            "id": 157,
+            "name": "西汉/主父偃",
+            "pack": "汉武盛世"
+        },
+        {
+            "id": 158,
+            "name": "孙吴/吕蒙",
+            "pack": "三国云起"
+        },
+        {
+            "id": 159,
+            "name": "孙吴/徐盛",
+            "pack": "三国云起"
         }
     ]
 }
@@ -779,7 +811,7 @@ export const data = {
 export const presets = [
   {
     name: "2V2排行",
-    save: "0eJwN0ElbzQEAhfFfpmhQocxklkpcmSOUMXOJ5qJrCDdzppJG5arcyvBYWVnz2OXxaRruzlfw357Fec97QpWh+I9YfODX9FAs/j1qZuxneaS1LRIOT4//nhnp+/cnOjnRO/n329RwV7yzG/Pt8d5uZUIy3bPJcg0a3XLXSieE5UmywBPLvLTYSUfkSJcmatRzH/UottMLtyVIcdZNpx2y0UVXg64HetW5oEWRTou89swarUpkyfXIKTXuO6ZJxAr77VVqSJ9+yardUeGapdb7arsq73y2QaIbdjmo1twgva7eG+c022e1fI9V2maLK54qtEqH9mDfZuddttAcSwLnNl3eOmrQAZ/M8iVgp7rkg60yvHImeGaecoftUCDbbGsdN2adhwaMGBYzrvs/5BpLaQ",
+    save: "0eJwN0NdbzQEAxvFPNlnRsKlQyjzZK7RlVSRCGUdZJyvZ0pSOylFWxuPKdR53PP6a1LnzL/jdvZef9xuqDsW/x+I9P8b6YvFvUeODI1WRppZIODw29HN8oOvf7+jor87RP8N/+9vire2YZqteW5QLSXHdKovVqdfgWrCKha01w3R3LfDQfCX2WWOuOaLeuO+1Dvk+u2mTBxolmOmQy8rssdIxJy3U6ayjrtqt1TyP3bNMkwKpct1WqtYNB5wXscgO2xTq06VbotOuOK5GmgwfDAfGU154J9NUF+XZ5YzJ1rvgnGcOu2S7pda5o1qOLCc022yJp54EvtWOqDTbJMnB7xZtntvvpZ3emuC9jz754mugmKXCK9mSPHIwqDRFlb022mCFiZYrMijdLT0G9IsZ0v4fTgZPGg",
   },
   {
     name: "八人场排行",
