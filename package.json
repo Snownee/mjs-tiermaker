@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "lint": "eslint src --ext .js,.vue",
     "lint:fix": "eslint src --ext .js,.vue --fix",
-    "bump": "npm version patch -m \"%s\" && git push --follow-tags"
+    "bump": "npm version patch -m \"%s\" && git push --follow-tags",
+    "bump:minor": "npm version minor -m \"%s\" && git push --follow-tags"
   },
   "dependencies": {
     "byte-buffer": "^2.0.0",
