@@ -17,7 +17,7 @@ jobs:
       - name: Install and Build
         run: |
           npm ci
-          npm run set_mjs
+          npm run set_vanilla
           npm run build
         env:
           MJS_TIERMAKER_BASE_URL: "/mjs-tiermaker/"

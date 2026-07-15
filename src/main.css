@@ -4,6 +4,19 @@ html {
 
 :root {
   interpolate-size: allow-keywords;
+  --list-item-padding: 1px;
+  --list-item-image-width: 84px;
+  --list-item-image-height: 112px;
+  --list-item-image-width-mobile: 70px;
+  --list-item-image-height-mobile: 93px;
+  --list-item-width: var(--list-item-image-width);
+  --list-item-height: calc(var(--list-item-image-height) + 16px);
+
+  --select-item-width: 84px;
+  --select-item-image-width: var(--select-item-width);
+  --select-item-image-height: 112px;
+  --select-item-width-mobile: 70px;
+  --select-item-image-height-mobile: 93px;
 }
 
 #app {
@@ -44,7 +57,15 @@ body .select-char-dialog {
 }
 
 .select-char-item .el-image {
+  width: var(--select-item-image-width);
   height: var(--select-item-image-height);
+}
+
+.select-char-item .el-image .el-image__inner,
+.item-card .el-image .el-image__inner {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .select-char-dialog .el-select {
@@ -297,6 +318,13 @@ body .preset-button {
 }
 
 @media (max-width: 767px) {
+  :root {
+    --list-item-image-width: var(--list-item-image-width-mobile);
+    --list-item-image-height: var(--list-item-image-height-mobile);
+    --select-item-width: var(--select-item-width-mobile);
+    --select-item-image-height: var(--select-item-image-height-mobile);
+  }
+
   body h1 {
     display: block;
     margin: 0.3em 0;

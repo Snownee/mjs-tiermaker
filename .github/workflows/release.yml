@@ -30,7 +30,7 @@ jobs:
           set -euo pipefail
 
           mkdir -p releases
-          variants=(mjs ark rocom ww)
+          variants=(mjs ark rocom ww vanilla)
 
           for variant in "${variants[@]}"; do
             npm run "set_${variant}"
@@ -48,7 +48,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          variants=(mjs ark rocom ww)
+          variants=(mjs ark rocom ww vanilla)
 
           for variant in "${variants[@]}"; do
             tag="${GITHUB_REF_NAME}+${variant}"

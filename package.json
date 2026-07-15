@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "set": "node set.js",
+    "set_vanilla": "node set.js v",
     "set_mjs": "node set.js mjs",
     "set_ark": "node set.js ark",
     "set_ww": "node set.js ww",

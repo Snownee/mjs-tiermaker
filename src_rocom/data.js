@@ -3577,7 +3577,9 @@ export const lang = {
   doc_title: "洛克王国从夯到拉排名",
   title: "精灵排行",
   subtitle: "点击修改标题",
+  角色: "精灵",
   选择角色: "选择精灵",
+  "请注意，本地角色会在刷新页面后丢失": "请注意，本地图片会在刷新页面后丢失",
 };
 
 export const uiSettings = {

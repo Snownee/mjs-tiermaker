@@ -5,23 +5,11 @@
     <contenteditable tag="span" v-model="subtitle" style="min-width: 20px">
     </contenteditable>
     <div class="main-layout">
-      <TierList
-        :tiers="tiers"
-        :no-drag="noDrag"
-        :get-asset="asset"
-        @open-edit-tier-dialog="openEditTierDialog"
-        @open-select-dialog="openSelectDialog"
-        @open-item-menu="openItemMenu"
-        @drag-start="dragging = true"
-        @drag-end="dragging = false"
-      />
-      <el-tooltip
-        :visible="itemMenuChar !== null"
-        :virtual-ref="itemMenuTarget"
-        placement="top"
-        persistent
-        virtual-triggering
-        :popper-options="{
+      <TierList v-model:name-visible="cardNameVisible" :tiers="tiers" :no-drag="noDrag" :translate="translate"
+        :get-asset="asset" @open-edit-tier-dialog="openEditTierDialog" @open-select-dialog="openSelectDialog"
+        @open-item-menu="openItemMenu" @drag-start="dragging = true" @drag-end="dragging = false" />
+      <el-tooltip :visible="itemMenuChar !== null" :virtual-ref="itemMenuTarget" placement="top" persistent
+        virtual-triggering :popper-options="{
           modifiers: [
             {
               name: 'computeStyles',
@@ -31,8 +19,7 @@
               },
             },
           ],
-        }"
-      >
+        }">
         <template #content>
           <div class="item-card-menu" v-click-outside="itemMenuOutside">
             <span @click="itemMenuDelete">删除</span>
@@ -40,66 +27,53 @@
         </template>
       </el-tooltip>
       <div class="buttons">
-        <el-dropdown :show-arrow="false">
+        <el-dropdown :show-arrow="false" v-if="!isVanilla">
           <el-button type="primary" class="preset-button">
             <div>{{ preset || "📦使用预设" }}</div>
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </el-button>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item
-                v-for="item in presets"
-                :key="item.name"
-                @click="usePreset(item)"
-                >{{ item.name }}</el-dropdown-item
-              >
-              <el-dropdown-item v-if="presets.length === 0" disabled
-                >暂无预设</el-dropdown-item
-              >
-              <el-dropdown-item
-                v-if="uiSettings.submitPresetUrl"
-                @click="submitPreset"
-                divided
-                >预设投稿</el-dropdown-item
-              >
+              <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">{{ item.name
+              }}</el-dropdown-item>
+              <el-dropdown-item v-if="presets.length === 0" disabled>暂无预设</el-dropdown-item>
+              <el-dropdown-item v-if="uiSettings.submitPresetUrl" @click="submitPreset" divided>预设投稿</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
-        <el-button type="primary" @click="share">👋分享列表</el-button>
-        <el-button type="primary" @click="clickResetConfirm"
-          >🧹重置列表</el-button
-        >
-        <el-button
-          type="primary"
-          v-if="isMobile"
-          @click="floatButtonVisible = !floatButtonVisible"
-          >👁️浮动按钮：{{ floatButtonVisible ? "开" : "关" }}</el-button
-        >
-        <ImageUploader @upload="addLocalImages">📤本地图片</ImageUploader>
+        <el-button type="primary" @click="share" v-if="!isVanilla">👋分享列表</el-button>
+        <el-button type="primary" @click="clickResetConfirm">🧹重置列表</el-button>
+        <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">👁️浮动按钮：{{
+          floatButtonVisible ? "开" : "关" }}</el-button>
+        <ImageUploader @upload="addLocalImages">📤{{ translate('本地图片') }}</ImageUploader>
+        <el-button type="primary" v-if="isVanilla" @click="cardNameVisible = !cardNameVisible">🔠显示文字：{{
+          cardNameVisible ? "开" : "关" }}</el-button>
+        <el-dropdown :show-arrow="false" v-if="isVanilla">
+          <el-button type="primary">
+            <div>📏卡片尺寸</div>
+            <el-icon class="el-icon--right"><arrow-down /></el-icon>
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item v-for="scale in [50, 75, 100, 125, 150, 175, 200]" :key="scale"
+                @click="vanillaCardScale = scale">
+                {{ scale }}%{{ vanillaCardScale === scale ? " ✅" : "" }}
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
       <div>
         <el-text>
-          <a href="https://www.taptap.cn/user/757224223" target="_blank"
-            >作者：Snownee</a
-          >
+          <a href="https://www.taptap.cn/user/757224223" target="_blank">作者：Snownee</a>
           - 最后更新：{{ buildTime }}
         </el-text>
       </div>
 
       <aside class="float-button-area" v-if="isMobile && floatButtonVisible">
-        <el-popover
-          placement="left"
-          title="拖拽模式"
-          trigger="hover"
-          :visible="forcePopover"
-        >
+        <el-popover placement="left" title="拖拽模式" trigger="hover" :visible="forcePopover">
           <template #reference>
-            <el-button
-              size="large"
-              circle
-              @click="noDrag = !noDrag"
-              :class="{ selected: !noDrag }"
-            >
+            <el-button size="large" circle @click="noDrag = !noDrag" :class="{ selected: !noDrag }">
               👆
             </el-button>
           </template>
@@ -111,28 +85,13 @@
         </el-popover> -->
       </aside>
 
-      <SelectDialog
-        v-model:visible="selectDialogVisible"
-        :filtered-chars="filteredChars"
-        :factions="factions"
-        :filter-config="filterConfig"
-        :translate="translate"
-        :get-asset="asset"
-        @select-char="select"
-      />
+      <SelectDialog v-model:visible="selectDialogVisible" :filtered-chars="filteredChars" :factions="factions"
+        :filter-config="filterConfig" :translate="translate" :get-asset="asset" @select-char="select" />
 
-      <EditTierDialog
-        v-model:visible="tierDialogVisible"
-        :current-tier="currentTier"
-        :predefine-colors="PREDEFINE_COLORS"
-        @add-tier="handleAddTier"
-        @remove-tier="handleRemoveTier"
-      />
+      <EditTierDialog v-model:visible="tierDialogVisible" :current-tier="currentTier"
+        :predefine-colors="PREDEFINE_COLORS" @add-tier="handleAddTier" @remove-tier="handleRemoveTier" />
 
-      <FallbackCopyDialog
-        v-model:visible="fallbackCopyDialogVisible"
-        :copy-text="fallbackCopy"
-      />
+      <FallbackCopyDialog v-model:visible="fallbackCopyDialogVisible" :copy-text="fallbackCopy" />
     </div>
   </main>
 </template>
@@ -160,7 +119,8 @@ import { PREDEFINE_COLORS } from "./utils/constants.js";
 const buildTime = __BUILD_TIME__;
 
 const translate = (key) => {
-  return lang[key] || key;
+  const translated = lang[key];
+  return translated !== undefined ? translated : key;
 };
 
 const msg = (type, message) => {
@@ -174,6 +134,14 @@ const title = ref(translate("title"));
 const subtitle = ref(translate("subtitle"));
 const localChars = ref([]);
 const nextLocalCharId = ref(-1);
+
+const isVanilla = namespace === "v";
+const cardNameVisible = ref(true);
+const vanillaCardScale = ref(100);
+const vanillaCardWidth = ref(0);
+const vanillaCardHeight = ref(0);
+watch(vanillaCardScale, _ => updateVanillaCardSize());
+watch(cardNameVisible, _ => updateVanillaCardSize());
 
 // Initialize composables
 const {
@@ -216,6 +184,98 @@ const preset = ref();
 const fallbackCopyDialogVisible = ref(false);
 const fallbackCopy = ref("");
 
+const VANILLA_CARD_DEFAULTS = {
+  "--list-item-padding": "1px",
+  "--list-item-image-width": "84px",
+  "--list-item-image-height": "112px",
+  "--list-item-image-width-mobile": "70px",
+  "--list-item-image-height-mobile": "93px",
+  "--list-item-width": "84px",
+  "--list-item-height": "128px",
+  "--select-item-width": "84px",
+  "--select-item-image-width": "84px",
+  "--select-item-image-height": "112px",
+  "--select-item-width-mobile": "70px",
+  "--select-item-image-height-mobile": "93px",
+};
+
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const applyCardCssVars = (vars) => {
+  Object.entries(vars).forEach(([key, value]) => {
+    document.documentElement.style.setProperty(key, value);
+  });
+};
+
+const readImageSize = (file) =>
+  new Promise((resolve, reject) => {
+    const objectUrl = URL.createObjectURL(file);
+    const image = new Image();
+
+    image.onload = () => {
+      resolve({
+        width: image.naturalWidth,
+        height: image.naturalHeight,
+      });
+      URL.revokeObjectURL(objectUrl);
+    };
+
+    image.onerror = (error) => {
+      URL.revokeObjectURL(objectUrl);
+      reject(error);
+    };
+
+    image.src = objectUrl;
+  });
+
+const updateVanillaCardSize = () => {
+  if (!isVanilla) {
+    return;
+  }
+  try {
+    const width = vanillaCardWidth.value;
+    const height = vanillaCardHeight.value;
+    if (!width || !height) {
+      return;
+    }
+    const aspectRatio = width / height;
+    const baseArea = 84 * 112;
+
+    let imageWidth = Math.sqrt(baseArea * aspectRatio);
+    let imageHeight = imageWidth / aspectRatio;
+
+    imageWidth = clamp(Math.round(imageWidth), 64, 140);
+    imageHeight = clamp(Math.round(imageHeight), 80, 170);
+
+    let mobileWidth = clamp(Math.round(imageWidth * 0.84), 56, 112);
+    let mobileHeight = clamp(Math.round(imageHeight * 0.84), 72, 136);
+
+    const scaleFactor = vanillaCardScale.value / 100;
+    imageWidth = Math.round(imageWidth * scaleFactor);
+    imageHeight = Math.round(imageHeight * scaleFactor);
+    mobileWidth = Math.round(mobileWidth * scaleFactor);
+    mobileHeight = Math.round(mobileHeight * scaleFactor);
+
+    applyCardCssVars({
+      "--list-item-padding": "1px",
+      "--list-item-image-width": `${imageWidth}px`,
+      "--list-item-image-height": `${imageHeight}px`,
+      "--list-item-image-width-mobile": `${mobileWidth}px`,
+      "--list-item-image-height-mobile": `${mobileHeight}px`,
+      "--list-item-width": `${imageWidth}px`,
+      "--list-item-height": `${imageHeight + (cardNameVisible.value ? 16 : 0)}px`,
+      "--select-item-width": `${imageWidth}px`,
+      "--select-item-image-width": `${imageWidth}px`,
+      "--select-item-image-height": `${imageHeight}px`,
+      "--select-item-width-mobile": `${mobileWidth}px`,
+      "--select-item-image-height-mobile": `${mobileHeight}px`,
+    });
+  } catch (error) {
+    console.warn("读取图片尺寸失败，使用默认卡片尺寸", error);
+    applyCardCssVars(VANILLA_CARD_DEFAULTS);
+  }
+};
+
 const handleDeviceChange = (e) => {
   isMobile.value = e.matches;
   if (!isMobile.value) {
@@ -226,6 +286,13 @@ const handleDeviceChange = (e) => {
 const taptap = window.location.hostname.includes("tap");
 
 onMounted(() => {
+  if (isVanilla) {
+    applyCardCssVars(VANILLA_CARD_DEFAULTS);
+    const settings = JSON.parse(localStorage.getItem(`${namespace}_tier_list_settings`) || "{}");
+    vanillaCardScale.value = settings.cardScale || vanillaCardScale.value;
+    cardNameVisible.value = settings.cardNameVisible ?? cardNameVisible.value;
+  }
+
   document.title = translate("doc_title");
   noDrag.value = isMobile.value = mediaQuery.matches;
   mediaQuery.addEventListener("change", handleDeviceChange);
@@ -237,6 +304,9 @@ onMounted(() => {
     forcePopover.value = false;
     document.body.classList.add("mounted");
   }, 1500);
+  if (isVanilla) {
+    return;
+  }
   // 尝试从 URL 参数加载数据
   const params = new URLSearchParams(window.location.search);
   // 尝试加载预设
@@ -281,12 +351,28 @@ watch(
     if (shouldUpdatePreset()) {
       preset.value = undefined;
     }
-    if (!dragging.value) {
+    if (!dragging.value && !isVanilla) {
       saveToLocalStorage(true);
     }
   },
   { deep: true },
 );
+
+if (isVanilla) {
+  watch(
+    [vanillaCardScale, cardNameVisible],
+    () => {
+      localStorage.setItem(
+        `${namespace}_tier_list_settings`,
+        JSON.stringify({
+          cardScale: vanillaCardScale.value,
+          cardNameVisible: cardNameVisible.value,
+        })
+      );
+    },
+    { deep: true },
+  );
+}
 
 const images = import.meta.glob("./assets/**/*.webp", {
   eager: true,
@@ -311,6 +397,10 @@ const select = (char) => {
 };
 
 const openSelectDialog = (tier) => {
+  if (isVanilla && localChars.value.length === 0) {
+    msg("warning", "请先点击页面下方的按钮添加一些图片");
+    return;
+  }
   filterChars();
   currentTier.value = tier;
   selectDialogVisible.value = true;
@@ -409,7 +499,7 @@ const submitPreset = () => {
     .then(() => {
       window.open(uiSettings.submitPresetUrl, "_blank");
     })
-    .catch(() => {});
+    .catch(() => { });
 };
 
 const clickResetConfirm = () => {
@@ -423,12 +513,20 @@ const clickResetConfirm = () => {
       resetList();
       msg("success", "列表已重置");
     })
-    .catch(() => {});
+    .catch(() => { });
 };
 
-const addLocalImages = (files) => {
-  const newChars = files
-    .filter((file) => file.type.startsWith("image/"))
+const addLocalImages = async (files) => {
+  const imageFiles = files.filter((file) => file.type.startsWith("image/"));
+
+  if (isVanilla && localChars.value.length === 0 && imageFiles.length > 0) {
+    const { width, height } = await readImageSize(imageFiles[0]);
+    vanillaCardWidth.value = width;
+    vanillaCardHeight.value = height;
+    updateVanillaCardSize();
+  }
+
+  const newChars = imageFiles
     .map((file) => {
       const name = file.name.replace(/\.[^.]+$/, "") || file.name;
 
@@ -448,6 +546,9 @@ const addLocalImages = (files) => {
   }
 
   localChars.value = [...localChars.value, ...newChars];
-  msg("success", `已添加 ${newChars.length} 个角色。请注意，本地角色会在刷新页面后丢失。`);
+  msg(
+    "success",
+    `已添加 ${newChars.length} 个${translate('角色')}。${translate('请注意，本地角色会在刷新页面后丢失。')}`,
+  );
 };
 </script>
