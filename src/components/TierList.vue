@@ -33,7 +33,7 @@
           :key="char.id"
           @contextmenu.prevent="(e) => openItemMenu(e, char)"
         >
-          <el-image :src="getAsset(`${char.faction}/${char.name}.webp`)" />
+          <el-image :src="char.imageUrl || getAsset(`${char.faction}/${char.name}.webp`)" />
           <AutoShrinkText :text="char.displayName || char.name" class="name" />
         </div>
         <div

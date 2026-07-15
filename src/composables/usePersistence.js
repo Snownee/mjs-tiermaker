@@ -31,7 +31,7 @@ export const usePersistence = (
     const tiersData = tiers.value.map((tier) => ({
       name: tier.name,
       color: tier.color,
-      items: tier.items.map((item) => item.id),
+      items: tier.items.map((item) => item.id).filter((id) => id >= 0),
     }));
 
     return save({

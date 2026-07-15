@@ -75,6 +75,7 @@
           @click="floatButtonVisible = !floatButtonVisible"
           >👁️浮动按钮：{{ floatButtonVisible ? "开" : "关" }}</el-button
         >
+        <ImageUploader @upload="addLocalImages">📤本地图片</ImageUploader>
       </div>
       <div>
         <el-text>
@@ -146,6 +147,7 @@ import {
   ClickOutside as vClickOutside,
 } from "element-plus";
 import { ArrowDown } from "@element-plus/icons-vue";
+import ImageUploader from "./components/ImageUploader.vue";
 import TierList from "./components/TierList.vue";
 import SelectDialog from "./components/SelectDialog.vue";
 import EditTierDialog from "./components/EditTierDialog.vue";
@@ -170,6 +172,8 @@ const msg = (type, message) => {
 
 const title = ref(translate("title"));
 const subtitle = ref(translate("subtitle"));
+const localChars = ref([]);
+const nextLocalCharId = ref(-1);
 
 // Initialize composables
 const {
@@ -179,7 +183,7 @@ const {
   filterConfig,
   filterChars,
   select: selectChar,
-} = useCharacters(data, uiSettings);
+} = useCharacters(data, uiSettings, localChars);
 const {
   tiers,
   resetList,
@@ -264,6 +268,11 @@ onMounted(() => {
 
 onUnmounted(() => {
   mediaQuery.removeEventListener("change", handleDeviceChange);
+  localChars.value.forEach((char) => {
+    if (char.imageUrl?.startsWith("blob:")) {
+      URL.revokeObjectURL(char.imageUrl);
+    }
+  });
 });
 
 watch(
@@ -415,5 +424,30 @@ const clickResetConfirm = () => {
       msg("success", "列表已重置");
     })
     .catch(() => {});
+};
+
+const addLocalImages = (files) => {
+  const newChars = files
+    .filter((file) => file.type.startsWith("image/"))
+    .map((file) => {
+      const name = file.name.replace(/\.[^.]+$/, "") || file.name;
+
+      return {
+        id: nextLocalCharId.value--,
+        name,
+        displayName: name,
+        faction: "本地",
+        selected: false,
+        imageUrl: URL.createObjectURL(file),
+      };
+    });
+
+  if (newChars.length === 0) {
+    msg("warning", "请选择图片文件");
+    return;
+  }
+
+  localChars.value = [...localChars.value, ...newChars];
+  msg("success", `已添加 ${newChars.length} 个角色。请注意，本地角色会在刷新页面后丢失。`);
 };
 </script>

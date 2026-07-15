@@ -58,7 +58,7 @@
         :class="{ selected: char.selected }"
         @click="onSelect(char)"
       >
-        <el-image :src="getAsset(`${char.faction}/${char.name}.webp`)" />
+        <el-image :src="char.imageUrl || getAsset(`${char.faction}/${char.name}.webp`)" />
         <div>{{ char.displayName || char.name }}</div>
       </div>
     </div>
