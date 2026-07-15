@@ -31,10 +31,8 @@ export default defineConfig({
           minSize: 20000,
           groups: [
             {
-              name: "large-libs",
+              name: "vendor",
               test: /node_modules/,
-              minSize: 100000,
-              maxSize: 250000,
               priority: 10,
             },
           ],
