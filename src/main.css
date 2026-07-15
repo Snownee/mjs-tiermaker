@@ -291,18 +291,21 @@ body h1 + span {
   margin-left: 10px;
 }
 
-body .preset-button > span {
+body .dropdown_button > span {
   display: flex;
   width: 100%;
 }
 
-body .preset-button > span > div {
+body .dropdown_button > span > div {
   flex-grow: 1;
+}
+
+body .dropdown_button {
+  padding-right: 8px;
 }
 
 body .preset-button {
   min-width: 150px;
-  padding-right: 8px;
 }
 
 .buttons {
@@ -361,7 +364,7 @@ body .preset-button {
     gap: 10px;
   }
 
-  .preset-button,
+  .dropdown_button,
   body .buttons > * {
     width: 100%;
     margin-left: 0 !important;

@@ -28,7 +28,7 @@
       </el-tooltip>
       <div class="buttons">
         <el-dropdown :show-arrow="false" v-if="!isVanilla">
-          <el-button type="primary" class="preset-button">
+          <el-button type="primary" class="dropdown_button preset-button">
             <div>{{ preset || "📦使用预设" }}</div>
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </el-button>
@@ -46,10 +46,11 @@
         <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">👁️浮动按钮：{{
           floatButtonVisible ? "开" : "关" }}</el-button>
         <ImageUploader @upload="addLocalImages">📤{{ translate('本地图片') }}</ImageUploader>
-        <el-button type="primary" v-if="isVanilla" @click="cardNameVisible = !cardNameVisible">🔠显示文字：{{
-          cardNameVisible ? "开" : "关" }}</el-button>
-        <el-dropdown :show-arrow="false" v-if="isVanilla">
-          <el-button type="primary">
+        <el-button type="primary" v-if="isVanilla && chars.length > 0"
+          @click="cardNameVisible = !cardNameVisible">🔠显示文字：{{
+            cardNameVisible ? "开" : "关" }}</el-button>
+        <el-dropdown :show-arrow="false" v-if="isVanilla && chars.length > 0">
+          <el-button type="primary" class="dropdown_button">
             <div>📏卡片尺寸</div>
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </el-button>
