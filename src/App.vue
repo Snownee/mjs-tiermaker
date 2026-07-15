@@ -65,7 +65,7 @@
       </div>
       <div>
         <el-text>
-          <a href="https://www.taptap.cn/user/757224223" target="_blank">作者：Snownee</a>
+          <a :href="authorUrl" target="_blank">作者：Snownee</a>
           - 最后更新：{{ buildTime }}
         </el-text>
       </div>
@@ -114,6 +114,7 @@ import FallbackCopyDialog from "./components/FallbackCopyDialog.vue";
 import { useTiers } from "./composables/useTiers.js";
 import { useCharacters } from "./composables/useCharacters.js";
 import { usePersistence } from "./composables/usePersistence.js";
+import { usePlatform } from "./composables/usePlatform.js";
 import { PREDEFINE_COLORS } from "./utils/constants.js";
 
 const buildTime = __BUILD_TIME__;
@@ -283,7 +284,7 @@ const handleDeviceChange = (e) => {
   }
 };
 
-const taptap = window.location.hostname.includes("tap");
+const { platform, authorUrl } = usePlatform(window.location.hostname);
 
 onMounted(() => {
   if (isVanilla) {
@@ -297,7 +298,7 @@ onMounted(() => {
   noDrag.value = isMobile.value = mediaQuery.matches;
   mediaQuery.addEventListener("change", handleDeviceChange);
   window.addEventListener("scroll", itemMenuOutside);
-  if (taptap) {
+  if (platform === "taptap") {
     document.body.classList.add("taptap");
   }
   setTimeout(() => {
