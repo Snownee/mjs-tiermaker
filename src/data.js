@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-    "next_id": 160,
+    "next_id": 164,
     "values": [
         {
             "id": 0,
@@ -803,6 +803,26 @@ export const data = {
             "id": 159,
             "name": "孙吴/徐盛",
             "pack": "三国云起"
+        },
+        {
+            "id": 160,
+            "name": "西晋/王元姬",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 161,
+            "name": "西晋/乐广",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 162,
+            "name": "西晋/卫玠",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 163,
+            "name": "西晋/杜预",
+            "pack": "晋洛兴替"
         }
     ]
 }

@@ -7,6 +7,34 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/2b/sw0puzl5c0n8hu49ryqk7drh1gxtblr.png/180px-JL_dimo.png"
   },
   {
+    "name": "圣光迪莫",
+    "类型": ["首领形态"],
+    "属性": ["光"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/2c/7qezwl2nb2ymfw4dos2vu163szd9p2h.png/180px-JL_shengguangdimo.png"
+  },
+  {
+    "name": "圣草迪莫",
+    "类型": ["首领形态"],
+    "属性": ["光"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/11/dfjw0rmtvjca55818p4zrv3rgh53wuc.png/180px-JL_shengcaodimo.png"
+  },
+  {
+    "name": "圣火迪莫",
+    "类型": ["首领形态"],
+    "属性": ["光"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f0/f9i1rwu00yct36m8hwm9lra0kkjcry0.png/180px-JL_shenghuodimo.png"
+  },
+  {
+    "name": "圣水迪莫",
+    "类型": ["首领形态"],
+    "属性": ["光"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/69/h6he56fvj9hogroxuwde360noeykscr.png/180px-JL_shengshuidimo.png"
+  },
+  {
     "name": "喵喵",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["草"],
@@ -33,6 +61,13 @@
     "属性": ["草"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/a/ab/3lx2tas9ervt8e7hhp8o3nhvofygd1k.png/180px-JL_molimiao_shouling.png"
+  },
+  {
+    "name": "武斗酷猫",
+    "类型": ["首领形态"],
+    "属性": ["草"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/ee/e4w5hjhhbo71cy140prvt6eb3kjmv3y.png/180px-JL_wumiao.png"
   },
   {
     "name": "火花",
@@ -131,13 +166,6 @@
     "属性": ["普通"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/4/4f/iopibmn3k4lkf0zvk7vxm6x8rewknd0.png/180px-JL_yajiji_qilaiya.png"
-  },
-  {
-    "name": "鸭吉吉国王（首领形态）",
-    "类型": ["首领形态"],
-    "属性": ["普通"],
-    "异色": "无异色",
-    "img": "https://patchwiki.biligame.com/images/rocom/thumb/0/0f/j7jkx8rgrp2clyw0za1ptgf51qw3292.png/180px-JL_yajiji_shouling.png"
   },
   {
     "name": "鸭吉吉国王（蓬松的样子）",
@@ -462,6 +490,13 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/2b/l0ny90tnwgb67rmzu09q90drztquq6w.png/180px-JL_dingdingemo.png"
   },
   {
+    "name": "恶魔男爵",
+    "类型": ["首领形态"],
+    "属性": ["恶"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/1a/9qb2zoneu2dk4orrc2jscgbw4oj24oz.png/180px-JL_anyingemo.png"
+  },
+  {
     "name": "毛毛",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["虫"],
@@ -665,6 +700,13 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/7a/rcr83w8on3ey2a9hsnw1ju37xpxqrc1.png/180px-JL_diudiu.png"
   },
   {
+    "name": "丢丢（火山附近的样子）",
+    "类型": ["一阶", "地区形态"],
+    "属性": ["草"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f1/7b7xwhkr0lyvmvoetkovt57dffckmgf.png/180px-JL_diudiu_huoshan.png"
+  },
+  {
     "name": "丢丢（沙地附近的样子）",
     "类型": ["一阶", "地区形态"],
     "属性": ["草"],
@@ -686,6 +728,13 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/76/rdu49gfgqudrmthhedikd3ju6o0mood.png/180px-JL_kakachong.png"
   },
   {
+    "name": "卡卡虫（火山附近的样子）",
+    "类型": ["二阶", "地区形态"],
+    "属性": ["草"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/2c/hqmxknrk4862ndjpfkwsu0kvi65bow8.png/180px-JL_kakachong_huoshan.png"
+  },
+  {
     "name": "卡卡虫（沙地附近的样子）",
     "类型": ["二阶", "地区形态"],
     "属性": ["草"],
@@ -705,6 +754,13 @@
     "属性": ["草"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/b5/3q4ei5a3dhp2597wgp6k5d3trqrro68.png/180px-JL_kawachong.png"
+  },
+  {
+    "name": "卡瓦重（火山附近的样子）",
+    "类型": ["三阶", "地区形态"],
+    "属性": ["草"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/a/a7/gqirsr0ls4xypurpyr8j0x5204163ex.png/180px-JL_kawachong_huoshan.png"
   },
   {
     "name": "卡瓦重（沙地附近的样子）",
@@ -819,11 +875,25 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/1b/ouuajtdlj5q37xnnezicl8lhy6wvrdo.png/180px-JL_menhyou.png"
   },
   {
+    "name": "梦游（穿星星睡衣的样子）",
+    "类型": ["一阶", "地区形态"],
+    "属性": ["幽"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/95/19xcyv4p60sbcrfnbg2hiz8y3d8r52n.png/180px-JL_mengyou_pink.png"
+  },
+  {
     "name": "梦悠悠（穿旧睡衣的样子）",
     "类型": ["二阶", "地区形态", "主形态"],
     "属性": ["幽"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/bc/jxto2tenemg9zkahb78ro0dm0dqs2f4.png/180px-JL_mengyouyou.png"
+  },
+  {
+    "name": "梦悠悠（穿星星睡衣的样子）",
+    "类型": ["二阶", "地区形态"],
+    "属性": ["幽"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/8/8d/4lscrtkv75q1a5fi2frdgqdymw12mkt.png/180px-JL_mengyouyou_pink.png"
   },
   {
     "name": "兽花蕾",
@@ -1004,14 +1074,14 @@
     "name": "伊贝儿",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["草"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/2b/nkh6zw4gn7uujd2sxbzd2so9w6wgmdg.png/180px-JL_yibeier.png"
   },
   {
     "name": "伊贝粉粉",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["草"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9c/dno8u91y68nj2trjtnvo2eswj6vwzqj.png/180px-JL_yibeifenfen.png"
   },
   {
@@ -1039,56 +1109,56 @@
     "name": "海盔虫",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/74/k1xrtaw9trebnthviohuao46gex9nbr.png/180px-JL_haikuichong.png"
   },
   {
     "name": "海盔虫（磨损的样子）",
     "类型": ["一阶", "地区形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/6c/tciyytxpvowaxmq5ovcwgahwq1ndgiu.png/180px-JL_haikuichong_yidi.png"
   },
   {
     "name": "刺盔虫",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/63/elmhi8hbg54kb64cdo2hevdslmcmnwf.png/180px-JL_cikuichong.png"
   },
   {
     "name": "刺盔虫（磨损的样子）",
     "类型": ["二阶", "地区形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/59/cd9lvezthz8e1au8gkklyoxm67bicax.png/180px-JL_cikuichong_yidi.png"
   },
   {
     "name": "千棘盔",
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/70/4jj6f2sn5j3nie33npav7uxhka8ivo1.png/180px-JL_qianjikui.png"
   },
   {
     "name": "千棘盔（磨损的样子）",
     "类型": ["三阶", "地区形态"],
     "属性": ["水"],
-    "异色": "无异色",
-    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/1e/9gmaa98jw1z5m5s11ax3d5s7trt9bfj.png/180px-JL_qianjikui_yidi.png"
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/1e/tpb3r0v7d9wrl6bjdskgge4zql4lc2s.png/180px-JL_qianjikui_yidi.png"
   },
   {
     "name": "千棘海针",
     "类型": ["首领形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/6c/c12nvd5tzkp8raye3qk3w7bkbujoet0.png/180px-JL_qianjikui_shouling.png"
   },
   {
     "name": "千棘海针（磨损的样子）",
     "类型": ["首领形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/6c/c12nvd5tzkp8raye3qk3w7bkbujoet0.png/180px-JL_qianjikui_shouling.png"
   },
   {
@@ -1256,21 +1326,21 @@
     "name": "小草虫",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["虫"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/66/mln1z8fodt08k502sg65r85iun52aj2.png/180px-JL_xiaocaochong.png"
   },
   {
     "name": "草衣虫",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["虫"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/74/32eo2dh81m71u1ndbw7ltwwnmatiqba.png/180px-JL_caoyichong.png"
   },
   {
     "name": "花衣蝶",
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["虫"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/b7/tixzqs58uswzrvb5xgrg0lbh8w3iyc2.png/180px-JL_huayidie.png"
   },
   {
@@ -1344,7 +1414,7 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/a/a3/88s1q5qt4a8scdw4yf9gqu9hfqr741j.png/180px-JL_caidiesha.png"
   },
   {
-    "name": "神谕鲨（首领形态·第3阶段）",
+    "name": "神谕鲨",
     "类型": ["首领形态"],
     "属性": ["水"],
     "异色": "无异色",
@@ -1454,6 +1524,20 @@
     "属性": ["普通"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/0/03/euosawzqxqsd9o3eonundx3fikd1qo2.png/180px-JL_fengguanmuchong_yidi.png"
+  },
+  {
+    "name": "暮风隐者（金黄的样子）",
+    "类型": ["首领形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/d/da/0jr3hj3nslqtjvkemzeruw3glg0g3j5.png/180px-JL_fenggunmuchong_shouling.png"
+  },
+  {
+    "name": "暮风隐者（枯叶的样子）",
+    "类型": ["首领形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/d/da/0jr3hj3nslqtjvkemzeruw3glg0g3j5.png/180px-JL_fenggunmuchong_shouling.png"
   },
   {
     "name": "小黑猫",
@@ -1914,14 +1998,14 @@
     "name": "斑斑",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["翼"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/b7/8oe6ci1x37bwdyma3c0iqftbcogeh0m.png/180px-JL_banban.png"
   },
   {
     "name": "斑枭",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["翼"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/0/0b/qjdup6hsilf24zxpyivab52fxiwzf49.png/180px-JL_banxiao.png"
   },
   {
@@ -2016,15 +2100,15 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/51/ov9yp8vt1i0h83538ou3se782wgpq3d.png/180px-JL_qiqishi_yidi.png"
   },
   {
-    "name": "棋契陛下（第1条）",
-    "类型": ["一阶", "地区形态"],
+    "name": "棋契陛下（白棋棋骑士分支）",
+    "类型": ["首领形态"],
     "属性": ["武"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
   },
   {
-    "name": "棋契陛下（黑子）",
-    "类型": ["一阶", "地区形态"],
+    "name": "棋契陛下（黑棋棋骑士分支）",
+    "类型": ["首领形态"],
     "属性": ["武"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
@@ -2044,8 +2128,15 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/c7/8yh0kcq7de7ik9c2xqv95p52sggqbji.png/180px-JL_qiqilei_yidi.png"
   },
   {
-    "name": "棋契陛下（第2条）",
-    "类型": ["一阶", "地区形态"],
+    "name": "棋契陛下（白棋棋绮后分支）",
+    "类型": ["首领形态"],
+    "属性": ["武"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
+  },
+  {
+    "name": "棋契陛下（黑棋棋绮后分支）",
+    "类型": ["首领形态"],
     "属性": ["武"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
@@ -2065,8 +2156,15 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/97/qgz5weru02xj1hvnyxd37ti6s1h6j22.png/180px-JL_qiqidu_yidi.png"
   },
   {
-    "name": "棋契陛下（第3条）",
-    "类型": ["一阶", "地区形态"],
+    "name": "棋契陛下（白棋棋齐垒分支）",
+    "类型": ["首领形态"],
+    "属性": ["武"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
+  },
+  {
+    "name": "棋契陛下（黑棋棋齐垒分支）",
+    "类型": ["首领形态"],
     "属性": ["武"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
@@ -2086,8 +2184,15 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/c2/5z0no902h9vkvw8v5s9lxepk3xdub5t.png/180px-JL_qiqihou_yidi.png"
   },
   {
-    "name": "棋契陛下（第4条）",
-    "类型": ["一阶", "地区形态"],
+    "name": "棋契陛下（白棋棋祈督分支）",
+    "类型": ["首领形态"],
+    "属性": ["武"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
+  },
+  {
+    "name": "棋契陛下（黑棋棋祈督分支）",
+    "类型": ["首领形态"],
     "属性": ["武"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9a/9iwy5xzs7f6j0putgp6b9rek6egd51x.png/180px-JL_qiqibixia.png"
@@ -2146,14 +2251,14 @@
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["萌"],
     "异色": "无异色",
-    "img": "https://patchwiki.biligame.com/images/rocom/thumb/3/34/dnug9zpyexzqu5bdkmyr6202nqq4s2y.png/180px-JL_qimengmi.png"
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/3/34/93cyjy4vtse28htwmc1qm4zq908iuh3.png/180px-JL_qimengmi.png"
   },
   {
     "name": "奇梦咪",
     "类型": ["首领形态"],
     "属性": ["萌"],
     "异色": "无异色",
-    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/ec/97tnhofts2kpem3b8rma442dobnjxrw.png/180px-JL_qimengmi_shouling.png"
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/ec/ctsyqecojfoyr0awkuijgh8cutxte29.png/180px-JL_qimengmi_shouling.png"
   },
   {
     "name": "花怨鳗",
@@ -2203,6 +2308,13 @@
     "属性": ["电"],
     "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/d/d0/c454d79g1zz26le95n44a2dpgslodq2.png/180px-JL_kula.png"
+  },
+  {
+    "name": "风暴酷拉",
+    "类型": ["首领形态"],
+    "属性": ["电"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/a/a4/enm2j6n09bmh5frhzf5ang8ipqj7soc.png/180px-JL_kula_shouling.png"
   },
   {
     "name": "闪电环",
@@ -2404,28 +2516,28 @@
     "name": "小鹬",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["翼"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/1b/iuf7tg850fiz59m1gr3pyd2khkj9z55.png/180px-JL_xiaoyu.png"
   },
   {
     "name": "鄙目鹬",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["翼"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/c3/qsojdf7xi75j3nijynxzo9yngxdv0lv.png/180px-JL_bimuyu.png"
   },
   {
     "name": "高脚鹬",
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["翼"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/8/8e/1jyqukw13p5y9pl2alvhl2hf98jxpj4.png/180px-JL_gaojiaoyu.png"
   },
   {
     "name": "高帽鹬者",
     "类型": ["首领形态"],
     "属性": ["翼"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/cd/8hsbqxbz4x483xuy1bbg2kge4eoqhlo.png/180px-JL_gaomaoyuzhe.png"
   },
   {
@@ -2551,21 +2663,21 @@
     "name": "豆丁鱼",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/1d/5irnlmgv0lohvpm6uk2jq0kzh7o1313.png/180px-JL_doudingyu.png"
   },
   {
     "name": "快鳍鱼",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/22/styohtlkc3dbbx0w42tt3ctvjgnnp83.png/180px-JL_kuaiqiyu.png"
   },
   {
     "name": "龙鱼",
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["水"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f3/qgqfzdxms6u3id2i61yqjzioe7uyhw2.png/180px-JL_yulong.png"
   },
   {
@@ -2761,28 +2873,28 @@
     "name": "可立鸡",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["火"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/8/8f/es1fidhdn775evke030wdrk15dnltrg.png/180px-JL_keliji.png"
   },
   {
     "name": "晕晕鸡",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["火"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9b/gpb1n1n689sea7cu4sv1tz8k72tdthp.png/180px-JL_yunyunji.png"
   },
   {
     "name": "绅士鸡",
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["火"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/7b/g34k0n05zw02op7dyckttb05g8txeba.png/180px-JL_shenshiji.png"
   },
   {
     "name": "武者鸡",
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["火"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f0/laljotowuigs1fvm7vuidw3qe5qt1km.png/180px-JL_wuzheji.png"
   },
   {
@@ -2838,42 +2950,42 @@
     "name": "地鼠（枯水期的样子）",
     "类型": ["一阶", "地区形态", "主形态"],
     "属性": ["地"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/b4/idyb58forcmd0yzckcc4j6rdmk36zpq.png/180px-JL_dishu.png"
   },
   {
     "name": "地鼠（储水时的样子）",
     "类型": ["一阶", "地区形态"],
     "属性": ["地"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/b1/dxn3qrp349n305y0qnhc8glzaswtl1h.png/180px-JL_dishu_xushui.png"
   },
   {
     "name": "遁鼠（枯水期的样子）",
     "类型": ["二阶", "地区形态", "主形态"],
     "属性": ["地"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/ba/dfww1rsfrj64x7l1etve2rzksjgwxzk.png/180px-JL_dunshu.png"
   },
   {
     "name": "遁鼠（储水时的样子）",
     "类型": ["二阶", "地区形态"],
     "属性": ["地"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/0/09/l9i7iqs9nmzc93i5an8ig1pq3qvy8q9.png/180px-JL_dunshu_xushui.png"
   },
   {
     "name": "遁地鼠（枯水期的样子）",
     "类型": ["三阶", "地区形态", "主形态"],
     "属性": ["地"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/78/7v0gek5nbyae4bpzt5by7klm2270dnu.png/180px-JL_dundishu.png"
   },
   {
     "name": "遁地鼠（储水时的样子）",
     "类型": ["三阶", "地区形态"],
     "属性": ["地"],
-    "异色": "无异色",
+    "异色": "有异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/cc/14oi299x97orfeuyhw89xi3alz7o94v.png/180px-JL_dundishu_xushui.png"
   },
   {
@@ -2945,6 +3057,13 @@
     "属性": ["地"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/97/50kuzamtt3zkqecr32yq7nx1gu28b7k.png/180px-JL_nihouya.png"
+  },
+  {
+    "name": "淤泥乌泽",
+    "类型": ["首领形态"],
+    "属性": ["地"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/a/a4/bxy8wzv23f2xvlmqzzml1jbwx89afoa.png/180px-JL_nihouya_shouling.png"
   },
   {
     "name": "大头骨龙",
@@ -3234,6 +3353,13 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/ff/f0tb5yfrc0iqj0i1mrr8zdoyup7f0xb.png/180px-JL_yexiao.png"
   },
   {
+    "name": "暗夜颅主",
+    "类型": ["首领形态"],
+    "属性": ["幽"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/2e/hmo0f6is0yzwi459wh0i4e65gaslpip.png/180px-JL_anyeluzhu.png"
+  },
+  {
     "name": "粉粉星",
     "类型": ["一阶", "原始形态", "主形态"],
     "属性": ["电"],
@@ -3283,7 +3409,7 @@
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/55/083mrtvn6hk0iyimlzhrui7ftvlq1da.png/180px-JL_fenerxingtu.png"
   },
   {
-    "name": "落陨星兔（信使精灵）",
+    "name": "落陨星兔",
     "类型": ["二阶", "原始形态", "主形态"],
     "属性": ["幻"],
     "异色": "有异色",
@@ -3399,7 +3525,7 @@
     "类型": ["三阶", "原始形态", "主形态"],
     "属性": ["翼"],
     "异色": "无异色",
-    "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/5c/9b098u73qzosr3kjqsl04dqq6kuka0w.png/180px-JL_fanying.png"
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/5c/4w3o2ulopdfxovbqdbu34iyqmdo8jt1.png/180px-JL_fanying.png"
   },
   {
     "name": "小雪人",
@@ -3561,5 +3687,460 @@
     "属性": ["武"],
     "异色": "无异色",
     "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/ed/bz09h3dbir06hbddrcvvjhnkqv9jqui.png/180px-JL_xueyuanguagua.png"
+  },
+  {
+    "name": "烈钻鸟",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/d/dc/jjms0e2suktnez07yolwstte0p3o5c0.png/180px-JL_liezuanniao.png"
+  },
+  {
+    "name": "长尾火鸟",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/0/02/px31h3o8878d9sze90mb33v0vf2q2jy.png/180px-JL_changweihuoniao.png"
+  },
+  {
+    "name": "火羽",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/24/0zaa8xghxtgg1g51dpl1qbirkcew9a4.png/180px-JL_huoyu.png"
+  },
+  {
+    "name": "叮叮卯",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["机械"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9d/apeox47541b0hyg5h0ja2b9u5paoq3o.png/180px-JL_dingdingmao.png"
+  },
+  {
+    "name": "飞飞钥",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["机械"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/28/d5rdhassttsq5gviwzbzj1du9qxp7n2.png/180px-JL_feifeiyao.png"
+  },
+  {
+    "name": "碎晶蝎",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/60/2jabctmj0bhlsc7v294r4vsjerzumaq.png/180px-JL_suijingxie.png"
+  },
+  {
+    "name": "晶尾蝎",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/b6/0p0psma11lb5o5uo2ym7ujy3jme4u6i.png/180px-JL_jingweixie.png"
+  },
+  {
+    "name": "蝎子王",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/8/8a/9x8ufk91ohkgy25yq12fqjb6uzyhncq.png/180px-JL_xieziwang.png"
+  },
+  {
+    "name": "森豆丁",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["草"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/8/8a/s0qy88eoymuyq4883e8p3va4y0k887d.png/180px-JL_sendouding.png"
+  },
+  {
+    "name": "森蛮人",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["草"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f5/kaes06w23eeftbfzrddlu8rct4qzm93.png/180px-JL_senmanren.png"
+  },
+  {
+    "name": "森巨人",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["草"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/6e/af9sop6j6apn3ou2mzoeg77hbgmhjgl.png/180px-JL_senjuren.png"
+  },
+  {
+    "name": "霹雳宝宝",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["电"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/3/39/0qqq0gfpw2q2vyptvexuwe3hwany938.png/180px-JL_pilibaobao.png"
+  },
+  {
+    "name": "雷鸣小子",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["电"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/a/ae/hho5axcw0i2uhw2e1et7ay4wp297oif.png/180px-JL_leimingwang.png"
+  },
+  {
+    "name": "雷神之子",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["电"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/3/3c/jxnqg5v5ym5vqqdz0zyq6g09xqi169c.png/180px-JL_leishenzhizi.png"
+  },
+  {
+    "name": "雪灵兽",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["冰"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/b/b1/122afrygb5epklj19ofbp1ji6koz427.png/180px-JL_xuelingshou.png"
+  },
+  {
+    "name": "幻雪兽",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["冰"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/1d/5f08lvzil441dbmxu8u6hwrsmsbuomq.png/180px-JL_huanxueshou.png"
+  },
+  {
+    "name": "饮雪狂兽",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["冰"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/c0/043435p3wckqewibxioiw741zya0o37.png/180px-JL_yinxuekuangshou.png"
+  },
+  {
+    "name": "火豆丁",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/ef/6b3hyt3nh3f2lussmaom8wr7yox3ua4.png/180px-JL_huodouding.png"
+  },
+  {
+    "name": "火蛮人",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/4/41/e3qymck4mtebny32bx8qavg5qu20c4t.png/180px-JL_huomanren.png"
+  },
+  {
+    "name": "火巨人",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/77/nly2qxv1bau3t5sd5sdh84ve9azhtyo.png/180px-JL_huojuren.png"
+  },
+  {
+    "name": "友爱天天",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/fa/npvana713r65mc53dvfukbvfub0xpzc.png/180px-JL_tiantian.png"
+  },
+  {
+    "name": "友爱星飞",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/18/lt9ekfaptlbqprs65bsxqdngaiawk7q.png/180px-JL_feifei.png"
+  },
+  {
+    "name": "莫比乌乌",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["龙"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/17/dmb9sgdyyup7jst0xooitijhgx9rjfx.png/180px-JL_mobiwuwu.png"
+  },
+  {
+    "name": "克莱因龙",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["龙"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/5b/r977zv3ri4xjlmgdwd4w2oqai3il04k.png/180px-JL_huanliumobi.png"
+  },
+  {
+    "name": "瑰眼仔",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/99/19zlz9e8a4qr26msjlcnfrfno34zt6v.png/180px-JL_guiyankungchong.png"
+  },
+  {
+    "name": "耳翎瑰魅",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/9d/mueiyix3fplljlezqlxk4ba8m9hzzxo.png/180px-JL_erlingguimei.png"
+  },
+  {
+    "name": "邪眼巨魔",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/cb/jjsiczbj9nf8vz6voaruiuhy79rykis.png/180px-JL_jumoxiechong.png"
+  },
+  {
+    "name": "觅觅蝠",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["翼"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/23/0qupktqi94l8rfrtl8893sheyeki9mm.png/180px-JL_mimifu.png"
+  },
+  {
+    "name": "翻翻蝠",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["翼"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/fe/rblkyrh9l5i9bcx7mbahzqz9a2s8hny.png/180px-JL_fanfanfu.png"
+  },
+  {
+    "name": "夜游魔",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["翼"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/ea/sdqaur83km93n466wrbeezxe2oeg4vi.png/180px-JL_yeyoumo.png"
+  },
+  {
+    "name": "芽眼魔",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/fd/ohy1fy3gteyfx3prlxjssnj80c46rcw.png/180px-JL_yayanmo.png"
+  },
+  {
+    "name": "叶眼魔",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/7f/e2fdvt0h6bk8uutq0j95g8xaxrzlg9g.png/180px-JL_yeyanmo.png"
+  },
+  {
+    "name": "障眼魔",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/7c/8as6bjpzxptw7bbva7sbqwbws9z3vvn.png/180px-JL_duyanjumo.png"
+  },
+  {
+    "name": "星云旅者",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["翼"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/12/tuarez4la0kulipzcw883faftsgrg2c.png/180px-JL_xingyunlvzhe.png"
+  },
+  {
+    "name": "点点",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["萌"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/a/ab/qd7adjxohckrg65s5f8zulzyyvuy968.png/180px-JL_diandian.png"
+  },
+  {
+    "name": "珀尔鼬",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["萌"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/5a/ahkmli2t67thkk2eoo44s3qvyrztgte.png/180px-JL_boeryou.png"
+  },
+  {
+    "name": "不咕钟",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["机械"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/e0/5ermqxnpjcymaoiy8ezd3dg8920c4qj.png/180px-JL_buguzhong.png"
+  },
+  {
+    "name": "溯源钟",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["机械"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/e0/4b4bho6x4yiz9vj1rzoqj8czcnyplg0.png/180px-JL_suyuanzhong.png"
+  },
+  {
+    "name": "加灵",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/cc/oqf25vh0yb5fqlb7o6h3lnydr0k6x4f.png/180px-JL_jialing.png"
+  },
+  {
+    "name": "加益",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/55/h0vvc93svknaog217vwrie1t2w5qior.png/180px-JL_jiayi.png"
+  },
+  {
+    "name": "加尔",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/4/4f/7s289cl0m4qf6ortplhy45povk7injp.png/180px-JL_jiaer.png"
+  },
+  {
+    "name": "黑化加尔",
+    "类型": ["三阶", "地区形态", "主形态"],
+    "属性": ["普通"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/8/8c/p5x8b5zgquba7gff0yeoemk0148m2tz.png/180px-JL_heihuajiaer.png"
+  },
+  {
+    "name": "咬咬小子",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["机械"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/ef/43vg7om5bep7clqt6ds052x0ykn6jlk.png/180px-JL_yaoyaoxiaozi.png"
+  },
+  {
+    "name": "胡桃王子",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["机械"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/0/08/o8hm4tmgv7qhavj2875zvtdbhavb6yr.png/180px-JL_hutaowangzi.png"
+  },
+  {
+    "name": "足尖元件",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["幻"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/28/0m1u8wly70487j97bi0i5w70oganmpu.png/180px-JL_zujianyuanjian.png"
+  },
+  {
+    "name": "离心舞者",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["幻"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/c2/pkidvyr3bec7k40336sdg9azo6o9fkk.png/180px-JL_lixinwuzhe.png"
+  },
+  {
+    "name": "蝴蝶陶陶",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["萌"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/2d/sjze90hnig3ebjygzd9rrcail55kurm.png/180px-JL_hudietaotao.png"
+  },
+  {
+    "name": "铆钉毛毛",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["萌"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/c/cf/blqd3q1n5wf11h79hcg7ua27qsehw83.png/180px-JL_maolaoda.png"
+  },
+  {
+    "name": "徘徊爪爪",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["萌"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/15/kcc1s6sdn0igd6efzeuwjxx39rtg2ke.png/180px-JL_maolaoye.png"
+  },
+  {
+    "name": "苞米仔",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["草"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/7e/olbb4wztiilvp9ti9nsk35mhzhgtk4m.png/180px-JL_baomizai.png"
+  },
+  {
+    "name": "炮米花",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["草"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/e/e2/50fz0qfxi1ara3jek3r04r2i0rseflz.png/180px-JL_baomihua.png"
+  },
+  {
+    "name": "十字蝌蚪",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["水"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f7/gz7igvh42wd6oy38lsrilymae2jhmf9.png/180px-JL_shizikedou.png"
+  },
+  {
+    "name": "十字蛙",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["水"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f0/22z8g3b2qqzrvkguoxp23mxmzz62fwk.png/180px-JL_shiziwa.png"
+  },
+  {
+    "name": "深渊蛙",
+    "类型": ["三阶", "原始形态", "主形态"],
+    "属性": ["水"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/d/d3/lv4emi7go1c3fk8ti6xw9937bt1e7oa.png/180px-JL_shenyuanwa.png"
+  },
+  {
+    "name": "卡波",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/2/20/0nft4gmkrk9qem4fvbmt8kdop90j1zq.png/180px-JL_xieefangchui.png"
+  },
+  {
+    "name": "卡拉波斯",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["恶"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/1/19/nbnin5mfpo2j8rx95seno12ssiwcmzw.png/180px-JL_hunshuifangchui.png"
+  },
+  {
+    "name": "守夜烛",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/97/c9sp16gcjwpp95llppr1ah9z4ni2tl8.png/180px-JL_shouyezhu.png"
+  },
+  {
+    "name": "流明坎德拉",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["火"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/4/43/gtet7642l18wuao0unue8g2cn9j1n47.png/180px-JL_liumingkandela.png"
+  },
+  {
+    "name": "蜜果骸",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["幽"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/7/73/g1j76ib7woq13d605y13ybmzo3hz5cc.png/180px-JL_miguohai.png"
+  },
+  {
+    "name": "半朽蜜果灵",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["幽"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/6e/sr496zto4upyl3x6elpvwg0olffs2cm.png/180px-JL_banxiumiguoling.png"
+  },
+  {
+    "name": "稻草人",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["萌"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/5/5e/fas0nu20q0dw7tf3rql5xzzk0pdxu1y.png/180px-JL_daocaoren.png"
+  },
+  {
+    "name": "稻草守护者",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["萌"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/0/07/jsevgyws6ks3ac4yguhmmtkb9vxdbu3.png/180px-JL_daocaoshouhuzhe.png"
+  },
+  {
+    "name": "栗鼠",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["毒"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/f/f0/l4844735qy7f02rgzm28vqkeza9mp0l.png/180px-JL_lishu.png"
+  },
+  {
+    "name": "壳栗丝鼠",
+    "类型": ["二阶", "原始形态", "主形态"],
+    "属性": ["毒"],
+    "异色": "有异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/9/90/2josvsz6kkq59r8ozcm27u1ctddi8kb.png/180px-JL_kelisishu.png"
+  },
+  {
+    "name": "睡铃雪影娃娃",
+    "类型": ["一阶", "原始形态", "主形态"],
+    "属性": ["冰"],
+    "异色": "无异色",
+    "img": "https://patchwiki.biligame.com/images/rocom/thumb/6/6a/15j0n84aepubl8b3suhh84s0q52dz9g.png/180px-JL_xueyingwawachunri.png"
   }
 ]

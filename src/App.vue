@@ -67,7 +67,8 @@
       <div>
         <el-text>
           <a :href="authorUrl" target="_blank">作者：Snownee</a>
-          - 最后更新：{{ buildTime }}
+          - 最后更新：{{ buildTime }}{{ isVanilla ? "" : " - " }}
+          <a v-if="!isVanilla" :href="vanillaUrl">沙盒模式</a>
         </el-text>
       </div>
 
@@ -98,7 +99,8 @@
 </template>
 
 <script setup>
-import { namespace, data, presets, lang, uiSettings } from "./data";
+import * as InitData from "./data.js";
+import * as VanillaData from "./data_v.js";
 import { ref, onMounted, onUnmounted, watch } from "vue";
 import contenteditable from "vue-contenteditable";
 import {
@@ -118,6 +120,9 @@ import { usePersistence } from "./composables/usePersistence.js";
 import { usePlatform } from "./composables/usePlatform.js";
 import { PREDEFINE_COLORS } from "./utils/constants.js";
 
+const params = new URLSearchParams(window.location.search);
+const isVanilla = InitData.namespace === "v" || params.has("v");
+const { namespace, data, presets, lang, uiSettings } = isVanilla ? VanillaData : InitData;
 const buildTime = __BUILD_TIME__;
 
 const translate = (key) => {
@@ -137,7 +142,6 @@ const subtitle = ref(translate("subtitle"));
 const localChars = ref([]);
 const nextLocalCharId = ref(-1);
 
-const isVanilla = namespace === "v";
 const cardNameVisible = ref(true);
 const vanillaCardScale = ref(100);
 const vanillaCardWidth = ref(0);
@@ -310,7 +314,6 @@ onMounted(() => {
     return;
   }
   // 尝试从 URL 参数加载数据
-  const params = new URLSearchParams(window.location.search);
   // 尝试加载预设
   if (params.has("p")) {
     const preset = presets.find((p) => p.name === params.get("p"));
@@ -553,4 +556,6 @@ const addLocalImages = async (files) => {
     `已添加 ${newChars.length} 个${translate('角色')}。${translate('请注意，本地角色会在刷新页面后丢失。')}`,
   );
 };
+
+const vanillaUrl = `${window.location.origin}${window.location.pathname}?v`;
 </script>
