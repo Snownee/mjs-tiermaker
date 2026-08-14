@@ -3,14 +3,18 @@
     @close="onClose">
     <div>
       <div>
-        <el-checkbox v-model="props.filterConfig.showNotAdded" label="未添加" />
-        <el-checkbox v-model="props.filterConfig.showAdded" label="已添加" />
+        <el-checkbox :model-value="filterConfig.showNotAdded"
+          @update:model-value="(value) => updateFilter({ showNotAdded: value })" label="未添加" />
+        <el-checkbox :model-value="filterConfig.showAdded"
+          @update:model-value="(value) => updateFilter({ showAdded: value })" label="已添加" />
       </div>
-      <el-select v-model="props.filterConfig.factionFilter" v-if="props.filterConfig.showFactionFilter" clearable
-        multiple collapse-tags collapse-tags-tooltip :placeholder="translate('类别')" size="small">
+      <el-select :model-value="filterConfig.factionFilter"
+        @update:model-value="(value) => updateFilter({ factionFilter: value })"
+        v-if="filterConfig.showFactionFilter" clearable multiple collapse-tags collapse-tags-tooltip
+        :placeholder="translate('类别')" size="small">
         <el-option v-for="faction in factions" :key="faction" :label="faction" :value="faction"></el-option>
       </el-select>
-      <el-select v-for="filter in props.filterConfig.extraFilters" :key="filter.name" class="extra-filter"
+      <el-select v-for="filter in filterConfig.extraFilters" :key="filter.name" class="extra-filter"
         :model-value="filter.value" @update:model-value="(value) => (filter.value = value)" :multiple="filter.multiple"
         clearable collapse-tags collapse-tags-tooltip :placeholder="filter.label" size="small">
         <el-option v-for="option in filter.options" :key="option" :label="option" :value="option"></el-option>
@@ -34,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 
 const props = defineProps({
   visible: Boolean,
@@ -45,7 +49,13 @@ const props = defineProps({
   getAsset: Function,
 });
 
-const emit = defineEmits(["update:visible", "select-char", "opened", "close"]);
+const emit = defineEmits(["update:visible", "select-char", "opened", "close", "update-filter-config"]);
+
+const filterConfig = computed(() => props.filterConfig);
+
+const updateFilter = (patch) => {
+  emit("update-filter-config", patch);
+};
 
 const dialogVisible = ref(props.visible);
 

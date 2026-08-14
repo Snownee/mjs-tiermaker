@@ -95,10 +95,12 @@
       </el-button>
 
       <SelectDialog v-model:visible="selectDialogVisible" :filtered-chars="filteredChars" :factions="factions"
-        :filter-config="filterConfig" :translate="translate" :get-asset="asset" @select-char="select" />
+        :filter-config="filterConfig" :translate="translate" :get-asset="asset" @select-char="select"
+        @update-filter-config="handleUpdateFilterConfig" />
 
       <EditTierDialog v-model:visible="tierDialogVisible" :current-tier="currentTier"
-        :predefine-colors="PREDEFINE_COLORS" @add-tier="handleAddTier" @remove-tier="handleRemoveTier" />
+        :predefine-colors="PREDEFINE_COLORS" @add-tier="handleAddTier" @remove-tier="handleRemoveTier"
+        @update-tier="handleUpdateTier" />
 
       <FallbackCopyDialog v-model:visible="fallbackCopyDialogVisible" :copy-text="fallbackCopy" />
     </div>
@@ -153,8 +155,8 @@ const cardNameVisible = ref(true);
 const vanillaCardScale = ref(100);
 const vanillaCardWidth = ref(0);
 const vanillaCardHeight = ref(0);
-watch(vanillaCardScale, _ => updateVanillaCardSize());
-watch(cardNameVisible, _ => updateVanillaCardSize());
+watch(vanillaCardScale, () => updateVanillaCardSize());
+watch(cardNameVisible, () => updateVanillaCardSize());
 
 // Initialize composables
 const {
@@ -463,6 +465,14 @@ const handleAddTier = (position) => {
 const handleRemoveTier = () => {
   removeTierFromList(currentTier.value);
   tierDialogVisible.value = false;
+};
+
+const handleUpdateTier = (patch) => {
+  Object.assign(currentTier.value, patch);
+};
+
+const handleUpdateFilterConfig = (patch) => {
+  Object.assign(filterConfig.value, patch);
 };
 
 const share = () => {

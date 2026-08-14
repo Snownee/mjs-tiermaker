@@ -1,8 +1,10 @@
 <template>
   <el-dialog class="edit-tier-dialog" v-model="dialogVisible" title="编辑等级" center :show-close="false">
     <div class="edit-tier-container">
-      <el-color-picker v-model="currentTier.color" :predefine="predefineColors" size="large" />
-      <el-input ref="input" v-model="currentTier.name" style="flex: 1" size="large" />
+      <el-color-picker :model-value="currentTier.color" @update:model-value="(value) => updateTier({ color: value })"
+        :predefine="predefineColors" size="large" />
+      <el-input ref="input" :model-value="currentTier.name" @update:model-value="(value) => updateTier({ name: value })"
+        style="flex: 1" size="large" />
     </div>
     <template #footer>
       <div class="dialog-footer">
@@ -34,7 +36,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:visible", "add-tier", "remove-tier"]);
+const emit = defineEmits(["update:visible", "add-tier", "remove-tier", "update-tier"]);
 
 const dialogVisible = ref(false);
 const input = ref(null);
@@ -60,6 +62,10 @@ watch(dialogVisible, (newVal) => {
 
 const addTier = (position) => {
   emit("add-tier", position);
+};
+
+const updateTier = (patch) => {
+  emit("update-tier", patch);
 };
 
 const removeTier = () => {
