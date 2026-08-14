@@ -1,63 +1,24 @@
 <template>
-  <el-dialog
-    class="select-char-dialog"
-    v-model="dialogVisible"
-    :title="translate('选择角色')"
-    center
-    @opened="onOpened"
-    @close="onClose"
-  >
+  <el-dialog class="select-char-dialog" v-model="dialogVisible" :title="translate('选择角色')" center @opened="onOpened"
+    @close="onClose">
     <div>
       <div>
         <el-checkbox v-model="props.filterConfig.showNotAdded" label="未添加" />
         <el-checkbox v-model="props.filterConfig.showAdded" label="已添加" />
       </div>
-      <el-select
-        v-model="props.filterConfig.factionFilter"
-        v-if="props.filterConfig.showFactionFilter"
-        clearable
-        multiple
-        collapse-tags
-        collapse-tags-tooltip
-        :placeholder="translate('类别')"
-        size="small"
-      >
-        <el-option
-          v-for="faction in factions"
-          :key="faction"
-          :label="faction"
-          :value="faction"
-        ></el-option>
+      <el-select v-model="props.filterConfig.factionFilter" v-if="props.filterConfig.showFactionFilter" clearable
+        multiple collapse-tags collapse-tags-tooltip :placeholder="translate('类别')" size="small">
+        <el-option v-for="faction in factions" :key="faction" :label="faction" :value="faction"></el-option>
       </el-select>
-      <el-select
-        v-for="filter in props.filterConfig.extraFilters"
-        :key="filter.name"
-        class="extra-filter"
-        :model-value="filter.value"
-        @update:model-value="(value) => (filter.value = value)"
-        :multiple="filter.multiple"
-        clearable
-        collapse-tags
-        collapse-tags-tooltip
-        :placeholder="filter.label"
-        size="small"
-      >
-        <el-option
-          v-for="option in filter.options"
-          :key="option"
-          :label="option"
-          :value="option"
-        ></el-option>
+      <el-select v-for="filter in props.filterConfig.extraFilters" :key="filter.name" class="extra-filter"
+        :model-value="filter.value" @update:model-value="(value) => (filter.value = value)" :multiple="filter.multiple"
+        clearable collapse-tags collapse-tags-tooltip :placeholder="filter.label" size="small">
+        <el-option v-for="option in filter.options" :key="option" :label="option" :value="option"></el-option>
       </el-select>
     </div>
     <div class="select-char-container">
-      <div
-        v-for="char in filteredChars"
-        :key="char.id"
-        class="select-char-item"
-        :class="{ selected: char.selected }"
-        @click="onSelect(char)"
-      >
+      <div v-for="char in filteredChars" :key="char.id" class="select-char-item" :class="{ selected: char.selected }"
+        @click="onSelect(char)">
         <el-image :src="char.imageUrl || getAsset(`${char.faction}/${char.name}.webp`)" />
         <div>{{ char.displayName || char.name }}</div>
       </div>

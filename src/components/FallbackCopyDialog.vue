@@ -1,18 +1,7 @@
 <template>
-  <el-dialog
-    class="fallback-copy-dialog"
-    v-model="dialogVisible"
-    title="请复制"
-    center
-  >
+  <el-dialog class="fallback-copy-dialog" v-model="dialogVisible" title="请复制" center>
     <div>
-      <el-input
-        v-model="localCopyText"
-        style="width: 100%"
-        :rows="6"
-        type="textarea"
-        placeholder=""
-      />
+      <el-input v-model="localCopyText" style="width: 100%" :rows="6" type="textarea" placeholder="" />
     </div>
     <template #footer>
       <div class="dialog-footer">

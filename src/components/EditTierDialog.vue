@@ -1,23 +1,8 @@
 <template>
-  <el-dialog
-    class="edit-tier-dialog"
-    v-model="dialogVisible"
-    title="编辑等级"
-    center
-    :show-close="false"
-  >
+  <el-dialog class="edit-tier-dialog" v-model="dialogVisible" title="编辑等级" center :show-close="false">
     <div class="edit-tier-container">
-      <el-color-picker
-        v-model="currentTier.color"
-        :predefine="predefineColors"
-        size="large"
-      />
-      <el-input
-        ref="input"
-        v-model="currentTier.name"
-        style="flex: 1"
-        size="large"
-      />
+      <el-color-picker v-model="currentTier.color" :predefine="predefineColors" size="large" />
+      <el-input ref="input" v-model="currentTier.name" style="flex: 1" size="large" />
     </div>
     <template #footer>
       <div class="dialog-footer">

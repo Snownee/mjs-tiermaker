@@ -8,10 +8,11 @@ import { ref, watch } from "vue";
  */
 export const useCharacters = (data, uiSettings, localChars) => {
   const filteredChars = ref([]);
-  const { chars: baseChars, factions: baseFactions, filterConfig } = processData(
-    data,
-    uiSettings,
-  );
+  const {
+    chars: baseChars,
+    factions: baseFactions,
+    filterConfig,
+  } = processData(data, uiSettings);
   const chars = ref([]);
   const factions = ref([]);
 
@@ -54,7 +55,10 @@ export const useCharacters = (data, uiSettings, localChars) => {
 
     chars.value = [...extraChars, ...baseChars.value];
     factions.value = [
-      ...new Set([...extraChars.map((char) => char.faction), ...baseFactions.value]),
+      ...new Set([
+        ...extraChars.map((char) => char.faction),
+        ...baseFactions.value,
+      ]),
     ];
     filterChars();
   };

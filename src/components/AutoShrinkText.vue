@@ -1,21 +1,9 @@
 <template>
   <div ref="container" class="shrink-container">
-    <svg
-      v-if="isOverflowing"
-      :viewBox="`0 0 ${textWidth} ${textHeight}`"
-      width="100%"
-      height="100%"
-      preserveAspectRatio="none"
-      class="svg-text"
-    >
-      <text
-        x="50%"
-        y="50%"
-        dominant-baseline="middle"
-        text-anchor="middle"
-        :font-size="fontSize"
-        :font-family="fontFamily"
-      >
+    <svg v-if="isOverflowing" :viewBox="`0 0 ${textWidth} ${textHeight}`" width="100%" height="100%"
+      preserveAspectRatio="none" class="svg-text">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" :font-size="fontSize"
+        :font-family="fontFamily">
         {{ text }}
       </text>
     </svg>

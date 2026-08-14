@@ -45,6 +45,8 @@
         <el-button type="primary" @click="clickResetConfirm">🧹重置列表</el-button>
         <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">👁️浮动按钮：{{
           floatButtonVisible ? "开" : "关" }}</el-button>
+        <el-button type="primary" @click="toggleShuffleMode">🎲打乱模式{{ shuffleModeHint ? "" : shuffleMode ? "：开" : "：关"
+        }}</el-button>
         <ImageUploader @upload="addLocalImages">📤{{ translate('本地图片') }}</ImageUploader>
         <el-button type="primary" v-if="isVanilla && chars.length > 0"
           @click="cardNameVisible = !cardNameVisible">🔠显示文字：{{
@@ -86,6 +88,11 @@
           </template>
         </el-popover> -->
       </aside>
+
+      <el-button v-if="shuffleMode" class="shuffle-float-button" type="primary" size="large" circle
+        @click="handleShuffleClick">
+        🎲
+      </el-button>
 
       <SelectDialog v-model:visible="selectDialogVisible" :filtered-chars="filteredChars" :factions="factions"
         :filter-config="filterConfig" :translate="translate" :get-asset="asset" @select-char="select" />
@@ -165,6 +172,7 @@ const {
   removeTier: removeTierFromList,
   addToList,
   removeFromList,
+  shuffleTiers,
   updatePresetTimestamp,
   shouldUpdatePreset,
 } = useTiers(chars, msg);
@@ -183,6 +191,8 @@ const dragging = ref(false);
 const tierDialogVisible = ref(false);
 const floatButtonVisible = ref(true);
 const noDrag = ref(false);
+const shuffleMode = ref(false);
+const shuffleModeHint = ref(true);
 const isMobile = ref(false);
 const mediaQuery = window.matchMedia("(max-width: 767px)");
 const forcePopover = ref(true);
@@ -503,6 +513,47 @@ const submitPreset = () => {
   )
     .then(() => {
       window.open(uiSettings.submitPresetUrl, "_blank");
+    })
+    .catch(() => { });
+};
+
+const handleShuffleClick = (event) => {
+  shuffleTiers();
+  event.currentTarget.querySelector("span").animate(
+    [
+      { transform: "translateY(-2px) rotate(0deg)" },
+      { transform: "translateY(-13px) rotate(-90deg)" },
+      { transform: "translateY(-2px) rotate(180deg)" },
+      { transform: "translateY(-7px) rotate(270deg)" },
+      { transform: "translateY(-2px) rotate(360deg)" },
+    ],
+    { duration: 600, easing: "ease-in-out" },
+  );
+};
+
+const toggleShuffleMode = () => {
+  if (shuffleMode.value || !shuffleModeHint.value) {
+    shuffleMode.value = !shuffleMode.value;
+    return;
+  }
+  let hintText = "打乱模式开启后，页面下方会出现一个“🎲”按钮。<br/>点击该按钮会打乱所有已添加的项目，但每个栏目的项目数量保持不变。";
+  if (namespace === "mjs") {
+    hintText += "<br/>可以用来练习选将。";
+  }
+  ElMessageBox.confirm(
+    hintText,
+    "打乱模式",
+    {
+      confirmButtonText: "开启",
+      cancelButtonText: "取消",
+      type: "info",
+      center: true,
+      dangerouslyUseHTMLString: true,
+    },
+  )
+    .then(() => {
+      shuffleMode.value = true;
+      shuffleModeHint.value = false;
     })
     .catch(() => { });
 };

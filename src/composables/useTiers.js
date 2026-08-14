@@ -94,6 +94,23 @@ export const useTiers = (chars, msg) => {
   };
 
   /**
+   * Shuffle all items across tiers while keeping each tier's item count
+   */
+  const shuffleTiers = () => {
+    const allItems = tiers.value.flatMap((tier) => tier.items);
+    for (let i = allItems.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allItems[i], allItems[j]] = [allItems[j], allItems[i]];
+    }
+    let offset = 0;
+    tiers.value.forEach((tier) => {
+      const count = tier.items.length;
+      tier.items = allItems.slice(offset, offset + count);
+      offset += count;
+    });
+  };
+
+  /**
    * Update the preset timestamp to track changes
    */
   const updatePresetTimestamp = () => {
@@ -115,6 +132,7 @@ export const useTiers = (chars, msg) => {
     removeTier,
     addToList,
     removeFromList,
+    shuffleTiers,
     updatePresetTimestamp,
     shouldUpdatePreset,
   };

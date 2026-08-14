@@ -2,14 +2,7 @@
   <el-button type="primary" @click="openPicker">
     <slot />
   </el-button>
-  <input
-    ref="fileInput"
-    style="display: none;"
-    type="file"
-    multiple
-    accept="image/*"
-    @change="handleFileChange"
-  />
+  <input ref="fileInput" style="display: none;" type="file" multiple accept="image/*" @change="handleFileChange" />
 </template>
 
 <script setup>
