@@ -1,0 +1,1927 @@
+{
+  "../src_mjs/assets/东汉/公孙瓒.webp": {
+    "input_sha256": "5555db51cd68ce99629b8f154c7655650c518f3117a078319b1e1bb13b77b4e2",
+    "output_sha256": "c8fc85b360f834fafeea11dfdbceae9175d0fe394f24fd17d0b2990b54d487a1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/刘协.webp": {
+    "input_sha256": "c452b345ab9d558b8693a8daba5734d4d86708084f8c4bc98bc8667ab2cdf4aa",
+    "output_sha256": "cf90c2c3b4dd57c3c808964796c99b2e81840654241854c9466bf9dc55925a92",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/刘表.webp": {
+    "input_sha256": "78ae0470ff3e71e3c7222b6e681177795790e8f492a353301d0d7bab660e3ffe",
+    "output_sha256": "043ebbee673849bd54bddda39846953a7cea25d57ddb0c43a0c2ed46861efacc",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/华佗.webp": {
+    "input_sha256": "d31ccac4c0168f68deea9d099dc00f8587aaef9713c446edab57b5a595b1fb4b",
+    "output_sha256": "3f5fa360f705b8ab7aeb7c68d275198e3c3381e50d554aaf2fdba45ad37f3d39",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/吕布.webp": {
+    "input_sha256": "256592a210ba5a155df0c7e844772529f95b47bda0119aaa249f7775832f3ddc",
+    "output_sha256": "7c22b8a85fd65df130ce92725fbf7b9180fa27d614dac6ced18e83bcdafe1781",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/左慈.webp": {
+    "input_sha256": "da3bc38622f127b69361475f27857b0c6e5c2e2146b54945fa197af722777af0",
+    "output_sha256": "872a21697f4e8805126c756c2cd6ee174df9cff6a79d1660d7fbfd29b8ec3626",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/董卓.webp": {
+    "input_sha256": "4605f495af6a3879fa6b36bed26546db3cb4350b4b7cdcb9f36dfc6ca5190b6f",
+    "output_sha256": "b1cbfe66de5d26eb14753bfc16b5699bbc157f4338256ad1b9b4aade0bf89005",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/蔡文姬.webp": {
+    "input_sha256": "c52b09d96f5a26b30543b4e16b57d215acc7d8e414b5bc54f5ff50dbbc4441cb",
+    "output_sha256": "bbaf461432fc67127036acd90683b92021ec106982f8bb0cbcd1b1dda7a86a08",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/袁术.webp": {
+    "input_sha256": "4d322570224cb176745c6e6084881848e1277db79b495c7a9347d8517f06be8f",
+    "output_sha256": "9efdbca9b687466a814a316563bc14cd41442d5fa01f51bcd00b5d44fd380cee",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/袁绍.webp": {
+    "input_sha256": "df6689d6cb462cb3ed6a6dfb7699a8f614671ad03bdfd5d531c8e1f0fc793af8",
+    "output_sha256": "e593fd87f694abf85b4ce5cebc086bdd64de851754b45007f506a64d0091202b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/貂蝉.webp": {
+    "input_sha256": "1854703e50d8c93de6598905ad7eb5e2d91b9fbd03410ace2265b0c38a7f8115",
+    "output_sha256": "1eee5449ad5bdb559d41408db862701e69aa5f533008a9d31a7ea1eed762e929",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/贾诩.webp": {
+    "input_sha256": "ef0abdaace5ce28145e8e1d3fbd16bce0c0444ebbb9588905387755a7cf37546",
+    "output_sha256": "565d6315250db6d650824e3ef4d439e768efb9ed1ea0427782161aa992cd91e2",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/东汉/陈宫.webp": {
+    "input_sha256": "cfb5b4272816ad90b320ec5c824df560a1fc8842ca6c1bbd10c99156580dcdf5",
+    "output_sha256": "c493d6723a1e1de595041e77e2cf6d851b8dd4075a0a6686fdc64a74282958fd",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/凌统.webp": {
+    "input_sha256": "fb6b9268ba4c8b41b2f66d8ea905a96d67004f0b68cb1294049387b645baad81",
+    "output_sha256": "8f1f954512706044359e8a7caf89e5815d67af9e1ee53112ed816ffccc176473",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/吕蒙.webp": {
+    "input_sha256": "52d6e194399a8b4273b66652b18e3c456ff3feb9d2c33c5d610ab6b3849169bc",
+    "output_sha256": "8da0c4cbfdfe4bff370f5451a0863d4d4463a898f397ce875fb68d91130d8e9c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/吴国太.webp": {
+    "input_sha256": "c07c7243e680ce0d648fe267d54c60d44e4c99a1359a1bb479865301dd31b349",
+    "output_sha256": "d4217bdcd0b035e2087816398c54a8d0a55a67b2794cd39db569fa80683d6715",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/周瑜.webp": {
+    "input_sha256": "84f2d32e6790eb68f87790102137efc4ad2a517d186a2301084d19c9d69dba31",
+    "output_sha256": "188be7bc4f9d48fc9277a04bd851498bb457bc2f2f60382ed29017df06dbc5cd",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/大乔.webp": {
+    "input_sha256": "158a24cb5c9d5569353e37e2852aaedd9291ae0bd5cd55b22035f5d33739eafc",
+    "output_sha256": "16c0ab765dfe9e02ba5dda90cbfb76b8e66ca41dda9a013f8b4eb95f48dbb0b3",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/太史慈.webp": {
+    "input_sha256": "6ec24e18bb06e2e207ad5fec5334aaf2517baff1acb15bb6fdc032493e1eab7f",
+    "output_sha256": "8be1299f558170b6238c6486370398b2dba7c503cebbb439bdb30e47beb77d62",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/孙坚.webp": {
+    "input_sha256": "4a5927616760bbedd4a6ece487f8514b92c999bd534e81abf35a0192458487d3",
+    "output_sha256": "1f855019f88c7dadb3eeb4fd1e0f22c548eeb3e67f2767cbb317d5c4d6c40095",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/孙权.webp": {
+    "input_sha256": "406204e0dc224339eaeb30535ea0c532322145ff894a07ad00c815edb2835ef2",
+    "output_sha256": "d29499c4bbb78b291b270173bebd714c6248ecc3935fdd8b48db3857b4a76099",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/孙策.webp": {
+    "input_sha256": "9be55e7af46514163d2fe257b5690974ba29bd5ad8910e819291b2533c143fef",
+    "output_sha256": "47d1e74ed2c2423f647b31cecd5609729e87cd7ccc170310c5bf657cccaebb35",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/小乔.webp": {
+    "input_sha256": "b37c44f5dd8d20f79166e73b14df2698d114f1f65c5f41df0aa51bf62867d353",
+    "output_sha256": "53f4581a36c7900c9d9e42e909e62409b3062ffbfcaaec71c62f859c70ad5219",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/徐盛.webp": {
+    "input_sha256": "632350880a56411197bfab0822145b817a0b3eeaa31725c18db515b499b84e5d",
+    "output_sha256": "5d6e7314a14fbd2423b36155b0c54280e91aaf74db417e70728e75e39eb24689",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/步练师.webp": {
+    "input_sha256": "dd5c6e2dd7aa1d147e91e85a2b597f1c0cc4a0f13b714aa3687e655da1ba52b5",
+    "output_sha256": "abda0c5ec4eaae6d65cfeefc9c021d8c4f2a446f88e7bb84856d628b074b9077",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/甘宁.webp": {
+    "input_sha256": "8aa1173e12ea7ee39e64bca283208eab782a269d4cb16cfb1ac7b6ed4ae7dd9c",
+    "output_sha256": "3cbd5255bd0e6ea21db1082c24208837cfa6f10d9e1aaabc4162bfea15b73f85",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/陆逊.webp": {
+    "input_sha256": "12060f6ecb71cb0ce1a507bdf9d2bf59a40c0344edd997333931397d66395484",
+    "output_sha256": "543fbd912d5d3cb7d6d2e3cbb6c35675786ee7f10f78c9df4bb709d84678745b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/鲁肃.webp": {
+    "input_sha256": "773d5cb26c69dc01871e73cf852ac8a8293df656169d8c89825a1a4b90d75b42",
+    "output_sha256": "1cf555f7bdfa206dbde18c468b0f9c4f7cae548f3c4af1ca5aea78010038feab",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/孙吴/黄盖.webp": {
+    "input_sha256": "f25c581579f6d9719580357a35813ddcbcfec6cb5bbf41799ad60265ffa7180b",
+    "output_sha256": "e778cd346299f01935ce3efe7b3da47786e2c3f151694fcb5d8e3bfc07d4ccf1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/张楚/陈胜.webp": {
+    "input_sha256": "9723157f28b561ffc34807ff628c712a3de7dddcce5f3d14a2d3bd0120e1ff23",
+    "output_sha256": "8463bc9d45fdf37869c8d726630c4244396884f5d95da392bc9b20e111011b74",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/典韦.webp": {
+    "input_sha256": "6cb4a8a94071385e654d8d4587a24e2c98866e309875639bd9d4d23e7479d23e",
+    "output_sha256": "a46c278a0ca8e99a2d6629db0ae10a4968f993ff70f926ec630796f44e892c7e",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/司马懿.webp": {
+    "input_sha256": "a54660155449f0c5258d9a804274d357f7a857435fe2958003d57fe1bd2bb51a",
+    "output_sha256": "95233f8ddde938d1c8f6ae3dad9dc20e1845cdc4b7e72994c35f84fb09b76274",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/夏侯惇.webp": {
+    "input_sha256": "5ddadf6b4c42e0830df845e1f30135023d3c573f2e13fed67efd5ac0948fd38d",
+    "output_sha256": "f43af44b7e8b175a0314421f981230c3211e7fe263ae7caecef4c4dce4aba0e9",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/张春华.webp": {
+    "input_sha256": "189a7b0b0683feda455753855db3286c7b3fd883ad3495bde07334c7d25c1300",
+    "output_sha256": "82cc8938fd563dd9ada0c7ca6913f05987ac9eaafcda29298c610a329dd0dc21",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/张辽.webp": {
+    "input_sha256": "0b179e7c369d31d02ac31ceb567f3a425ee6546c589c85e70e6e781b6e4e9cd1",
+    "output_sha256": "91956c26fb85228e12279fe247f3c2f4421fc3a1b37d6127bdb3eb0377af1f38",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/张郃.webp": {
+    "input_sha256": "e8b31d2707101d20cc9a88220533f1f5a7cdcd13fda1e32c3748406621271579",
+    "output_sha256": "61aaa149eb648b54eea63d7da61f4a2f28350afb15c643cf7527848ae2dbfb1b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/徐晃.webp": {
+    "input_sha256": "b55f49e61e8a49ab9ff3b608b664b1d6c76ba9f9c761d873bbed41d6aa17bbbd",
+    "output_sha256": "99042f48b140d138acab6bbd1bbe1c6c3b705f0417ab4d8992fb13314c259685",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/曹丕.webp": {
+    "input_sha256": "bd2c813f015ba97e1376b4c29958b4c95f491bc1e5f893fc28c0135f6f1a3550",
+    "output_sha256": "2fa121b73f7ea117082d391958866831ceaadb3e98b16d51f166d5c00d2391fb",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/曹仁.webp": {
+    "input_sha256": "07a63d06a234e5e4b49722700080ec97c50d997278f58e592375c641b94ad4e9",
+    "output_sha256": "a61ed90e342accc36051c3183ac9983c0063324997d1f95ead939d797e9d0ff1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/曹操.webp": {
+    "input_sha256": "2b9cbb1cc6b466037408062bbd1d1791c9068997aa8836441fbdfb1dc7889eae",
+    "output_sha256": "19abe18c9f1efaa4c167590c5673421d384c4d9693462fbee23ba31836dca58b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:00+08:00"
+  },
+  "../src_mjs/assets/曹魏/曹植.webp": {
+    "input_sha256": "e63ca8bb8f2c57c4175bdf3836337c4d8faf2af7b4097f5ee1efb5afdcf2e597",
+    "output_sha256": "2814634ce463b08f87f307f8e70231041b6f84169ea1725c5e1cf5e407517886",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/曹魏/王异.webp": {
+    "input_sha256": "593d44307d7cc8967dbe7c88679f5f3e5dd5eca55ead46be6ed1e203f40173b6",
+    "output_sha256": "1fb051852e8aa3c3e8df31a5fd21d1a0296730065c8a0e7ddddca40d15f4c84b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/曹魏/甄宓.webp": {
+    "input_sha256": "283af970bf412696c84881160060b47df59576661c3ec6fd51033520e6572451",
+    "output_sha256": "8921bafc7b3ade880f1aea73146cad53cfd0513f73f70dac9fee5eb7de5ad121",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/曹魏/荀彧.webp": {
+    "input_sha256": "07222c15c034edc4ab99974e3a77dee8c8de14f5ce6a5be3a8553c056df2f929",
+    "output_sha256": "93839a3f3c3d10b1ee0e61e9b735a2f37481245d2b1c3c3f5a74d8c67481d66b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/曹魏/许褚.webp": {
+    "input_sha256": "711d5e53bdbc3f723c8e2ef1697a02089f479a05581e487eb29af348ed7e0a45",
+    "output_sha256": "44f6bbb1a594db09b66e3df918da7f7774a538df4511d2d060c494f8c2d56aed",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/曹魏/郭嘉.webp": {
+    "input_sha256": "5f2f7ef761afd6cb85df980112814524426b6d2c90e434b19ff6e5a8231a8246",
+    "output_sha256": "acac5d129cde237f38ab49646fd191e5972cb79bc67c86f2eaac264b1570230c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/曹魏/马钧.webp": {
+    "input_sha256": "9c46a9c17ae15363136448d2feb3d36fffcf0cbcaefc3eda2be784e03dc9327c",
+    "output_sha256": "aaba4a86ec7d30cb92e73a8cd44ce00385a490556adc2f683bd8627ada80f4a1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/楚/卢莫愁.webp": {
+    "input_sha256": "407808dc448c6c49bb454342557b5ae6154fe0070030b76bcc136c8b44251fd5",
+    "output_sha256": "452184098d2ebcf8d8259feb8383242c5615a7dbab54e96262320057a5748345",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/楚/宋玉.webp": {
+    "input_sha256": "f596e004065ff439eb58c7979e630e17eb4460f3edb542c77545f99f1159a385",
+    "output_sha256": "b19ca47a1a3d1d3f9f16f347f201c4037e204f784388ecdc4d2f0101f1de88ea",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/楚/春申君.webp": {
+    "input_sha256": "3802d641082e036360d3e4effd74324dee4bfc687bb796ca38a04cbb9d392a8a",
+    "output_sha256": "d0cdd12ccb10322fbf13c4515f50f8b60c18b3619132c2ee4f541f6556d1d3d1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/楚/郑袖.webp": {
+    "input_sha256": "43b0a17fdc39e56953d779712685e17bee8ee1d46eacc8c2e17dd66733a9a42e",
+    "output_sha256": "4ac140a18858a9b9de76cff09bc1dadc34fb57862275672ee6b78a1bc354e2c1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/楚/项燕.webp": {
+    "input_sha256": "cf07377bce49fdb17000c5e58c2f9f86bfaa04299c23638f3505956e455548b9",
+    "output_sha256": "832d31edde886e20893af85fa85f25a65a1b3cf97fbe261c2bcc822dc5169adb",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/燕/乐毅.webp": {
+    "input_sha256": "3e58e773c855c4fb2022a0469597e0d91377a0e0f2b269c3cc3e088aee510855",
+    "output_sha256": "f21b3f70f8fc53a4ae2d6be889912a54c3477040de1c93d62c81c00812d4a7e6",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/燕/太子丹.webp": {
+    "input_sha256": "1538df3318fe30274e1cc48af8b38816f1b41bf04e2ecfa056028f7030cefaf1",
+    "output_sha256": "7cb4e3ff21113f7add4567add3d691a19b695087ddfc5c05be1372220632c1ab",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/燕/燕昭王.webp": {
+    "input_sha256": "7c1c4e23bbbd9bfbca04d2d51e4963e37ca1cea6da2e64cc9708dcae9c809299",
+    "output_sha256": "f0ad1e2547af02c37ca037eed1ee6315938e82e4b6716e53a677bf260ac92b17",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/燕/秦舞阳.webp": {
+    "input_sha256": "205a78cab0b621c565217f195329f4790c9dcd9843f0bbf8b1a72e6c1966f40a",
+    "output_sha256": "5772022e54e76a99ff1f6abea9d019044ee323e9f389de8c1cfb434b588ba5cd",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/燕/荆轲.webp": {
+    "input_sha256": "c2b88a0e11c6ed5fd62bf33b9c87d97e588ccb9df15c22e69c9066aa81da38f6",
+    "output_sha256": "bab3419ad65fe94d03933c8a044f94dcf77ea1a094c390757b0a630700063257",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/燕/郭隗.webp": {
+    "input_sha256": "4d30c04fd2fb9caee548af767312b848b50ad185f6869e170b5a3fa019d03734",
+    "output_sha256": "e7c11b87a968a5c3e31330ea817d826466d01eafb20508778fb85772e5df0194",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/燕/高渐离.webp": {
+    "input_sha256": "066262684e76d8e93cbf253ff4f15784ebc4debe598fcd1f1ef6bbf0cad82add",
+    "output_sha256": "81ca9cbca995161722faa510a8a674a1096b29859e8372f58ac1ea8054fface7",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/吕不韦.webp": {
+    "input_sha256": "51f25e0b9c0c30ee8252208f98850e0fd46b2da99b37817f56bf705393126891",
+    "output_sha256": "d6c8a15115e7c4366881e6fbe3af520b45e3a39b05cf0e12c3296731f056b4e1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/嬴政.webp": {
+    "input_sha256": "5ac3467383e5bc4771cdd5de60106106b8f60d2022ba0145699ab9aa5981250a",
+    "output_sha256": "4e822456d983ead64df862bec1134851856f6086803f64ede52765acd1c55dc5",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/子婴.webp": {
+    "input_sha256": "b81572274c45b016110782b3c6362ee253feae956e92ffabb92975f5b56ee980",
+    "output_sha256": "984c4f5550b9da6cf03a86c127c24d11f680e786ca2b7db4d2da1c681fb6eab6",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/尉缭.webp": {
+    "input_sha256": "76c7eabea11275afed19e07177737cf4257488a80fce74dc869698cb96f515d4",
+    "output_sha256": "22f0a5aff76184a480ca93ae38c4f769416e438771792a7a8a4eca3717277d9a",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/巴清.webp": {
+    "input_sha256": "23a034bd7fc9606605dd9ca3a1cfabdf167db087407c8b12664e986a59c69830",
+    "output_sha256": "a08085c008b027affeb95b99b973a414dc710b2d47f7f208df4f9b7b13371ea4",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/张仪.webp": {
+    "input_sha256": "2e0b752d1a70ec381d4bd9126f1072efb6535b65ec1f15539db4b2561eb341bd",
+    "output_sha256": "2a4c3b9a171c52a9689e86946ecca2e892a2a4f3aa927ba61220e7f4a8b01720",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/扶苏.webp": {
+    "input_sha256": "69b6f60ae14bd8d10886e4e990f1feaf8ca02d093a086fc617604817019d1a26",
+    "output_sha256": "fa57f848300f84bd277460dc5e4ccc29a648a26cd992aafcd3670e28a47dfed2",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/李信.webp": {
+    "input_sha256": "188d5954fadd6675e6c7d519a10fbf4c285c3c85f4f9a27e15297a83a8040411",
+    "output_sha256": "6643d339c659b65b992a299f16c1efe0d4d3cc2aa1e9808862b7fa21468f1179",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/李斯.webp": {
+    "input_sha256": "34981db6eb7a73b879766f423146bdf690bf575d8d8ef3ebaf7525cb9fc42cb4",
+    "output_sha256": "468446fc34798015139e0df73a6cea56f89ad469cabf1a4259d6fcefcb60d2ff",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/王翦.webp": {
+    "input_sha256": "884e745bbce0c04ccf91a5cd5048f648ebadd4b583f9007771e1b954bffb4c22",
+    "output_sha256": "d4cf29f1a809fde8a6e90adec1192f4fccdb67a61866ab901a0f713c0f6b2eb4",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/白起.webp": {
+    "input_sha256": "be881f003a2c2e5e320f40459f7f26a55d13b8ae7eee9867b9a8d9b87ede1dc8",
+    "output_sha256": "8b39f7843bb33f5565e3f29cfbeca33df76ba1c4185db3aac12d8b3ae53f2211",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/章邯.webp": {
+    "input_sha256": "cd9ee2127bc5f8679e9275f99e6b8a742b083f5d941c5d35cd5d5731cb6cf020",
+    "output_sha256": "ea3c7194aafc6fcb752cb84a52a244534b1a8056e1b45e3d38ce6be1bd36d7af",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/芈八子.webp": {
+    "input_sha256": "37da2a089484faf63177ac552a1c94d26274d99eea249114356122ba55c44d42",
+    "output_sha256": "f96d40a305dd0da39d17bea0a624d99eb4526976a7de256baeccb651093b2b6c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/范雎.webp": {
+    "input_sha256": "efed8e29503c47592c36ca0905b8457e8913b631ee1335b8011e684c3d026ceb",
+    "output_sha256": "a8f5a823d5f514a6a1aee1577fcca45dbb67239555629dc192df5046c85c5d4d",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/蒙恬.webp": {
+    "input_sha256": "0fdff85bf4d5ebec09e834bdfb2f453d49d8dbf29a1fc7e99c96e55d9c9d2379",
+    "output_sha256": "c87fbc51c92f70650eee27486db62874cd0b4bd6de4001976ea4dd1ccb45934b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/蒙毅.webp": {
+    "input_sha256": "6673b1516bff8517549661cfe6bd61acd738afc5b736767ccf3fb5c68b80cd56",
+    "output_sha256": "d068a3ba64389c71be5de7d0000d8a307de4b74a91afd1d40e5a2e05131a53a0",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/秦/赵姬.webp": {
+    "input_sha256": "f8f8c8a4e24d497b3d4c33594c47624b10aed4ae79632fb543fea28e9b843902",
+    "output_sha256": "9dcd2adc6705d67fa697e467dab63733b130737352c9d432265ccc380ece5407",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/蜀汉/关羽.webp": {
+    "input_sha256": "c1c3e8b4fa79fc443fe649db52423c5d2b01fc5a57caa02c4ba4a2d380cd36ca",
+    "output_sha256": "964556dabde1fb4132a45d9043fb0ac9921d9caa4cf56a60de771cc90660dca7",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/蜀汉/刘备.webp": {
+    "input_sha256": "305ab8bfee9b8bb4602e31a83f17f82665be7e3e0e6553ed6edb3578f9a93a6b",
+    "output_sha256": "4ba6ceed067b59ff44141cc93d9b5943caa3f05a09908fc4612f589534039e92",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/蜀汉/刘禅.webp": {
+    "input_sha256": "ef2313266cd88a69d70097b255f9818c099a1cd85f63aa2a23fd72939f89ca7e",
+    "output_sha256": "154ef6e001f35a43c05c6980f788a2899e44ab7ccd1fb5567c7d03d77fdd4575",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/蜀汉/姜维.webp": {
+    "input_sha256": "da1efdcb8a2dd9f8a40b0f90430ea2cbc6568ea6715956b529a2139164c4edf5",
+    "output_sha256": "7d4d876558eccbfcdcb267d9c011ab1dbc76755c56afe71882b67befb9db9e57",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:04+08:00"
+  },
+  "../src_mjs/assets/蜀汉/孙尚香.webp": {
+    "input_sha256": "57adbe2e725b1956711cbfd7bb49aa96379794f8e8a341b1a77be57459ce2989",
+    "output_sha256": "d716c47ad2e8fa9caa0ff08c396f538cf905114a26e9212aed8dc2afa018851f",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/孟获.webp": {
+    "input_sha256": "d64fb24e91d4ff34a944a0d8a7056aedaf6797aabd9c6d73b039fae47d62c0cc",
+    "output_sha256": "5be73d6a101a9f0c366951e4d4e4187ea787cdbacd53ea1cb8797213c6a57840",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/庞统.webp": {
+    "input_sha256": "43f60a520c109bd79fa360075008f3a7dd088d92abbea39bf8e6fed6bd48479b",
+    "output_sha256": "8767e05b3a3cd7c2f7d893a9caf7861b6c4bd4dbab808f8e29e6c213c2825c5d",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/张飞.webp": {
+    "input_sha256": "12c22f0051efbac2a706f3dcc2f3db40ed1025fcc778879f87a1295d76789c11",
+    "output_sha256": "4880ccaaf7014583cc0b3b33dd5022adec2eabd89df444973e86d081462c6cdc",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/法正.webp": {
+    "input_sha256": "96ec8a253eb818007a91ce1509547431e5d3749295b46a7cc40d68ffa35465f0",
+    "output_sha256": "eaee20ee99dfe709af3fb981c28c3e89c710935e4701070c4de351fea9c41ab8",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/祝融夫人.webp": {
+    "input_sha256": "9b4116aecc19bafac910b4fdfd32402a68d8f3135653fc59ef92002cad57d09e",
+    "output_sha256": "6e7b89a86c8d46d75d57ac7d8c8dfbc5cec372b8084deeb0764901f58f175bce",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/诸葛亮.webp": {
+    "input_sha256": "a4b98b089ed0e142dff6381b49cecb11d6b209eb81001aa8d7d10cb710834cf0",
+    "output_sha256": "45a73200d8836ea041a3ad983576efafa522eb944c78c0ab40fc4477c2810ede",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/赵云.webp": {
+    "input_sha256": "5499e9206936ec9a267af9f0b3ee683d864f405a530ec7b4179561b77908cfeb",
+    "output_sha256": "a71beb2e587f5288d6e7afdd911c6792ab861c3c79f0de628614333c9633f910",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/马超.webp": {
+    "input_sha256": "d0c27591d35f6dec34c6cc984a21f74b6b6a59654605a82962838e590ae126e0",
+    "output_sha256": "ed6e4ac7160b87a7dd958ad11c5f1d04466986668ea9db7a6528cf62edd2b3f0",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/魏延.webp": {
+    "input_sha256": "d6e8b47124315db1bd998d51f9c9ffbbee5aa256f3ae4604e4bc0226150186e5",
+    "output_sha256": "2d3fd261b5c9ffc1e00310f7b75c028c423fda79ea7e169d324f4de47c80eaca",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/黄忠.webp": {
+    "input_sha256": "caea06b8ce44335b9d89a8a1fbe7b7872ee84fc52c0fab600c8a4c87595951ad",
+    "output_sha256": "8b0421ccb62999a65eb29e6638a70a100428c9fe08cb6f61671499e4f6a9f661",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/蜀汉/黄月英.webp": {
+    "input_sha256": "78b6ee309c50168cd00aae2befeaa4b40cb2071ecffa5e15f830b0baba6ff543",
+    "output_sha256": "2247f752c72446c903e0f08264355a915111e7ec5aa3ab949f191d21d8fd137c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西周/偃师.webp": {
+    "input_sha256": "1d5aa20869ba1908140a02bb807772e7a00ead82473f985c7a592bdf5c0a6ebd",
+    "output_sha256": "7291b7d5f58390d350f7c7223720666d0b61cf23fae38a8248137258556c5ca6",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/临海公主.webp": {
+    "input_sha256": "b39978589bf3fed2acea01eee3305655904f39bffdd8694ace7b1a038635ac88",
+    "output_sha256": "e56f5b1bca5ebe87ecbc9ef392690bc02ae70e819219f1ed7407edd702a5c117",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/乐广.webp": {
+    "input_sha256": "c481ebbe3892ad1d7970fbf74c3ea7b714cddc5219d944b41f11a27d315e2c09",
+    "output_sha256": "09afd9fe46429a7d59273ff745bf734a5e6d11d9a3812d3cfe747d7a2cce27ff",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/傅玄.webp": {
+    "input_sha256": "2cafd35fbc04b04c3964d42ba8b55d511da8a41ae71378edbeeff246668ec371",
+    "output_sha256": "db4536e1a678b4e16b07ea8dcdd76d1acf9a025386ac360e4df1360bbe8a6df8",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/卫玠.webp": {
+    "input_sha256": "ed84d38e0d51b5123828cd2b428e02d32f1bea86084f75cc63afb6d3cec74190",
+    "output_sha256": "e498e9e51923110d46a05a55d9bd1db90501f2ba00e007d5e3cc42f077add8da",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/司马炎.webp": {
+    "input_sha256": "ddbaefb55aa39e61ff0ac13f12b6b71b329142caee8cbecd9e64a9f11b0a75b2",
+    "output_sha256": "bc3ba2faf057c31fdaa89d3e11e5e5bc2bcef28d903a2b6e6e2f8b08098ef8e3",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/山涛.webp": {
+    "input_sha256": "d3da562171d6ceb08fee889453a3c3cb00106606c154089b74b1e31cab3c680e",
+    "output_sha256": "6ff0f5e33dcf10ff218fb1a7290b06caf0283f049accdf2e47bd1cfd500d2187",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/张华.webp": {
+    "input_sha256": "40c386eaa7576a9271c33c34d8e6c46cad5686b77f10e1d180c02436e0db9a9e",
+    "output_sha256": "03a482ce50922b7e7de3fb4761f5c9220ece40a052009f30308b5d0efe62df37",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/杜预.webp": {
+    "input_sha256": "4c6429eb53205aa63131c617c5141a2868b7f2a07fdf59659d01de944248e792",
+    "output_sha256": "4f7eff0773f9ca1f8e9fc76ba2cb21b682ce52dfcfca38b101f99c89019984df",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/杨艳.webp": {
+    "input_sha256": "be9a25a389db0938bd1360e517b09675f9e3b32598332033ab3b5439efc0cf85",
+    "output_sha256": "5e7b17e31a73a2613fe1c91abab307ca635c7da849f1f9eb23bb5fddc688a75c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/王元姬.webp": {
+    "input_sha256": "209fbb43ca7f8125cf4bdf2514a2dbdfc4dd3c7425b6f25955c9353b41e3ef8b",
+    "output_sha256": "54b815ce31cc7dcf51911e49bcc3ed4cb26fb13f13f31bfca789be6c41d983b1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/王戎.webp": {
+    "input_sha256": "ba9de997e7ba6b78ab20636f97b75c852bc307380adff6e1941f43dbfa4bfa6f",
+    "output_sha256": "cc47619948726774734a1e183f61aaffad5e72a3b17706250d409c2cf9a24f17",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/王濬.webp": {
+    "input_sha256": "d7f6b363c79287e840ff66d35e15f95369cee494423a7238c637c636ed86338e",
+    "output_sha256": "09a3db4f4640d117f2cedcf93d0be0969b2c73c87fb288d6e97dadb1ffc91947",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/羊献容.webp": {
+    "input_sha256": "c4e00e7983a4e60b2e28e522b00f7cff091691ba4f73fafb907155b3a584d67a",
+    "output_sha256": "da10c0e1b68354b6c58b2cfc168fa7aa6412f5151076de51a19b7d7208585f5b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/羊祜.webp": {
+    "input_sha256": "2ad251c40d671e122ce6de24372fd20ff1ed33198f1313790d584132065d5ee3",
+    "output_sha256": "bff7bc1a0a4ceee136a1ebe7a384d902f4658fd193a1418fc76a6dcab83dc66b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/荀勖.webp": {
+    "input_sha256": "48151e86beb038cc2bd5df093bb4e62daff82e6ea7a776483bec7eda942270b6",
+    "output_sha256": "b38edaea621d6a96c49254a1308bd60d7d27f810215ff9700faef967411adf21",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西晋/陆机.webp": {
+    "input_sha256": "b6168d690beb0d6d5e436b1ca946c7b7c1ca0b192107413bde81050ca361f2d2",
+    "output_sha256": "8ca338ca42925686b93c4c8e39262527599a11e7f96513e272ca0a26ac252a31",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/季布.webp": {
+    "input_sha256": "89cfbeabc601aca0ce0b092e3897a32a54b1b24508939b6424eec4964bce613d",
+    "output_sha256": "04c2465ec9a8394622893684397cd958bd1049afccee228398ac0728259fe75a",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/英布.webp": {
+    "input_sha256": "b52aca3d7e7ee81c54902d95eaa20a4f9746a830df47f2a513f0bead2d1bc113",
+    "output_sha256": "452c3085e07a856be9e09ea249cc0cc1a540dcb38e2870f27fcaab0f86ac947e",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/范增.webp": {
+    "input_sha256": "4d4907d88cc826452235dff2bec8a20183b1b6587c23ea5b319d463b3bbb060e",
+    "output_sha256": "136f6bb27c176924453d84c20f18ad038e3035cc30bdbc6244dd819a1bf9e1e1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/虞姬.webp": {
+    "input_sha256": "ee5ac0d5052bad28343ca51e5fdee9907aeec69ebaa6cd53d67cf26e45dcbf9f",
+    "output_sha256": "dc8144928fbeca2f7bc0a8db17b11bfd8558d0bf9c4a5eb20476b045d497d1b0",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/钟离眜.webp": {
+    "input_sha256": "d018b971ef9acebe9fb21e3267ea81b80cb025905d7c80b678eabe7289ad1173",
+    "output_sha256": "608df0988aa770a06f41fc6d762a85022a9b0966d4b368e94ef1d15536b8ec2c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/项梁.webp": {
+    "input_sha256": "468f812199d09bd6f93bc3226551754a106e2d8aa7c7eefd45fb607eb7b13ed6",
+    "output_sha256": "f91ef2535426d0ae43970b0dbcaf17e2065eedc388ae121a47b344a57fd77911",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/项羽.webp": {
+    "input_sha256": "a394983aeb219ff3cbbfd2c7510c55f27ac75a3478391e2f67a21d0f32925490",
+    "output_sha256": "e4afc4a1210f7ce08736676cec6f2f243073079311e2cfad30d418d681601b43",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西楚/龙且.webp": {
+    "input_sha256": "6a6118f181d3807311892bc167f5edb2bef8266bf13300b6aa1972afb888fbe9",
+    "output_sha256": "a55c2a3ad28d265bed57a87f089ee0676edd6d98846913980598e191b0a8e87b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西汉/东方朔.webp": {
+    "input_sha256": "8c5bf0fb2e045c2583e4c623e13551958ba2a4e12dd18d677f8ebda4d9da4060",
+    "output_sha256": "01e76cca3d88570bf46e7e68d47c040445e1cdcfe4990a06ba1188399c06a539",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西汉/主父偃.webp": {
+    "input_sha256": "849547339f95be97e0f616eb2349813cdf7d497e43d58dcd61009d9ff940d855",
+    "output_sha256": "1afcd32b2376fde8d69b27a713cef8e0cca27193852054b26179dea9b73659ad",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西汉/刘彻.webp": {
+    "input_sha256": "28921375315c0fa2f1d44c5ea69b8fe122163b05c47305768df005569efbcdbe",
+    "output_sha256": "f7fae0107f0eecd2a7bf976f9fae11c8291eacccb8099d444f21882f378690b1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:08+08:00"
+  },
+  "../src_mjs/assets/西汉/刘据.webp": {
+    "input_sha256": "ebd85ae98b908bed427991b9e2e5b2da3306ebeb95e52afe7ca2d32904e8a000",
+    "output_sha256": "f95300c10cd00c382a391f57c3fb4021d0d8b716f265b9b8a527620cf7b1537f",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/刘邦.webp": {
+    "input_sha256": "0510a20a07da93ec3a44a014d530e619700967929fed6445493207d0bdd9f7a2",
+    "output_sha256": "1fb5f1882a3eac69d9289d60ca8a2fdb8649611b09a3af4f10f13132cefde13f",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/卓文君.webp": {
+    "input_sha256": "24681e2fb2537016f0707996454e63630e1c4cfc44622671dff2c721adce6d48",
+    "output_sha256": "39030de843dce51cb2994c811f802ba2797ed511e2572786d37a8eb48f8d081d",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/卫子夫.webp": {
+    "input_sha256": "49d65f38d97e8e83491cd59164ce882ba56495a26a022f750d7100b5c2b8f37a",
+    "output_sha256": "8eda78a8c2266aef659418bfc3e7c9004d318592391c42e4a0072525f896c655",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/卫青.webp": {
+    "input_sha256": "98c40b40d4da3f062df3145a2aaf0b0854d72f13b731ab4c0cb51e2900a3e289",
+    "output_sha256": "0346c8465017e5ab22dc807e67797b2c8c02fdfe914a681b12a28742a3c34244",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/司马相如.webp": {
+    "input_sha256": "f17f1bd6a96b4b22b802aee9be4701e1b38b6040090a2ace92d8bfe7959a9c09",
+    "output_sha256": "95868fd10fcdc13b6e668c02b3ca4a5afd1e9fb120410eb517590d4af65abd9d",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/吕雉.webp": {
+    "input_sha256": "e97f886a5a3c08ea3aaa96047a4ae27f2fb58fc2478e4a6177280e887c1ffee8",
+    "output_sha256": "39ce8cf79baf657ba884f019f0a216153ffbf4529a0fe564f569142df6677a43",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/周勃.webp": {
+    "input_sha256": "bbb22b3230a638e2d42daf1d73f28b8f92266bbe687772d4d1360adb9bccf4a7",
+    "output_sha256": "d97195f25dfcddf0fc94bb3e3823186ba7680577fbf4fc72147eaf63757a53bd",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/平阳公主.webp": {
+    "input_sha256": "d5894edb139a66b3ac7961209cf8bb15a13ce33aa2b929729ac702e396d428a4",
+    "output_sha256": "81a87f934c20b1df3a9ca3cd8ec4d8f54a325b05fe95abe5326c7c0eac767432",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/张良.webp": {
+    "input_sha256": "a13f75cd325dbf7cd5489d12198c370bbc19bb73d2a47dce754862fabbeeba1a",
+    "output_sha256": "3003709afcec5a4f72eb80e073cb9ea9f381b917d16dc436edae52080ed00ce4",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/张骞.webp": {
+    "input_sha256": "a819ee11b811e8752a39580c2d295f7300937a3e02a9d8629f0f564033604504",
+    "output_sha256": "2d844ff6a0ac125c7807d0984f9f71e5867c4b1e847081ad3abdb0845bfc6fa5",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/李夫人.webp": {
+    "input_sha256": "15c0a0807a0b3fe968a8b85abadcc41a46bbe5fdd7b5fff744b24e7d82021f48",
+    "output_sha256": "2bfd7d9736adfd67ee4df6f384ee2e3f718eceea072bd5f43c9baaa26e194967",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/李广.webp": {
+    "input_sha256": "3a0b211859605aaf4de7d95ba42d6935e3a31b8c69f9ab5210db2775fc29aa61",
+    "output_sha256": "76b216fac118f904bd8b59dfd1c3b63bdf708b970b6e1f5f8757e10d48fddf8b",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/桑弘羊.webp": {
+    "input_sha256": "dbd3046c20b5957e806889e722b93d43bb825e6dfe8366954120347792e037b6",
+    "output_sha256": "c5eb811311217114dbc7ae497f32db774963b0bd7b9ba5fe5493341137d27683",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/樊哙.webp": {
+    "input_sha256": "3b25404e05105414987d19960b6392aa3245921b8cff51eecff8c1679078cf09",
+    "output_sha256": "b14d6e013b2254a88633cfd2f5369d7bc4cd5ab381147f940121e14aba7baaa7",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/终军.webp": {
+    "input_sha256": "72bc1665ade473ff83497cebb9777b2d5aae3d02561afea5eb4f4bf2989039db",
+    "output_sha256": "14af0f4abcd5d17ab4f3c61c90436e871bc875f3788c90449525cd1efef36f76",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/萧何.webp": {
+    "input_sha256": "27c5c3f574c4f0db479c7d896f717903e96646111749042637f740fe9e378aac",
+    "output_sha256": "b075a6eaa1ab0022f851a4f43ea98fc6f681ef88300bc66a0c9475b811165303",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/董仲舒.webp": {
+    "input_sha256": "c12622c1c8b8c1d74cf9bf0d4d003f55b2ab297231fb365404983b384f59934a",
+    "output_sha256": "b2311a43123a6f73f8b92d43ad7781ee9938bd492047eae657fdfb473ff3d9a1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/赵婕妤.webp": {
+    "input_sha256": "5b9f1bdd6eed116017cebfd2fe2ac11dfd2aa1605875771a6004f1b440d3aa56",
+    "output_sha256": "561697cd2df7f2381306d04cbf832c0e2861549ca485408815e59a539400e936",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/郭舍人.webp": {
+    "input_sha256": "0bd6d841593db830a4417533def8d9e43237c4b8fd0c17dc4bcfb1b16240f02e",
+    "output_sha256": "e4bca643aa5cd61579ea91de126d7e12916a62baebc2fed62bc11be17f189810",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/郭解.webp": {
+    "input_sha256": "fab8a40e749ad1dd00baebf0e1be53c91b798de53cd70ab32a675b36cbf27efe",
+    "output_sha256": "a16c37b520a9adbae341084800a14ef2d2fae90952a1a9ca446610c5ab1148c2",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/陈平.webp": {
+    "input_sha256": "08935a78ce7a42515c26eae2a323f93a61ffc4c96de0bd04ec082cb819422d38",
+    "output_sha256": "9e7e9d66e0587e9362ca7a7c084bbfb63f65421b557f2a280a1a70396b6c3ab3",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/陈阿娇.webp": {
+    "input_sha256": "51e0d7ed4c98dca9362be08b26220d50a17a6ffe09d968eac66245a0de07ddf3",
+    "output_sha256": "809fd612808ca94ca08c7443e70dc5aa66c838d684ebbe4aa2a56384c533e9b3",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/霍光.webp": {
+    "input_sha256": "7033224ed5a03ba17e372a5897006e5bf28328288a44a14d9982cee338f83a49",
+    "output_sha256": "461c51020496d02f2d3c35e163f3e68a90f3e6ef79daba16aaac6c67f3df96d2",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/霍去病.webp": {
+    "input_sha256": "6b2a36e7c459c258f53d861a6f8e7c1b313aa8040701313f317f3f221760e667",
+    "output_sha256": "d984a228969b166436e4927bdb5463f350c718c9ddad5c0f27fa5757de80f999",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/韩信.webp": {
+    "input_sha256": "c21a53ac56f3ae6bbd6f5a418c5153075a3d8f95664debeab2dba504cc2ac189",
+    "output_sha256": "3e20d3168031b6e78868e1619d7c9e4637f04262b44110aada447be96c4ee2f1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/西汉/韩安国.webp": {
+    "input_sha256": "0a0f18de7bbd55db7ddba826a85ad953812478fc1769d65c9880fc2b014f0605",
+    "output_sha256": "beb1960782e5df79a241ec25725b85a7a51d5cdb5e0e95891e7b31aa281ce3f0",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/孟姚.webp": {
+    "input_sha256": "334e59f4d6d0e39778f85f1f7d720c98f0feac129b7270be9c9e43af618e24ef",
+    "output_sha256": "880ac0a991b04f3475dc71082ae81ac64fcd338ae2ebdcd68431a15497c84d47",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/平原君.webp": {
+    "input_sha256": "5ddda4dbc0e027a894113017e92995be00b9a76fc6b394bcab744713e67ab872",
+    "output_sha256": "f87b84c0c12129b09bf1937191a3787854460791d163eded74203d5cd3a0dc31",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/庞煖.webp": {
+    "input_sha256": "9bc038a791b3359e4c6ff3d0e4a87240d59771db7ec3beeb38f18e7a5daf24a9",
+    "output_sha256": "2eb5e4c2dba5f475e5f82a5d9a4f99cf12d5f9376378dccb5ce2e6c69a18de41",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/廉颇.webp": {
+    "input_sha256": "197ab2899dca99b823407133d07a93c4793c204b224d14a356eb7ff3a441a6eb",
+    "output_sha256": "bd39b8ccb66203768c0c88a7842fd02cd77bf4b4e9de61c3352939831b6538f5",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/李牧.webp": {
+    "input_sha256": "fec502a2a03bff8ff659ecd798b018a621c58fd412d7435249efd56e0765d714",
+    "output_sha256": "69b7295d3fc09d1daa57b4f13e3f371554a18631cbaf31657d416c23d9b35697",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/苏秦.webp": {
+    "input_sha256": "02bb00b1bcf7bf2e85d6cb6a6833d93cb8b4aebc99b4e84758f1f9edbf245688",
+    "output_sha256": "8e5d0cb8ba6db3f1066bd331303affe43aa7483d46bcae21ef596a5bb391fad7",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/蔺相如.webp": {
+    "input_sha256": "c6852121d7f436263efcc94d4c0d1f837e8f50030f2ff50219bdcea3c5e57198",
+    "output_sha256": "f800a3c7441dcf982572359498e5d9dbd16d6f84e25061b7d7d60ad31c89cdc1",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/赵奢.webp": {
+    "input_sha256": "244085f54d561fc9d6c009030c361370ee1f8aeb8cd0355f46796472d2ed561f",
+    "output_sha256": "4bc363ecd7660eb8cf3800ed9ef4198897fdf4b435e825d7ddfda7afa77bc070",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/赵/赵威后.webp": {
+    "input_sha256": "85c9dc057b944b3152b749b13dc969420f8c56e6bf51b1f7f2a74a2b3d437e61",
+    "output_sha256": "73f641c5ef706b80224fba19c2b521665c531a1405b9a243a37bae9765d724d8",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/韩/暴鸢.webp": {
+    "input_sha256": "b15e15a2abef0a2f6d00c3c1d7246511bc3908795307a03ed7dfa3b19ad9b112",
+    "output_sha256": "1de08a6fb147d130c48033861f4b0de8b750f479b8d76516c141bbb999692499",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/韩/申不害.webp": {
+    "input_sha256": "49dfb06e002750070b66555251f7432adfaa1cb24fbd5fb907f9f054882c0bfb",
+    "output_sha256": "4e8546ef3afdf52e160f12c93219e01684c173c838e247f37e508109f5696c4d",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/韩/郑国.webp": {
+    "input_sha256": "89199877df322a81cc186bf59f202b52193a3dbdabb27e95e2466040b73d3ec8",
+    "output_sha256": "eee643e4ae731587ea262034b6d965e7285a7784cd766ad1e2257b4386d5db50",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/韩/韩娥.webp": {
+    "input_sha256": "cc160ff6cbedc3f4df7d2e999825e9f8d00f0a308b87a63eeeea40aa13835b9d",
+    "output_sha256": "71440f5040965245523ba6921337153b827f35630b51e2b179a573514c0bd0d3",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:12+08:00"
+  },
+  "../src_mjs/assets/韩/韩非.webp": {
+    "input_sha256": "0996527fd184e56c203b731af1a234a3bae43e47ec59ca1acea8dec246fea97e",
+    "output_sha256": "b48982c9c7329c71ec5e3209707474418c1eab5333454ea3f81125c1309429fa",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/魏/侯嬴.webp": {
+    "input_sha256": "6d52c4a161f1e884a86ad955623ba043102353b3ba6fcd8fc7c20af2f4f09788",
+    "output_sha256": "bfe7a6c96f50b41b706e0d81192c57f6ed42e4a6bf1b42287d29de3938c76030",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/魏/信陵君.webp": {
+    "input_sha256": "f7529f7b865fed618decd0e4305c11d13857e0d5ca7efaa453ac78111869b40c",
+    "output_sha256": "c514ddb566fc198e6b107d2d2952e144cb5a32f52b87947c2d1c44168bc73c0c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/魏/如姬.webp": {
+    "input_sha256": "ef50be7b3426cf03fef44860f230c214281e04d53a15d1e7eee14a550e8df5df",
+    "output_sha256": "d0661477a122e6be441f78b8a207d1e73a295362e2268426820b949a2d27047c",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/魏/朱亥.webp": {
+    "input_sha256": "88371152eec75ad117cb5d6cab8a392599a28efda7e36f76ecebb057ecfc1214",
+    "output_sha256": "074f37c0f6ea8424f57ee101b9d6eed7433cd681e8870a18025574477b2d1914",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/魏/西门豹.webp": {
+    "input_sha256": "31df01d35eac76ddf5942d5e0aeaa8c1c185308f74742eefb919de49e537040a",
+    "output_sha256": "a1d36cdbc2947540f8cf114085af06b509bd56ef039ca8b25c722b2d0d979cff",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/魏/魏咎.webp": {
+    "input_sha256": "f7168c44ea126aa321a34509524c72c994b8a119dc6444ecf69b05c8384ac7a7",
+    "output_sha256": "8f2e51390f920b301fec801b17298beb0d561904add6d832b046c7814fb901ca",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/黄巾/张宝.webp": {
+    "input_sha256": "880c0484cf3dd638590a95b6fe189957b1743a91616eee6066b4064441a9ad92",
+    "output_sha256": "980ce338312f677f931b671192cce4e0cbc1f2b71c2ca80eb60ec1909745305f",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/黄巾/张梁.webp": {
+    "input_sha256": "0e5f4559bca59f0295e1701ef38fb32bddc2b9e4b5f40350de4ede479dabb821",
+    "output_sha256": "e14f3b39798fd051a362fbdd49a7075428ddca9d8ebe5b063388ec858584ee07",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/黄巾/张角.webp": {
+    "input_sha256": "fdc538ad489e4f74896669834b513c6c1f097e4d6124a05428bc444b28d59e13",
+    "output_sha256": "ff87a29023b55642a7b9d2ca219e15834ebcad9160846438af7f317568d63054",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/齐/君王后.webp": {
+    "input_sha256": "869f20fd3ff967a7dbefce44171dfbabbffd09c16d02bcd8f83c1972a8630d7d",
+    "output_sha256": "ce17644977f8f650463cbe527a1e3dc0159b449632c0eeb4157f0c9fe0107884",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/齐/孟尝君.webp": {
+    "input_sha256": "31c82edbb0f1126eb4b21aed9026ea55a5ffae1b1ae94b17c908c7ba6d30c9e8",
+    "output_sha256": "8be9f034e628f63dded5ae7e817a41b87908b4486d668a39e6f70ada54357fab",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/齐/田单.webp": {
+    "input_sha256": "dab4ce58ac83e0c923b06e93c338237ee91563ded8ccbab0fdf3018ef9508944",
+    "output_sha256": "4ff1b1ed399d94aba17ae8a982637bcdde82833e526a1ca1888f00b8a14b1859",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/齐/钟无艳.webp": {
+    "input_sha256": "87ca03018fb09c5fb16291759d8deb9bf6157187b9820b9b46c12becde0cf4d1",
+    "output_sha256": "b1bb2df29b74356f14799c6dbaf45afd6110c3f073c976e8cf862d573d1ce79f",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  },
+  "../src_mjs/assets/齐/鲁仲连.webp": {
+    "input_sha256": "6bfe5ae03a961c24830fde4f27713b99bfd2799298dbc5531e9b57297ce94490",
+    "output_sha256": "aa4376e4d04e6db3799ad773b18a4974a93687ad0d5bc3679d10527fb3e23452",
+    "params": {
+      "model": "realesrgan-x4plus-anime",
+      "scale": 4,
+      "webp_q": 100,
+      "engine": "07e49f7cbb4e"
+    },
+    "time": "2026-09-08T22:18:15+08:00"
+  }
+}

@@ -35,6 +35,14 @@
 - Python deps are in root `requirements.txt`, installed in root `.venv`. Scripts use `np.fromfile` + `cv2.imdecode` to survive non-ASCII Windows paths.
 - OCR mistakes are corrected via per-script `NAME_MAPPING` dicts — add new misreads there, not in `data.js`.
 
+## Webp 超分增强 (`enhance/`)
+
+- `enhance/enhance.py` 用 Real-ESRGAN (realesrgan-ncnn-vulkan) 对 webp 资产做 4x 超分，原地覆盖，提升清晰度。引擎二进制在 `enhance/engine/`（gitignore，首次运行自动下载）。
+- 逐目录独立参数写在 `enhance/config.json` 的 `targets`（每项含 `path`、`model`、`webp_q`）。当前只配了 `../src_mjs/assets`。
+- 去重靠 `enhance/processed.json`（入库）：每条 = 图片相对路径 → `{input_sha256, output_sha256, params, time}`。跳过条件 = 当前文件哈希 == `output_sha256` 且 `params`（含引擎哈希）未变；否则重处理并更新输入/输出哈希。
+- 用法：`python enhance/enhance.py --dry-run`（只列将处理项）、`python enhance/enhance.py`（执行）、`python enhance/enhance.py --pilot N --models m1 m2`（抽 N 张双模型对照到 `enhance/_pilot/`，不写目标目录）。
+- 生成改动资产时记得 `npm run set_<variant>` 同步到 `src/` 并跑 `npm run build` 回归。
+
 ## Stack notes
 
 - Vue 3 + Vite 8 (rolldown) + Element Plus (zh-cn locale, dark default). No TypeScript; `@` aliases to `src/` (jsconfig.json).

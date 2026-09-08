@@ -43,3 +43,8 @@ __screenshots__/
 /src/assets/*/*.webp
 /test.html
 /*.zip
+
+# Enhance (webp 超分工具)
+/enhance/engine/
+/enhance/_work/
+/enhance/_pilot/

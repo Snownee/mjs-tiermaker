@@ -141,7 +141,9 @@ def process_atlas(image_path, output_folder="output"):
             # 你可以根据实际图片的行间距微调这个 offset
             name_region = safe_slice(img, y + h + 5, 40, x - 15, w + 30)
             if name_region is None:
-                print(f"Skipping contour {i}: empty name region at ({x}, {y}, {w}, {h})")
+                print(
+                    f"Skipping contour {i}: empty name region at ({x}, {y}, {w}, {h})"
+                )
                 continue
             name_region = cv2.resize(
                 name_region, (0, 0), fx=2, fy=2, interpolation=cv2.INTER_CUBIC
@@ -165,7 +167,7 @@ def process_atlas(image_path, output_folder="output"):
             save_path = os.path.join(output_folder, f"{name}.webp")
 
             # 使用 imencode 将图片格式化为 webp 字节流，再写入文件
-            encode_param = [int(cv2.IMWRITE_WEBP_QUALITY), 90]
+            encode_param = [int(cv2.IMWRITE_WEBP_QUALITY), 100]
             is_success, buffer = cv2.imencode(".webp", avatar, encode_param)
             if is_success:
                 with open(save_path, "wb") as f:
@@ -238,6 +240,8 @@ def update_id_json(file_path, new_outputs):
 
 
 if __name__ == "__main__":
+    force_update_all = True
+
     # 获取当前脚本的绝对路径
     script_dir = os.path.dirname(os.path.abspath(__file__))
     # 切换当前工作目录
@@ -257,7 +261,7 @@ if __name__ == "__main__":
     if len(outputs) > 0:
         new_data, added_items = update_id_json("id.json", outputs)
 
-        if len(added_items) > 0:
+        if len(added_items) > 0 or force_update_all:
             confirm = (
                 input(
                     f"\n检测到 {len(added_items)} 条新记录。是否确认添加并替换原文件？(y/n): "

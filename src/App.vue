@@ -8,24 +8,26 @@
       <TierList v-model:name-visible="cardNameVisible" :tiers="tiers" :no-drag="noDrag" :translate="translate"
         :get-asset="asset" @open-edit-tier-dialog="openEditTierDialog" @open-select-dialog="openSelectDialog"
         @open-item-menu="openItemMenu" @drag-start="dragging = true" @drag-end="dragging = false" />
-      <el-tooltip :visible="itemMenuChar !== null" :virtual-ref="itemMenuTarget" placement="top" persistent
-        virtual-triggering :popper-options="{
-          modifiers: [
-            {
-              name: 'computeStyles',
-              options: {
-                adaptive: false,
-                enabled: false,
-              },
-            },
-          ],
-        }">
-        <template #content>
-          <div class="item-card-menu" v-click-outside="itemMenuOutside">
-            <span @click="itemMenuDelete">删除</span>
+      <div v-if="itemViewChar" class="item-view-mask" :class="{ 'fade-out': itemViewFadeOut }"
+        @mousedown="closeItemView('cancel')" @wheel.prevent="onItemViewWheel">
+        <div class="item-view">
+          <div ref="itemViewStage" class="item-view-stage"
+            :class="{ 'no-transition': !itemViewTransition }">
+            <div class="item-view-img-wrap" :style="itemViewWrapStyle">
+              <el-image class="item-view-img"
+                :src="itemViewChar.imageUrl || asset(`${itemViewChar.faction}/${itemViewChar.name}.webp`)"
+                fit="contain" />
+            </div>
           </div>
-        </template>
-      </el-tooltip>
+          <AutoShrinkText :text="itemViewChar.displayName || itemViewChar.name" class="item-view-name"
+            @mousedown.stop />
+          <div class="item-view-menu" @mousedown.stop>
+            <el-button-group class="item-view-btn-group">
+              <el-button @click="itemViewDelete">删除</el-button>
+            </el-button-group>
+          </div>
+        </div>
+      </div>
       <div class="buttons">
         <el-dropdown :show-arrow="false" v-if="!isVanilla">
           <el-button type="primary" class="dropdown_button preset-button">
@@ -121,16 +123,13 @@
 <script setup>
 import * as InitData from "./data.js";
 import * as VanillaData from "./data_v.js";
-import { ref, computed, onMounted, onUnmounted, watch } from "vue";
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from "vue";
 import contenteditable from "vue-contenteditable";
-import {
-  ElMessage,
-  ElMessageBox,
-  ClickOutside as vClickOutside,
-} from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import { ArrowDown } from "@element-plus/icons-vue";
 import ImageUploader from "./components/ImageUploader.vue";
 import TierList from "./components/TierList.vue";
+import AutoShrinkText from "./components/AutoShrinkText.vue";
 import SelectDialog from "./components/SelectDialog.vue";
 import EditTierDialog from "./components/EditTierDialog.vue";
 import FallbackCopyDialog from "./components/FallbackCopyDialog.vue";
@@ -346,7 +345,7 @@ onMounted(() => {
   document.title = translate("doc_title");
   noDrag.value = isMobile.value = mediaQuery.matches;
   mediaQuery.addEventListener("change", handleDeviceChange);
-  window.addEventListener("scroll", itemMenuOutside);
+  window.addEventListener("keydown", onItemViewKeydown);
   if (platform === "taptap") {
     document.body.classList.add("taptap");
   }
@@ -387,6 +386,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   mediaQuery.removeEventListener("change", handleDeviceChange);
+  window.removeEventListener("keydown", onItemViewKeydown);
   localChars.value.forEach((char) => {
     if (char.imageUrl?.startsWith("blob:")) {
       URL.revokeObjectURL(char.imageUrl);
@@ -455,33 +455,85 @@ const openSelectDialog = (tier) => {
   selectDialogVisible.value = true;
 };
 
-const itemMenuVPosition = ref({ top: 0, left: 0, width: 0, height: 0 });
-const itemMenuTarget = ref({
-  getBoundingClientRect: () => itemMenuVPosition.value,
+const ITEM_VIEW_MIN_SCALE = 0.25;
+const ITEM_VIEW_MAX_SCALE = 1;
+
+const itemViewChar = ref(null);
+const itemViewOrigin = ref({ top: 0, left: 0, width: 0, height: 0 });
+const itemViewStage = ref(null);
+const itemViewTransition = ref(false);
+const itemViewFadeOut = ref(false);
+const itemViewClosing = ref(false);
+// 缩放状态跨会话保留（仅缩放比例，固定以中心为原点）
+const itemViewZoom = ref(0.4);
+
+const itemViewWrapStyle = computed(() => {
+  return { transform: `scale(${itemViewZoom.value})` };
 });
-const itemMenuChar = ref(null);
 
-const itemMenuOutside = (e) => {
-  if (itemMenuChar.value) {
-    e.preventDefault();
-    e.stopPropagation();
-    itemMenuChar.value = null;
-  }
-};
-
-const itemMenuDelete = () => {
-  const char = itemMenuChar.value;
-  if (char) {
-    itemMenuChar.value = null;
-    removeFromList(char);
-  }
+const computeMorph = (stageEl, origin) => {
+  const rect = stageEl.getBoundingClientRect();
+  const ox = origin.left + origin.width / 2;
+  const oy = origin.top + origin.height / 2;
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const scale = origin.width / rect.width;
+  return `translate(${ox - cx}px, ${oy - cy}px) scale(${scale})`;
 };
 
 const openItemMenu = (e, char) => {
-  // msg('info', `角色：${char.name}\n类别：${char.faction}`)
-  const { top, left, width, height } = e.currentTarget.getBoundingClientRect();
-  itemMenuVPosition.value = { top, left, width, height };
-  itemMenuChar.value = char;
+  const rect = e.currentTarget.getBoundingClientRect();
+  itemViewOrigin.value = { top: rect.top, left: rect.left, width: rect.width, height: rect.height };
+  itemViewChar.value = char;
+  itemViewFadeOut.value = false;
+  itemViewTransition.value = false;
+  nextTick(() => {
+    const el = itemViewStage.value;
+    el.style.transform = computeMorph(el, itemViewOrigin.value);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        itemViewTransition.value = true;
+        el.style.transform = "translate(0, 0) scale(1)";
+      });
+    });
+  });
+};
+
+const finishItemView = () => {
+  itemViewChar.value = null;
+  itemViewClosing.value = false;
+  itemViewFadeOut.value = false;
+};
+
+const closeItemView = (mode) => {
+  if (!itemViewChar.value || itemViewClosing.value) return;
+  itemViewClosing.value = true;
+  if (mode === "delete") {
+    removeFromList(itemViewChar.value);
+  } else {
+    const el = itemViewStage.value;
+    el.style.transform = computeMorph(el, itemViewOrigin.value);
+  }
+  itemViewFadeOut.value = true;
+  setTimeout(finishItemView, 320);
+};
+
+const itemViewDelete = () => {
+  closeItemView("delete");
+};
+
+const onItemViewKeydown = (e) => {
+  if (e.key === "Escape" && itemViewChar.value) {
+    closeItemView("cancel");
+  }
+};
+
+const onItemViewWheel = (e) => {
+  const factor = e.deltaY < 0 ? 1.1 : 1 / 1.1;
+  itemViewZoom.value = Math.min(
+    ITEM_VIEW_MAX_SCALE,
+    Math.max(ITEM_VIEW_MIN_SCALE, itemViewZoom.value * factor),
+  );
 };
 
 const openEditTierDialog = (tier) => {
