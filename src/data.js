@@ -888,10 +888,6 @@ export const presets = [
     name: "2V2排行",
     save: "0eJwN0GdbzQEAhvEfsiJ7Z5S9xxHZI9lbRGQ7VpwyKltKJR2Vo6xIWZFxXVy94/JpUuedr+D/Be7nfu5QdijeGotX/eysicVborrqf2RF8osj4XBnQ3tXXcW/39GOX+Udfxr/1pbGS8rQT7PFqi2y1QVTvDNco89SHXXMGXmSbRA2W19XnXfDUButMcMgUU88dt9rBdJ98FaJa1YLGeWLj+a57qxE3fS3zWmbrTTZLvuNVu6wnVYY4pYi4+VbZ4RZLtvkkIsyHBcxxlKZalSoDEwPOmegvQ4YaaIXwWaOB56ZpLeTFlouV09znXDEXdudssQ4c1yRbaZp9imUZqw7bltgqh32GCDBMH0UK3XPWg8t81R3z730SpM3vvqk1jffA1aS3R6ZbrCbtgT1esmyyvzgaYoeJlivPih3SZU6MQ3KvNeiVdt/rLdY8g",
   },
-  {
-    name: "八人场排行",
-    save: "0eJwNz1kz1QEAQPFfaaFka1UpoUWboqJoI9IqS8lSqK60XW2iXXTFjClj9JSXnnroKdPTzfg093Lf+gr+7+fMmROP/I5Fo/HpaOLXZGJsZv7rZOLnuIWpP43h3v5wKDT//e/CxMj/2fHYv0hs7kf821BicBhrpLrjmEtyhKRYpkSPLTrUWKvTbUett9N5xVbLlynstCq3vLTKG58ct99GSz3yMDBu2uCyJyp0e67L/aBRaJODamVp8liBk1q9U+6CAWmB3eyVeyrV2Wa3LyI+G/TRHgdkaJcnWb+n9nnhhr2uOuuc5Yr0umiJ67KV6gvoBvWO2GWHrd5677W7weE6h51ySK4PTmix0mbDwckV16zQqMwDSbardkabdM+MGTViaBHa60gv",
-  },
 ];
 
 export const lang = {

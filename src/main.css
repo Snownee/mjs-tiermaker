@@ -362,6 +362,41 @@ body .preset-button {
   min-width: 150px;
 }
 
+body .custom-preset-header {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+body .custom-preset-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body .custom-preset-name {
+  flex-grow: 1;
+}
+
+body .custom-preset-delete {
+  visibility: hidden;
+  padding: 0 4px;
+  border-radius: 4px;
+  line-height: 1.6;
+  position: relative;
+  right: -10px;
+}
+
+body .custom-preset-item:hover .custom-preset-delete {
+  visibility: visible;
+}
+
+body .custom-preset-delete:hover {
+  color: var(--el-color-danger);
+  background-color: var(--el-fill-color-light);
+}
+
 .buttons {
   margin: 20px 0;
 }

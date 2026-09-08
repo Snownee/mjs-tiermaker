@@ -29,15 +29,24 @@
       <div class="buttons">
         <el-dropdown :show-arrow="false" v-if="!isVanilla">
           <el-button type="primary" class="dropdown_button preset-button">
-            <div>{{ preset || "📦使用预设" }}</div>
+            <div>{{ presetDisplay }}</div>
             <el-icon class="el-icon--right"><arrow-down /></el-icon>
           </el-button>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">{{ item.name
+              <el-dropdown-item v-for="item in presets" :key="item.name" @click="usePreset(item)">📦 {{ item.name
               }}</el-dropdown-item>
-              <el-dropdown-item v-if="presets.length === 0" disabled>暂无预设</el-dropdown-item>
-              <el-dropdown-item v-if="uiSettings.submitPresetUrl" @click="submitPreset" divided>预设投稿</el-dropdown-item>
+              <el-dropdown-item v-if="presets.length === 0 && customPresets.length === 0" disabled>暂无预设
+              </el-dropdown-item>
+              <el-dropdown-item v-if="customPresets.length > 0" divided disabled class="custom-preset-header">⭐ 我的预设
+              </el-dropdown-item>
+              <el-dropdown-item v-for="customPreset in customPresets" :key="customPreset.name"
+                class="custom-preset-item" @click="loadCustomPreset(customPreset)">
+                <span class="custom-preset-name">⭐ {{ customPreset.name }}</span>
+                <span class="custom-preset-delete" title="删除" @click.stop="deleteCustomPreset(customPreset)">✖</span>
+              </el-dropdown-item>
+              <el-dropdown-item divided @click="saveCurrentAsPreset">💾 保存为预设…</el-dropdown-item>
+              <el-dropdown-item v-if="uiSettings.submitPresetUrl" @click="submitPreset" divided>📫 预设投稿</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -45,8 +54,10 @@
         <el-button type="primary" @click="clickResetConfirm">🧹重置列表</el-button>
         <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">👁️浮动按钮：{{
           floatButtonVisible ? "开" : "关" }}</el-button>
-        <el-button type="primary" @click="toggleShuffleMode" :class="{ 'show-new-badge': shuffleNewBadgeVisible }">🎲打乱模式{{ shuffleModeHint ? "" : shuffleMode ? "：开" : "：关"
-        }}</el-button>
+        <el-button type="primary" @click="toggleShuffleMode"
+          :class="{ 'show-new-badge': shuffleNewBadgeVisible }">🎲打乱模式{{
+            shuffleModeHint ? "" : shuffleMode ? "：开" : "：关"
+          }}</el-button>
         <ImageUploader @upload="addLocalImages">📤{{ translate('本地图片') }}</ImageUploader>
         <el-button type="primary" v-if="isVanilla && chars.length > 0"
           @click="cardNameVisible = !cardNameVisible">🔠显示文字：{{
@@ -110,7 +121,7 @@
 <script setup>
 import * as InitData from "./data.js";
 import * as VanillaData from "./data_v.js";
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import contenteditable from "vue-contenteditable";
 import {
   ElMessage,
@@ -202,6 +213,24 @@ const isMobile = ref(false);
 const mediaQuery = window.matchMedia("(max-width: 767px)");
 const forcePopover = ref(true);
 const preset = ref();
+const CUSTOM_PRESET_KEY = `${namespace}_tier_list_custom_presets`;
+const MAX_CUSTOM_PRESETS = 20;
+const customPresets = ref([]);
+const readCustomPresets = () => {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(CUSTOM_PRESET_KEY) || "[]");
+    return Array.isArray(parsed)
+      ? parsed.filter((p) => p && typeof p.name === "string" && typeof p.save === "string")
+      : [];
+  } catch (error) {
+    console.warn("读取自定义预设失败", error);
+    return [];
+  }
+};
+const writeCustomPresets = () => {
+  localStorage.setItem(CUSTOM_PRESET_KEY, JSON.stringify(customPresets.value));
+};
+customPresets.value = readCustomPresets();
 const fallbackCopyDialogVisible = ref(false);
 const fallbackCopy = ref("");
 
@@ -478,9 +507,18 @@ const handleUpdateFilterConfig = (patch) => {
   Object.assign(filterConfig.value, patch);
 };
 
+const isBuiltinPresetName = (name) => presets.some((p) => p.name === name);
+
+const presetDisplay = computed(() => {
+  if (!preset.value) {
+    return "📦使用预设";
+  }
+  return isBuiltinPresetName(preset.value) ? preset.value : `⭐ ${preset.value}`;
+});
+
 const share = () => {
   const base = window.location.origin + window.location.pathname;
-  if (preset.value) {
+  if (preset.value && isBuiltinPresetName(preset.value)) {
     copyUrl(`${document.title} - ${preset.value} - ${base}?p=${preset.value}`);
     return;
   }
@@ -505,12 +543,100 @@ const copyUrl = async (url) => {
   }
 };
 
-const usePreset = (newPreset) => {
-  loadList(newPreset.save);
-  if (preset.value !== newPreset.name) {
+const applyPreset = (save, name) => {
+  loadList(save);
+  if (preset.value !== name) {
     updatePresetTimestamp();
-    preset.value = newPreset.name;
+    preset.value = name;
   }
+};
+
+const usePreset = (newPreset) => {
+  applyPreset(newPreset.save, newPreset.name);
+};
+
+const loadCustomPreset = (customPreset) => {
+  applyPreset(customPreset.save, customPreset.name);
+};
+
+const doSaveCustomPreset = (name, save) => {
+  const index = customPresets.value.findIndex((p) => p.name === name);
+  if (index === -1) {
+    customPresets.value.push({ name, save });
+  } else {
+    customPresets.value[index] = { name, save };
+  }
+  writeCustomPresets();
+  msg("success", `已保存预设「${name}」`);
+};
+
+const saveCurrentAsPreset = () => {
+  const result = saveList();
+  if (result === null) {
+    msg("warning", "列表为空，无法保存为预设");
+    return;
+  }
+  if (customPresets.value.length >= MAX_CUSTOM_PRESETS) {
+    msg("error", `自定义预设已达上限（${MAX_CUSTOM_PRESETS}条），请先删除部分预设`);
+    return;
+  }
+  ElMessageBox.prompt("为当前排序命名，保存后可在预设下拉中随时加载。", "保存为预设", {
+    confirmButtonText: "保存",
+    cancelButtonText: "取消",
+    inputPlaceholder: "请输入预设名称",
+    inputValue: title.value || "",
+    inputValidator: (value) => {
+      const name = String(value).trim();
+      if (!name) {
+        return "预设名称不能为空";
+      }
+      if (name.length > 20) {
+        return "预设名称不能超过 20 个字符";
+      }
+      if (isBuiltinPresetName(name)) {
+        return "不能与内置预设重名";
+      }
+      return true;
+    },
+  })
+    .then(({ value }) => {
+      const name = String(value).trim();
+      if (customPresets.value.some((p) => p.name === name)) {
+        ElMessageBox.confirm(`已存在同名自定义预设「${name}」，是否覆盖？`, "覆盖预设", {
+          confirmButtonText: "覆盖",
+          confirmButtonType: "danger",
+          cancelButtonText: "取消",
+          type: "warning",
+          center: true,
+        })
+          .then(() => {
+            doSaveCustomPreset(name, result);
+          })
+          .catch(() => { });
+      } else {
+        doSaveCustomPreset(name, result);
+      }
+    })
+    .catch(() => { });
+};
+
+const deleteCustomPreset = (customPreset) => {
+  ElMessageBox.confirm(`确定删除自定义预设「${customPreset.name}」吗？`, "删除预设", {
+    confirmButtonText: "删除",
+    confirmButtonType: "danger",
+    cancelButtonText: "取消",
+    type: "warning",
+    center: true,
+  })
+    .then(() => {
+      customPresets.value = customPresets.value.filter((p) => p.name !== customPreset.name);
+      if (preset.value === customPreset.name) {
+        preset.value = undefined;
+      }
+      writeCustomPresets();
+      msg("success", `已删除预设「${customPreset.name}」`);
+    })
+    .catch(() => { });
 };
 
 const submitPreset = () => {
