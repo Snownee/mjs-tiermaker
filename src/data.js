@@ -2,7 +2,7 @@ export const namespace = "mjs";
 
 /* DATA_START */
 export const data = {
-    "next_id": 175,
+    "next_id": 180,
     "values": [
         {
             "id": 0,
@@ -878,6 +878,31 @@ export const data = {
             "id": 174,
             "name": "西晋/杨艳",
             "pack": "晋洛兴替"
+        },
+        {
+            "id": 175,
+            "name": "东晋/司马睿",
+            "pack": "王马天下"
+        },
+        {
+            "id": 176,
+            "name": "西晋/荀灌",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 177,
+            "name": "西晋/潘安",
+            "pack": "晋洛兴替"
+        },
+        {
+            "id": 178,
+            "name": "西汉/苏武",
+            "pack": "汉武盛世"
+        },
+        {
+            "id": 179,
+            "name": "西汉/金日磾",
+            "pack": "汉武盛世"
         }
     ]
 }
@@ -886,7 +911,7 @@ export const data = {
 export const presets = [
   {
     name: "2V2排行",
-    save: "0eJwN0GdbzQEAhvEfsiJ7Z5S9xxHZI9lbRGQ7VpwyKltKJR2Vo6xIWZFxXVy94/JpUuedr+D/Be7nfu5QdijeGotX/eysicVborrqf2RF8osj4XBnQ3tXXcW/39GOX+Udfxr/1pbGS8rQT7PFqi2y1QVTvDNco89SHXXMGXmSbRA2W19XnXfDUButMcMgUU88dt9rBdJ98FaJa1YLGeWLj+a57qxE3fS3zWmbrTTZLvuNVu6wnVYY4pYi4+VbZ4RZLtvkkIsyHBcxxlKZalSoDEwPOmegvQ4YaaIXwWaOB56ZpLeTFlouV09znXDEXdudssQ4c1yRbaZp9imUZqw7bltgqh32GCDBMH0UK3XPWg8t81R3z730SpM3vvqk1jffA1aS3R6ZbrCbtgT1esmyyvzgaYoeJlivPih3SZU6MQ3KvNeiVdt/rLdY8g",
+    save: "0eJwN0NdfzQEAxuHH3ntvyt6OPVNoWCGyt2M7GZEUpRRxVI6ysrKyVdzx6a9JnTv/gt/9e/G831B2KN4Qi1c0t1XG4vVR7TVNWZGcvEg43Fb7q726/N+faOvvstaWur9VJfHiUvTy2iL3LLTBWZO8NUSdTxIddMgJZ4ySKmymHnKdds0gaVabpr+ohx645YXzFnvvjWJJQob74oNGTa6aK99JPXXQ20bHZVhpoi12GqHMfplWGKjQFWPlWGOoGS5Kt9c5KQ6LGGmptSqVux1oT9lul2ESxPx0x01L7PFUPxV2exy4uzlqvuX26WK2Iw4ossmxYDfGLJdkm26KHS5bYLQbrptnss226auzwbrLUyLZXcs80tETzzz30itffVTlWyCt0cdW9001QIH1QceusqwK3s4xXifjfLfOBBdUq1XqnXoNPvuh+T+dgFxs",
   },
 ];
 
