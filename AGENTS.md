@@ -30,7 +30,7 @@
 ## Python slicers (`slicer_<variant>/`)
 
 - One standalone script per variant; each hardcodes its target as `../src_<variant>/` (data.js + assets). Don't copy one slicer into another without updating those paths.
-- Workflow: drop atlas screenshots into `input/` → run `slicer.py` → OCR splits avatars into `assets/<pack>/<name>.webp`, updates `id.json` and the DATA_START/DATA_END region of `data.js` (prompts y/n before writing).
+- When you add or replace a卡池截图 in `slicer_mjs/input/`, follow the runbook `slicer_mjs/WORKFLOW.md` (slice → 校对 → apply → enhance → set_mjs). mjs `slicer.py` is three stages: `slice` (OCR → `temp_output/`, writes nothing else), `apply` (writes `assets/` — replacing **only the 朝代 dirs present in `temp_output/`** — plus `id.json` and `data.js`), `data` (regenerate `data.js` from `id.json`). `apply` auto-fills each new entry's `pack` from `DYNASTY_PACK` by 朝代前缀. The other variants still run as a single `slicer.py` pass.
 - ww/rocom slicers merge card metadata from `data_export.json`, produced by the Tampermonkey `export.user.js` scripts.
 - Python deps are in root `requirements.txt`, installed in root `.venv`. Scripts use `np.fromfile` + `cv2.imdecode` to survive non-ASCII Windows paths.
 - OCR mistakes are corrected via per-script `NAME_MAPPING` dicts — add new misreads there, not in `data.js`.

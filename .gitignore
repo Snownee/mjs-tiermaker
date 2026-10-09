@@ -48,3 +48,4 @@ __screenshots__/
 /enhance/engine/
 /enhance/_work/
 /enhance/_pilot/
+*.pyc

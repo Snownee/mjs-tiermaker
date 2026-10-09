@@ -1,5 +1,6 @@
 import cv2
 from cnocr import CnOcr
+import argparse
 import shutil
 import os
 import difflib
@@ -36,8 +37,42 @@ NAME_MAPPING = {
     "王濬": ["王溶"],
     "司马相如": ["与马相如"],
     "金日磾": ["金日殚"],
+    "金日磾": ["金日殚"],
+    "左棻": ["左荣"],
     # 在这里继续添加你遇到的生僻字或错误识别对
 }
+
+# --- 朝代 -> 卡包 映射 ---
+# 新增条目按 name 前缀（朝代/势力）自动补全 pack。
+# 一个朝代横跨多个卡包时，这里取现有数据中出现次数最多的主卡包；
+# 命中 MULTI_PACK_DYNASTIES 的朝代会在新增时打印警告，需人工核对。
+DYNASTY_PACK = {
+    "东汉": "三国云起",
+    "孙吴": "三国云起",
+    "曹魏": "三国云起",
+    "蜀汉": "三国云起",
+    "黄巾": "三国云起",
+    "张楚": "楚汉之争",
+    "西楚": "楚汉之争",
+    "秦": "秦扫六合",
+    "燕": "秦扫六合",
+    "西汉": "汉武盛世",
+    "楚": "合纵连横",
+    "赵": "合纵连横",
+    "韩": "合纵连横",
+    "魏": "合纵连横",
+    "齐": "合纵连横",
+    "西晋": "晋洛兴替",
+    "东晋": "王马天下",
+    "西周": "匠心天工",
+}
+
+# 横跨多个卡包的朝代，自动补的主卡包可能不准，需人工确认
+MULTI_PACK_DYNASTIES = {"秦", "燕", "西汉", "曹魏", "楚", "赵", "韩", "魏", "齐"}
+
+INPUT_FOLDER = "input"
+TEMP_FOLDER = "temp_output"
+ID_FILE = "id.json"
 
 TARGET_FILE = "../src_mjs/data.js"
 DATA_START = "/* DATA_START */"
@@ -45,7 +80,6 @@ DATA_END = "/* DATA_END */"
 DATA_TEMPLATE = "export const data = {0}"
 
 TARGET_FOLDER = "../src_mjs/assets"
-TARGET_FOLDER_WHITELIST = []
 
 
 def write_to_target_file(new_data):
@@ -96,19 +130,6 @@ def alias_fix(raw_name):
     #     return matches[0]
 
     return raw_name
-
-
-def init_output_folder(folder="output", whitelist=[]):
-    if os.path.exists(folder) == False:
-        os.makedirs(folder)
-    for item in os.listdir(folder):
-        item_path = os.path.join(folder, item)
-        if item in whitelist:
-            print(f"Skipping {item_path} (whitelisted)")
-            continue
-        if os.path.isdir(item_path):
-            shutil.rmtree(item_path)
-            print(f"Deleted folder: {item_path}")
 
 
 def process_atlas(image_path, output_folder="output"):
@@ -222,7 +243,15 @@ def update_id_json(file_path, new_outputs):
     # 2. 遍历输入的 outputs，检查是否需要新增
     for name in new_outputs:
         if name not in existing_names:
-            new_entry = {"id": data["next_id"], "name": name}
+            # 根据 name 前缀（朝代/势力）自动补全 pack
+            dynasty = name.split("/", 1)[0]
+            pack = DYNASTY_PACK[dynasty]
+            if dynasty in MULTI_PACK_DYNASTIES:
+                print(
+                    f"Warning: 朝代「{dynasty}」横跨多个卡包，已按主卡包填为「{pack}」，"
+                    f"请人工核对 {name}"
+                )
+            new_entry = {"id": data["next_id"], "name": name, "pack": pack}
             data["values"].append(new_entry)
             added_items.append(new_entry)
 
@@ -241,64 +270,114 @@ def update_id_json(file_path, new_outputs):
         return data, []
 
 
-if __name__ == "__main__":
-    force_update_all = True
-
-    # 获取当前脚本的绝对路径
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    # 切换当前工作目录
-    os.chdir(script_dir)
-
-    TEMP_FOLDER = "temp_output"
+def do_slice():
+    """阶段一：OCR 切图 -> temp_output/，不触碰 assets 与 data.js。"""
     if os.path.exists(TEMP_FOLDER):
         shutil.rmtree(TEMP_FOLDER)
     os.makedirs(TEMP_FOLDER)
 
     outputs = []
-    # 处理input文件夹中的所有图片
-    for filename in os.listdir("input"):
+    for filename in os.listdir(INPUT_FOLDER):
         if filename.lower().endswith((".png", ".jpg", ".jpeg")):
-            outputs.extend(process_atlas(os.path.join("input", filename), TEMP_FOLDER))
-
-    if len(outputs) > 0:
-        new_data, added_items = update_id_json("id.json", outputs)
-
-        if len(added_items) > 0 or force_update_all:
-            confirm = (
-                input(
-                    f"\n检测到 {len(added_items)} 条新记录。是否确认添加并替换原文件？(y/n): "
-                )
-                .strip()
-                .lower()
+            outputs.extend(
+                process_atlas(os.path.join(INPUT_FOLDER, filename), TEMP_FOLDER)
             )
-            if confirm == "y":
-                # A. 删除原文件
-                init_output_folder(TARGET_FOLDER, TARGET_FOLDER_WHITELIST)
 
-                # B. 替换成新的图片
-                for item in os.listdir(TEMP_FOLDER):
-                    src_path = os.path.join(TEMP_FOLDER, item)
-                    dst_path = os.path.join(TARGET_FOLDER, item)
-                    if os.path.isdir(src_path):
-                        if os.path.exists(dst_path):
-                            shutil.rmtree(dst_path)
-                        shutil.move(src_path, dst_path)
-                    else:
-                        shutil.move(src_path, dst_path)
+    print(f"\n切图完成：{len(outputs)} 张 -> {TEMP_FOLDER}/")
+    print("请核对 OCR 结果；如有误，修改 NAME_MAPPING 后重跑 slice。")
+    return outputs
 
-                # C. 保存 id.json
-                with open("id.json", "w", encoding="utf-8") as f:
-                    json.dump(new_data, f, indent=2, ensure_ascii=False)
-                print(f"成功更新至 id.json")
 
-                # D. 更新 JS 文件
-                write_to_target_file(new_data)
-            else:
-                print("操作已取消。保持原文件不变。")
-        else:
-            print("没有检测到新条目，无需执行更新。")
-            write_to_target_file(new_data)
+def collect_temp_outputs():
+    outputs = []
+    for folder in sorted(os.listdir(TEMP_FOLDER)):
+        folder_path = os.path.join(TEMP_FOLDER, folder)
+        if not os.path.isdir(folder_path):
+            continue
+        for filename in sorted(os.listdir(folder_path)):
+            if filename.lower().endswith(".webp"):
+                outputs.append(f"{folder}/{os.path.splitext(filename)[0]}")
+    return outputs
 
-    # 清理临时文件夹
-    if os.path.exists(TEMP_FOLDER):
-        shutil.rmtree(TEMP_FOLDER)
+
+def do_apply():
+    """阶段二：temp_output/ -> assets（只替换本次涉及的朝代）+ id.json + data.js。"""
+    if not os.path.isdir(TEMP_FOLDER):
+        print(f"未找到 {TEMP_FOLDER}/，请先运行 slice。")
+        return
+
+    outputs = collect_temp_outputs()
+    if not outputs:
+        print(f"{TEMP_FOLDER}/ 为空，请先运行 slice。")
+        return
+
+    new_data, added_items = update_id_json(ID_FILE, outputs)
+
+    affected = sorted(
+        item
+        for item in os.listdir(TEMP_FOLDER)
+        if os.path.isdir(os.path.join(TEMP_FOLDER, item))
+    )
+    print(f"\n将仅替换以下朝代目录：{', '.join(affected)}")
+    confirm = (
+        input(
+            f"检测到 {len(added_items)} 条新记录。是否确认写入 assets 与 id.json？(y/n): "
+        )
+        .strip()
+        .lower()
+    )
+    if confirm != "y":
+        print("操作已取消。保持原文件不变。")
+        return
+
+    for folder in affected:
+        src_path = os.path.join(TEMP_FOLDER, folder)
+        dst_path = os.path.join(TARGET_FOLDER, folder)
+        if os.path.exists(dst_path):
+            shutil.rmtree(dst_path)
+        shutil.move(src_path, dst_path)
+        print(f"已更新 {dst_path}")
+
+    with open(ID_FILE, "w", encoding="utf-8") as f:
+        json.dump(new_data, f, indent=2, ensure_ascii=False)
+    print(f"成功更新至 {ID_FILE}")
+
+    write_to_target_file(new_data)
+
+
+def do_data():
+    """阶段三：仅由 id.json 重新生成 data.js（手动改过 id.json 后用它同步）。"""
+    with open(ID_FILE, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    write_to_target_file(data)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="mjs 头像切片工具")
+    parser.add_argument(
+        "action",
+        choices=["slice", "apply", "data", "all"],
+        help=(
+            "slice=OCR切图到 temp_output；"
+            "apply=写入 assets+id.json+data.js（只替换本次朝代）；"
+            "data=仅由 id.json 重生成 data.js；"
+            "all=slice 后立即 apply"
+        ),
+    )
+    args = parser.parse_args()
+
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+    if args.action == "slice":
+        do_slice()
+    elif args.action == "apply":
+        do_apply()
+    elif args.action == "data":
+        do_data()
+    elif args.action == "all":
+        do_slice()
+        do_apply()
+
+
+if __name__ == "__main__":
+    main()
