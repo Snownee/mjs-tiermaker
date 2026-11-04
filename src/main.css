@@ -45,8 +45,19 @@ body .select-char-dialog {
   margin: 2px;
   padding: 1px;
   -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  cursor: pointer;
   font-size: 13px;
   fill: var(--el-text-color-regular);
+}
+
+.select-char-container.drag-select {
+  cursor: grabbing;
+}
+
+.select-char-container.drag-select .select-char-item {
+  cursor: grabbing;
 }
 
 .select-char-item.selected {
@@ -84,6 +95,14 @@ body .select-char-dialog {
 
 #confirm-select {
   min-height: 40px;
+}
+
+.drag-select-hint {
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--el-text-color-secondary);
 }
 
 #confirm-select button {
