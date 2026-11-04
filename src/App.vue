@@ -101,7 +101,7 @@
         </el-popover> -->
       </aside>
 
-      <el-button v-if="shuffleMode" class="shuffle-float-button" type="primary" size="large" circle
+      <el-button v-if="shuffleMode && !itemViewChar" class="shuffle-float-button" type="primary" size="large" circle
         @click="handleShuffleClick">
         🎲
       </el-button>
@@ -706,6 +706,7 @@ const submitPreset = () => {
 
 const handleShuffleClick = (event) => {
   shuffleTiers();
+  navigator.vibrate?.(15);
   event.currentTarget.querySelector("span").animate(
     [
       { transform: "translateY(-2px) rotate(0deg)" },
