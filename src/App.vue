@@ -86,10 +86,14 @@
         </el-text>
       </div>
 
-      <aside class="float-button-area" v-if="isMobile && floatButtonVisible">
+      <aside ref="floatButtonArea" class="float-button-area" :class="{ dragging: floatDragging }"
+        v-if="isMobile && floatButtonVisible" :style="{ bottom: floatButtonBottom + 'px' }"
+        @mousedown.left.prevent="onFloatButtonPressStart" @touchstart="onFloatButtonPressStart"
+        @touchmove="onFloatButtonPressMove" @touchend="onFloatButtonPressEnd"
+        @touchcancel="onFloatButtonPressEnd">
         <el-popover placement="left" title="拖拽模式" trigger="hover" :visible="forcePopover">
           <template #reference>
-            <el-button size="large" circle @click="noDrag = !noDrag" :class="{ selected: !noDrag }">
+            <el-button size="large" circle @click="toggleNoDrag" :class="{ selected: !noDrag }">
               👆
             </el-button>
           </template>
@@ -137,6 +141,7 @@ import { useCharacters } from "./composables/useCharacters.js";
 import { usePersistence } from "./composables/usePersistence.js";
 import { usePlatform } from "./composables/usePlatform.js";
 import { PREDEFINE_COLORS } from "./utils/constants.js";
+import { vibrate } from "./utils/haptics.js";
 
 const params = new URLSearchParams(window.location.search);
 const isVanilla = InitData.namespace === "v" || params.has("v");
@@ -201,6 +206,29 @@ const currentTier = ref(null);
 const dragging = ref(false);
 const tierDialogVisible = ref(false);
 const floatButtonVisible = ref(true);
+const FLOAT_BUTTON_DEFAULT_BOTTOM = 60;
+const FLOAT_BUTTON_EDGE_GAP = 10;
+const FLOAT_DRAG_LONG_PRESS_MS = 350;
+const FLOAT_DRAG_MOVE_TOLERANCE = 10;
+const FLOAT_BUTTON_BOTTOM_KEY = `${namespace}_float_button_bottom`;
+
+const readFloatButtonBottom = () => {
+  const stored = localStorage.getItem(FLOAT_BUTTON_BOTTOM_KEY);
+  const value = Number(stored);
+  return stored !== null && Number.isFinite(value)
+    ? value
+    : FLOAT_BUTTON_DEFAULT_BOTTOM;
+};
+
+const floatButtonArea = ref(null);
+const floatButtonBottom = ref(readFloatButtonBottom());
+const floatDragging = ref(false);
+
+let floatPressTimer = null;
+let floatPressStart = null;
+let floatGrabOffset = 0;
+// 长按拖动结束后阻止随之而来的 click 切换拖拽模式
+let suppressFloatClick = false;
 const noDrag = ref(false);
 const shuffleMode = ref(false);
 const shuffleModeHint = ref(true);
@@ -326,6 +354,110 @@ const handleDeviceChange = (e) => {
   if (!isMobile.value) {
     noDrag.value = false;
   }
+  nextTick(() => {
+    floatButtonBottom.value = clampFloatButtonBottom(floatButtonBottom.value);
+  });
+};
+
+const clampFloatButtonBottom = (bottom) => {
+  const height = floatButtonArea.value?.offsetHeight || 0;
+  const max = window.innerHeight - height - FLOAT_BUTTON_EDGE_GAP;
+  return Math.round(
+    Math.min(
+      Math.max(bottom, FLOAT_BUTTON_EDGE_GAP),
+      Math.max(max, FLOAT_BUTTON_EDGE_GAP),
+    ),
+  );
+};
+
+const getFloatPressPoint = (event) => {
+  const touch = event.touches?.[0];
+  return touch
+    ? { x: touch.clientX, y: touch.clientY }
+    : { x: event.clientX, y: event.clientY };
+};
+
+const onFloatButtonPressStart = (event) => {
+  if (event.type === "mousedown" && event.button !== 0) {
+    return;
+  }
+  if (event.touches && event.touches.length !== 1) {
+    return;
+  }
+  // 新的触摸开始，解除上一次拖动结束后的点击屏蔽
+  if (event.type === "touchstart") {
+    suppressFloatClick = false;
+  }
+  const point = getFloatPressPoint(event);
+  floatPressStart = point;
+  floatPressTimer = setTimeout(() => {
+    floatPressTimer = null;
+    floatDragging.value = true;
+    suppressFloatClick = true;
+    const rect = floatButtonArea.value.getBoundingClientRect();
+    floatGrabOffset = point.y - rect.top;
+    vibrate(10);
+  }, FLOAT_DRAG_LONG_PRESS_MS);
+};
+
+const onFloatButtonPressMove = (event) => {
+  if (!floatPressStart) {
+    return;
+  }
+  const point = getFloatPressPoint(event);
+  if (!floatDragging.value) {
+    // 未长按时移动视为滑动页面，取消长按
+    const moved =
+      Math.hypot(
+        point.x - floatPressStart.x,
+        point.y - floatPressStart.y,
+      ) > FLOAT_DRAG_MOVE_TOLERANCE;
+    if (moved) {
+      clearTimeout(floatPressTimer);
+      floatPressTimer = null;
+      floatPressStart = null;
+    }
+    return;
+  }
+  event.preventDefault();
+  const rect = floatButtonArea.value.getBoundingClientRect();
+  const top = point.y - floatGrabOffset;
+  floatButtonBottom.value = clampFloatButtonBottom(
+    window.innerHeight - top - rect.height,
+  );
+};
+
+const onFloatButtonPressEnd = (event) => {
+  if (floatPressTimer) {
+    clearTimeout(floatPressTimer);
+    floatPressTimer = null;
+  }
+  const wasDragging = floatDragging.value;
+  floatDragging.value = false;
+  floatPressStart = null;
+  if (!wasDragging) {
+    return;
+  }
+  // 阻止拖动结束后浏览器补发 click
+  if (event?.cancelable) {
+    event.preventDefault();
+  }
+  localStorage.setItem(FLOAT_BUTTON_BOTTOM_KEY, String(floatButtonBottom.value));
+  setTimeout(() => {
+    suppressFloatClick = false;
+  }, 400);
+};
+
+const toggleNoDrag = () => {
+  if (suppressFloatClick) {
+    suppressFloatClick = false;
+    return;
+  }
+  noDrag.value = !noDrag.value;
+};
+
+const handleViewportResize = () => {
+  floatButtonBottom.value = clampFloatButtonBottom(floatButtonBottom.value);
 };
 
 const { platform, authorUrl } = usePlatform(window.location.hostname);
@@ -342,6 +474,12 @@ onMounted(() => {
   noDrag.value = isMobile.value = mediaQuery.matches;
   mediaQuery.addEventListener("change", handleDeviceChange);
   window.addEventListener("keydown", onItemViewKeydown);
+  window.addEventListener("mousemove", onFloatButtonPressMove);
+  window.addEventListener("mouseup", onFloatButtonPressEnd);
+  window.addEventListener("resize", handleViewportResize);
+  nextTick(() => {
+    floatButtonBottom.value = clampFloatButtonBottom(floatButtonBottom.value);
+  });
   if (platform === "taptap") {
     document.body.classList.add("taptap");
   }
@@ -383,6 +521,13 @@ onMounted(() => {
 onUnmounted(() => {
   mediaQuery.removeEventListener("change", handleDeviceChange);
   window.removeEventListener("keydown", onItemViewKeydown);
+  window.removeEventListener("mousemove", onFloatButtonPressMove);
+  window.removeEventListener("mouseup", onFloatButtonPressEnd);
+  window.removeEventListener("resize", handleViewportResize);
+  if (floatPressTimer) {
+    clearTimeout(floatPressTimer);
+    floatPressTimer = null;
+  }
   localChars.value.forEach((char) => {
     if (char.imageUrl?.startsWith("blob:")) {
       URL.revokeObjectURL(char.imageUrl);
@@ -706,7 +851,7 @@ const submitPreset = () => {
 
 const handleShuffleClick = (event) => {
   shuffleTiers();
-  navigator.vibrate?.(15);
+  vibrate(15);
   event.currentTarget.querySelector("span").animate(
     [
       { transform: "translateY(-2px) rotate(0deg)" },

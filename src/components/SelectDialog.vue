@@ -49,6 +49,7 @@
 
 <script setup>
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import { vibrate } from "../utils/haptics.js";
 
 const props = defineProps({
   visible: Boolean,
@@ -180,7 +181,7 @@ const onCharTouchStart = (char, event) => {
     dragMode = !char.selected;
     isDragging.value = true;
     applyDrag(char);
-    navigator.vibrate?.(10);
+    vibrate(10);
   }, TOUCH_LONG_PRESS_MS);
 };
 

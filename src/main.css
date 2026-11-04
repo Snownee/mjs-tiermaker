@@ -330,6 +330,13 @@ h1[contenteditable="true"]:focus {
   right: 20px;
   bottom: 60px;
   z-index: 900;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.float-button-area.dragging,
+.float-button-area.dragging button {
+  cursor: grabbing;
 }
 
 .float-button-area button {
