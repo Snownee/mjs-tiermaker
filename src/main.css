@@ -386,6 +386,7 @@ h1[contenteditable="true"]:focus {
   transform: translateY(-2px);
 }
 
+/* 新功能徽章（当前未使用，保留备用） */
 .el-button.show-new-badge {
   position: relative;
 }

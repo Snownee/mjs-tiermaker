@@ -56,9 +56,8 @@
         <el-button type="primary" @click="clickResetConfirm">🧹重置列表</el-button>
         <el-button type="primary" v-if="isMobile" @click="floatButtonVisible = !floatButtonVisible">👁️浮动按钮：{{
           floatButtonVisible ? "开" : "关" }}</el-button>
-        <el-button type="primary" @click="toggleShuffleMode"
-          :class="{ 'show-new-badge': shuffleNewBadgeVisible }">🎲打乱模式{{
-            shuffleModeHint ? "" : shuffleMode ? "：开" : "：关"
+        <el-button type="primary" @click="toggleShuffleMode">🎲打乱模式{{
+          shuffleModeHint ? "" : shuffleMode ? "：开" : "：关"
           }}</el-button>
         <ImageUploader @upload="addLocalImages">📤{{ translate('本地图片') }}</ImageUploader>
         <el-button type="primary" v-if="isVanilla && chars.length > 0"
@@ -205,9 +204,6 @@ const floatButtonVisible = ref(true);
 const noDrag = ref(false);
 const shuffleMode = ref(false);
 const shuffleModeHint = ref(true);
-const shuffleNewBadgeVisible = ref(
-  namespace === "mjs" && localStorage.getItem(`${namespace}_shuffle_new_badge_dismissed`) !== "1",
-);
 const isMobile = ref(false);
 const mediaQuery = window.matchMedia("(max-width: 767px)");
 const forcePopover = ref(true);
@@ -723,10 +719,6 @@ const handleShuffleClick = (event) => {
 };
 
 const toggleShuffleMode = () => {
-  if (shuffleNewBadgeVisible.value) {
-    shuffleNewBadgeVisible.value = false;
-    localStorage.setItem(`${namespace}_shuffle_new_badge_dismissed`, "1");
-  }
   if (shuffleMode.value || !shuffleModeHint.value) {
     shuffleMode.value = !shuffleMode.value;
     return;
